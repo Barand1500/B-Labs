@@ -1,9 +1,0 @@
-/* Your custom styles */
-@import url('blabs.css');
-
-/* Add additional styles here */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}

@@ -10,6 +10,7 @@ import path from 'path';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
 import ora from 'ora';
+import { iconDemoTemplate, interactiveGuideTemplate } from './templates-guide.js';
 
 const templates = {
   html: (name) => `<!DOCTYPE html>
@@ -711,6 +712,10 @@ document.querySelector('.b-form-${name}').addEventListener('submit', async (e) =
   }
 };
 
+// Use imported templates for icon demo and guide
+templates.iconDemo = iconDemoTemplate;
+templates.interactiveGuide = interactiveGuideTemplate;
+
 export async function addCommand(type, name, options) {
   const spinner = ora('Creating file...').start();
 
@@ -765,6 +770,18 @@ export async function addCommand(type, name, options) {
         content = templates.component.form(name);
         break;
 
+      case 'icons':
+      case 'icon':
+        filePath = path.join(currentDir, `${name}-icons.html`);
+        content = templates.iconDemo(name);
+        break;
+
+      case 'guide':
+      case 'rehber':
+        filePath = path.join(currentDir, `${name}-guide.html`);
+        content = templates.interactiveGuide(name);
+        break;
+
       default:
         spinner.fail();
         console.log(chalk.red(`\n❌ Unknown type: ${type}`));
@@ -774,6 +791,7 @@ export async function addCommand(type, name, options) {
         console.log(chalk.cyan('  • js         ') + '- JavaScript file');
         console.log(chalk.cyan('  • component  ') + '- Component (button, card, navbar, etc)');
         console.log(chalk.cyan('  • form       ') + '- Form component');
+        console.log(chalk.cyan('  • icons      ') + '- Icon demo page (all 100+ icons)');
         return;
     }
 
