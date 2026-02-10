@@ -15,6 +15,7 @@ import chalk from 'chalk';
 import { initCommand } from '../src/commands/init.js';
 import { runCommand } from '../src/commands/run.js';
 import { buildCommand } from '../src/commands/build.js';
+import { addCommand } from '../src/commands/add.js';
 
 // ASCII Logo
 const logo = `
@@ -53,6 +54,14 @@ program
   .description('Build for production')
   .action(async () => {
     await buildCommand();
+  });
+
+// Add command
+program
+  .command('add <type> <name>')
+  .description('Add new file/component (html, css, js, component, form)')
+  .action(async (type, name) => {
+    await addCommand(type, name);
   });
 
 // Default action (show help)

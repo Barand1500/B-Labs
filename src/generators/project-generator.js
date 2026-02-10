@@ -50,6 +50,24 @@ async function generateHTMLProject(projectPath, options) {
     path.join(projectPath, 'js', 'blabs.js')
   );
 
+  // Copy icons.js (Icon library)
+  const iconsPath = path.join(templatesDir, 'icons.js');
+  if (await fs.pathExists(iconsPath)) {
+    await fs.copy(iconsPath, path.join(projectPath, 'js', 'icons.js'));
+  }
+
+  // Copy form-validation.js
+  const formValidationPath = path.join(templatesDir, 'form-validation.js');
+  if (await fs.pathExists(formValidationPath)) {
+    await fs.copy(formValidationPath, path.join(projectPath, 'js', 'form-validation.js'));
+  }
+
+  // Copy components.js (Slider, Gallery, Pagination, etc.)
+  const componentsPath = path.join(templatesDir, 'components.js');
+  if (await fs.pathExists(componentsPath)) {
+    await fs.copy(componentsPath, path.join(projectPath, 'js', 'components.js'));
+  }
+
   // Copy BLABS-GUIDE.md (kullanıcı rehberi)
   const guideTemplate = path.join(templatesDir, 'BLABS-GUIDE.md');
   if (await fs.pathExists(guideTemplate)) {
