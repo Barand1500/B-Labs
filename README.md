@@ -13,14 +13,18 @@ Create beautiful websites in seconds with ready-made templates and powerful util
 ## ✨ Features
 
 - 🎯 **One Command Setup** - Start your project instantly with `npx blabs init`
+- ⚡ **Quick File Generation** - Create files in seconds with `blabs add` (NEW!)
 - 🎨 **17+ Modern Templates** - Blog, SaaS, Portfolio, E-commerce, Dashboard and more!
 - ⚡ **Lightning Fast** - Zero config needed. Start coding immediately
 - 🌙 **Dark Mode Built-in** - Toggle dark mode with one click in all templates
 - 💎 **Modern Design** - Glassmorphism, gradients, and smooth animations
 - 📱 **Fully Responsive** - Mobile-first design for all screen sizes
-- 🔧 **640+ Utility Classes** - Tailwind-inspired CSS utilities
-- ⚡ **20+ JS Helpers** - Ready-to-use JavaScript functions
-- 📦 **VS Code Integration** - Automatically opens projects in VS Code
+- 🔧 **750+ Utility Classes** - Tailwind-inspired CSS utilities with grid, transform, gradients
+- 🎨 **100+ SVG Icons** - Complete icon library with JavaScript API (NEW!)
+- ✅ **Form Validation** - Advanced validation with 12+ rules (NEW!)
+- 🎠 **Component Library** - Slider, Gallery, Pagination, Tabs, Accordion (NEW!)
+- ⚡ **40+ JS Helpers** - Ready-to-use JavaScript functions
+- 📦 **VS Code Integration** - Snippets and auto-opens projects
 
 ---
 
@@ -530,6 +534,13 @@ export default {
 # Initialize new project
 blabs init [project-name]
 
+# Add files/components quickly (NEW!)
+blabs add html about           # Create HTML page
+blabs add css custom           # Create CSS file
+blabs add js utils             # Create JavaScript file
+blabs add component mybutton   # Create component (interactive)
+blabs add form contact         # Create form component
+
 # Run development server (React projects)
 blabs run
 
@@ -543,9 +554,241 @@ blabs --version
 blabs --help
 ```
 
+### ⚡ Quick File Generation
+
+Create files instantly with the `blabs add` command:
+
+```bash
+# Create HTML pages
+blabs add html contact         # → contact.html
+blabs add html about           # → about.html
+
+# Create CSS files
+blabs add css animations       # → css/animations.css
+blabs add css custom           # → css/custom.css
+
+# Create JavaScript files
+blabs add js utils             # → js/utils.js
+blabs add js app               # → js/app.js
+
+# Create components (interactive selection)
+blabs add component mycard     # Choose: button, card, navbar, form, footer, etc.
+
+# Create specific components directly
+blabs add form signup          # → components/signup-form.html
+```
+
+**Available Components:**
+- 🔘 **Button** - Interactive button with ripple effect
+- 🎴 **Card** - Modern card with image and hover effects
+- 📱 **Navbar** - Responsive navigation with mobile menu
+- 📝 **Form** - Contact form with validation structure
+- 📊 **Footer** - Multi-column footer with newsletter
+- 🎠 **Slider** - Image carousel with autoplay
+- 🖼️ **Gallery** - Image grid with lightbox
+- 📄 **Pagination** - Page navigation component
+- 📈 **Progress** - Progress bar with animation
+- 📑 **Tabs** - Tabbed content interface
+- 🗂️ **Accordion** - Collapsible content panels
+
+**All components include:**
+- ✅ Complete HTML structure
+- ✅ Inline CSS styles
+- ✅ JavaScript functionality
+- ✅ Dark mode support
+- ✅ Responsive design
+- ✅ Ready to use immediately
+
 ---
 
-## 🎯 Examples
+## � Icon Library (NEW!)
+
+B-Labs includes **100+ SVG icons** ready to use:
+
+### Using Icons in HTML
+```html
+<!-- Data attribute (auto-converts to SVG) -->
+<i data-icon="home" class="b-icon-lg"></i>
+<i data-icon="heart" class="b-icon-xl"></i>
+<i data-icon="menu" class="b-icon-md"></i>
+```
+
+### Using Icons in JavaScript
+```javascript
+// Create icon element
+const icon = B.icon('star', 'b-icon-lg');
+document.body.appendChild(icon);
+
+// Initialize all icons on page
+B.initIcons();
+```
+
+### Icon Sizes
+```css
+.b-icon-xs   /* 1rem */
+.b-icon-sm   /* 1.25rem */
+.b-icon-md   /* 1.5rem (default) */
+.b-icon-lg   /* 2rem */
+.b-icon-xl   /* 3rem */
+```
+
+### Icon Categories
+- **Navigation**: home, menu, close, search
+- **Arrows**: arrow-right, arrow-left, arrow-up, arrow-down, chevron variants
+- **Actions**: check, plus, minus, trash, edit, copy, download, upload
+- **Social**: heart, star, share, bookmark
+- **User**: user, users, user-plus
+- **Communication**: mail, message, phone, bell
+- **Media**: image, video, music, play, pause
+- **Business**: briefcase, cart, credit
+- **Files**: file, folder
+- **Status**: info, alert, check-circle, x-circle
+- **Settings**: settings, lock, unlock, eye, eye-off
+- **Weather**: sun, moon, cloud
+- **More**: gift, calendar, clock, map, globe, link, external, filter, refresh
+
+---
+
+## ✅ Form Validation (NEW!)
+
+Advanced form validation with 12+ built-in rules:
+
+### Basic Usage
+```javascript
+B.form('#myForm', {
+  rules: {
+    email: 'required|email',
+    password: 'required|min:8',
+    age: 'required|number|min:18',
+    website: 'url',
+    phone: 'phone'
+  },
+  messages: {
+    email: {
+      required: 'Email is required',
+      email: 'Please enter a valid email'
+    }
+  },
+  onSuccess: (data) => {
+    console.log('Form submitted:', data);
+  }
+});
+```
+
+### Available Validators
+- **required** - Field must not be empty
+- **email** - Valid email format
+- **min:n** - Minimum length/value
+- **max:n** - Maximum length/value
+- **number** - Must be a number
+- **integer** - Must be an integer
+- **url** - Valid URL format
+- **phone** - Valid phone number
+- **alpha** - Only letters
+- **alphanumeric** - Letters and numbers only
+- **match:field** - Must match another field
+- **regex:pattern** - Custom regex pattern
+
+### Realtime Validation
+```javascript
+B.form('#myForm', {
+  rules: { email: 'required|email' },
+  realtime: true,  // Validate on input
+  showErrors: true // Show error messages
+});
+```
+
+### Custom Validators
+```javascript
+B.addValidator('strongPassword', (value) => {
+  return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(value);
+}, 'Password must contain uppercase, lowercase, and number');
+```
+
+---
+
+## 🎠 Component Library (NEW!)
+
+Pre-built interactive components with full functionality:
+
+### Slider / Carousel
+```javascript
+B.components.slider('#mySlider', {
+  autoplay: true,
+  interval: 3000,
+  loop: true,
+  navigation: true,
+  pagination: true,
+  transition: 'slide' // or 'fade'
+});
+```
+
+### Image Gallery with Lightbox
+```javascript
+B.components.gallery('#myGallery', {
+  lightbox: true,
+  columns: 3,
+  gap: '1rem'
+});
+```
+
+### Pagination
+```javascript
+B.components.pagination('#pagination', {
+  total: 100,      // Total items
+  perPage: 10,     // Items per page
+  current: 1,      // Current page
+  maxVisible: 7,   // Max visible page numbers
+  onChange: (page) => {
+    console.log('Page:', page);
+    // Load your data
+  }
+});
+```
+
+### Progress Bar
+```javascript
+const progress = B.components.progress('#progress', {
+  value: 0,
+  max: 100,
+  showLabel: true,
+  animated: true,
+  color: '#3b82f6'
+});
+
+// Update progress
+progress.setValue(75);
+```
+
+### Tabs
+```javascript
+B.components.tabs('#myTabs', {
+  active: 0,
+  onChange: (index) => {
+    console.log('Active tab:', index);
+  }
+});
+```
+
+### Accordion
+```javascript
+B.components.accordion('#myAccordion', {
+  multiple: false,  // Allow multiple items open
+  openFirst: true   // Open first item by default
+});
+```
+
+**All components feature:**
+- ✅ Full keyboard navigation
+- ✅ Mobile-friendly touch gestures
+- ✅ Dark mode support
+- ✅ Customizable styling
+- ✅ Event callbacks
+- ✅ Accessibility features
+
+---
+
+## �🎯 Examples
 
 ### Create a SaaS Landing Page
 
