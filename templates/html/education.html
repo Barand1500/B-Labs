@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PROJECT_NAME}} - Online Learning</title>
+    <link rel="stylesheet" href="css/blabs.css">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .hero-education {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 650px;
+            position: relative;
+            overflow: hidden;
+        }
+        .course-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .dark .course-card {
+            background: #2d3748;
+        }
+        .course-thumbnail {
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+        }
+        .course-level {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(255,255,255,0.9);
+            color: #667eea;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.875rem;
+        }
+        .course-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .instructor-card {
+            text-align: center;
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        .dark .instructor-card {
+            background: #2d3748;
+        }
+        .instructor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .instructor-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border: 4px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .dark .instructor-photo {
+            border-color: #1a202c;
+        }
+        .category-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .dark .category-card {
+            background: #2d3748;
+        }
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+        }
+        .dark .testimonial-card {
+            background: #2d3748;
+        }
+        .testimonial-quote {
+            font-size: 3rem;
+            color: #667eea;
+            opacity: 0.2;
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+        }
+    </style>
+</head>
+<body class="b-bg-light dark:b-bg-dark b-text-dark dark:b-text-light">
+
+    <!-- Dark Mode Toggle -->
+    <button onclick="B.darkMode.toggle()" class="b-fixed b-top-4 b-right-4 b-bg-white dark:b-bg-gray-800 b-p-3 b-rounded-full b-shadow-lg b-cursor-pointer b-z-50 b-border-0">
+        <span class="dark-mode-icon">🌙</span>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="b-bg-white dark:b-bg-gray-800 b-shadow-md b-fixed b-w-full b-z-40">
+        <div class="b-max-w-6xl b-mx-auto b-px-4 b-py-4 b-flex b-items-center b-justify-between">
+            <div class="b-text-2xl b-font-bold b-text-primary">📚 {{PROJECT_NAME}}</div>
+            <div class="b-flex b-gap-6">
+                <a href="#home" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Home</a>
+                <a href="#courses" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Courses</a>
+                <a href="#instructors" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Instructors</a>
+                <a href="#pricing" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Pricing</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-education b-flex b-items-center b-justify-center b-text-white b-text-center" style="margin-top: 70px;">
+        <div class="b-max-w-4xl b-px-4">
+            <h1 class="b-text-6xl b-font-bold b-mb-6">Learn New Skills Online</h1>
+            <p class="b-text-2xl b-mb-8 b-opacity-90">Thousands of courses from expert instructors. Start learning today!</p>
+            <div class="b-bg-white b-rounded-full b-p-2 b-flex b-gap-2 b-max-w-2xl b-mx-auto b-shadow-2xl b-mb-8">
+                <input type="text" placeholder="What do you want to learn?" class="b-flex-1 b-px-6 b-py-3 b-rounded-full b-border-0 b-text-dark">
+                <button class="b-bg-primary b-text-white b-px-8 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-font-bold b-transition hover:b-opacity-80">
+                    Search
+                </button>
+            </div>
+            <div class="b-flex b-gap-4 b-justify-center b-flex-wrap">
+                <a href="#courses" class="b-bg-white b-text-primary b-px-8 b-py-4 b-rounded-full b-no-underline b-font-semibold b-transition hover:b-shadow-xl">Browse Courses</a>
+                <a href="#pricing" class="b-bg-transparent b-border-2 b-border-white b-text-white b-px-8 b-py-4 b-rounded-full b-no-underline b-font-semibold b-transition hover:b-bg-white hover:b-text-primary">View Plans</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="b-py-20 b-bg-white dark:b-bg-gray-900">
+        <div class="b-max-w-6xl b-mx-auto b-px-4">
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-4 b-gap-8 b-text-center">
+                <div>
+                    <div class="b-text-5xl b-mb-2">📚</div>
+                    <div class="b-text-4xl b-font-bold b-text-primary b-mb-2">10,000+</div>
+                    <p class="b-text-gray-600 dark:b-text-gray-400">Online Courses</p>
+                </div>
+                <div>
+                    <div class="b-text-5xl b-mb-2">👨‍🏫</div>
+                    <div class="b-text-4xl b-font-bold b-text-primary b-mb-2">500+</div>
+                    <p class="b-text-gray-600 dark:b-text-gray-400">Expert Instructors</p>
+                </div>
+                <div>
+                    <div class="b-text-5xl b-mb-2">🎓</div>
+                    <div class="b-text-4xl b-font-bold b-text-primary b-mb-2">50K+</div>
+                    <p class="b-text-gray-600 dark:b-text-gray-400">Students Enrolled</p>
+                </div>
+                <div>
+                    <div class="b-text-5xl b-mb-2">⭐</div>
+                    <div class="b-text-4xl b-font-bold b-text-primary b-mb-2">4.8/5</div>
+                    <p class="b-text-gray-600 dark:b-text-gray-400">Average Rating</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="b-py-20 b-bg-gray-50 dark:b-bg-gray-800">
+        <div class="b-max-w-6xl b-mx-auto b-px-4">
+            <h2 class="b-text-5xl b-font-bold b-text-center b-mb-12 b-text-dark dark:b-text-light">Popular Categories</h2>
+            
+            <div class="b-grid b-grid-cols-2 md:b-grid-cols-4 b-gap-6">
+                <div class="category-card">
+                    <div class="b-text-5xl b-mb-3">💻</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Development</h3>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">2,340 courses</p>
+                </div>
+                <div class="category-card">
+                    <div class="b-text-5xl b-mb-3">🎨</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Design</h3>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">1,890 courses</p>
+                </div>
+                <div class="category-card">
+                    <div class="b-text-5xl b-mb-3">💼</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Business</h3>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">1,560 courses</p>
+                </div>
+                <div class="category-card">
+                    <div class="b-text-5xl b-mb-3">📊</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Marketing</h3>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">980 courses</p>
+                </div>
+                <div class="category-card">
+                    <div class="b-text-5xl b-mb-3">📸</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Photography</h3>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">750 courses</p>
+                </div>
+                <div class="category-card">
+                    <div class="b-text-5xl b-mb-3">🎵</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Music</h3>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">620 courses</p>
+                </div>
+                <div class="category-card">
+                    <div class="b-text-5xl b-mb-3">🎯</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Lifestyle</h3>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">890 courses</p>
+                </div>
+                <div class="category-card">
+                    <div class="b-text-5xl b-mb-3">🔬</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Science</h3>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">540 courses</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses -->
+    <section id="courses" class="b-py-20 b-bg-white dark:b-bg-gray-900">
+        <div class="b-max-w-7xl b-mx-auto b-px-4">
+            <h2 class="b-text-5xl b-font-bold b-text-center b-mb-4 b-text-dark dark:b-text-light">Featured Courses</h2>
+            <p class="b-text-xl b-text-center b-text-gray-600 dark:b-text-gray-400 b-mb-12">Start learning from the best instructors</p>
+            
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-3 b-gap-8">
+                <!-- Course 1 -->
+                <div class="course-card">
+                    <div class="course-thumbnail">
+                        <div class="course-level">Beginner</div>
+                        💻
+                    </div>
+                    <div class="b-p-6">
+                        <h3 class="b-text-xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Complete Web Development Bootcamp</h3>
+                        <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400 b-mb-3">Learn HTML, CSS, JavaScript, React and more</p>
+                        <div class="b-flex b-items-center b-justify-between b-mb-3">
+                            <div class="course-rating">
+                                <span class="b-text-yellow-500">⭐⭐⭐⭐⭐</span>
+                                <span class="b-text-sm b-text-gray-600 dark:b-text-gray-400">4.9 (12,450)</span>
+                            </div>
+                        </div>
+                        <div class="b-flex b-items-center b-justify-between b-mb-4 b-text-sm b-text-gray-600 dark:b-text-gray-400">
+                            <span>⏱️ 52 hours</span>
+                            <span>👥 45,320 students</span>
+                        </div>
+                        <div class="b-flex b-items-center b-justify-between">
+                            <div class="b-text-2xl b-font-bold b-text-primary">$89.99</div>
+                            <button class="b-bg-primary b-text-white b-px-6 b-py-2 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80">
+                                Enroll
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="course-card">
+                    <div class="course-thumbnail" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <div class="course-level">Intermediate</div>
+                        🎨
+                    </div>
+                    <div class="b-p-6">
+                        <h3 class="b-text-xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">UI/UX Design Masterclass</h3>
+                        <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400 b-mb-3">Master Figma, Adobe XD, and design principles</p>
+                        <div class="b-flex b-items-center b-justify-between b-mb-3">
+                            <div class="course-rating">
+                                <span class="b-text-yellow-500">⭐⭐⭐⭐⭐</span>
+                                <span class="b-text-sm b-text-gray-600 dark:b-text-gray-400">4.8 (8,920)</span>
+                            </div>
+                        </div>
+                        <div class="b-flex b-items-center b-justify-between b-mb-4 b-text-sm b-text-gray-600 dark:b-text-gray-400">
+                            <span>⏱️ 38 hours</span>
+                            <span>👥 32,150 students</span>
+                        </div>
+                        <div class="b-flex b-items-center b-justify-between">
+                            <div class="b-text-2xl b-font-bold b-text-primary">$79.99</div>
+                            <button class="b-bg-primary b-text-white b-px-6 b-py-2 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80">
+                                Enroll
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="course-card">
+                    <div class="course-thumbnail" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <div class="course-level">Advanced</div>
+                        🤖
+                    </div>
+                    <div class="b-p-6">
+                        <h3 class="b-text-xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Machine Learning & AI</h3>
+                        <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400 b-mb-3">Deep dive into neural networks and AI</p>
+                        <div class="b-flex b-items-center b-justify-between b-mb-3">
+                            <div class="course-rating">
+                                <span class="b-text-yellow-500">⭐⭐⭐⭐⭐</span>
+                                <span class="b-text-sm b-text-gray-600 dark:b-text-gray-400">4.9 (15,680)</span>
+                            </div>
+                        </div>
+                        <div class="b-flex b-items-center b-justify-between b-mb-4 b-text-sm b-text-gray-600 dark:b-text-gray-400">
+                            <span>⏱️ 65 hours</span>
+                            <span>👥 28,940 students</span>
+                        </div>
+                        <div class="b-flex b-items-center b-justify-between">
+                            <div class="b-text-2xl b-font-bold b-text-primary">$129.99</div>
+                            <button class="b-bg-primary b-text-white b-px-6 b-py-2 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80">
+                                Enroll
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 4 -->
+                <div class="course-card">
+                    <div class="course-thumbnail" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                        <div class="course-level">Beginner</div>
+                        📊
+                    </div>
+                    <div class="b-p-6">
+                        <h3 class="b-text-xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Digital Marketing Essentials</h3>
+                        <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400 b-mb-3">SEO, social media, email marketing strategies</p>
+                        <div class="b-flex b-items-center b-justify-between b-mb-3">
+                            <div class="course-rating">
+                                <span class="b-text-yellow-500">⭐⭐⭐⭐⭐</span>
+                                <span class="b-text-sm b-text-gray-600 dark:b-text-gray-400">4.7 (10,250)</span>
+                            </div>
+                        </div>
+                        <div class="b-flex b-items-center b-justify-between b-mb-4 b-text-sm b-text-gray-600 dark:b-text-gray-400">
+                            <span>⏱️ 30 hours</span>
+                            <span>👥 38,720 students</span>
+                        </div>
+                        <div class="b-flex b-items-center b-justify-between">
+                            <div class="b-text-2xl b-font-bold b-text-primary">$69.99</div>
+                            <button class="b-bg-primary b-text-white b-px-6 b-py-2 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80">
+                                Enroll
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 5 -->
+                <div class="course-card">
+                    <div class="course-thumbnail" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                        <div class="course-level">Intermediate</div>
+                        📸
+                    </div>
+                    <div class="b-p-6">
+                        <h3 class="b-text-xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Photography Masterclass</h3>
+                        <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400 b-mb-3">Professional photography and editing techniques</p>
+                        <div class="b-flex b-items-center b-justify-between b-mb-3">
+                            <div class="course-rating">
+                                <span class="b-text-yellow-500">⭐⭐⭐⭐⭐</span>
+                                <span class="b-text-sm b-text-gray-600 dark:b-text-gray-400">4.8 (6,840)</span>
+                            </div>
+                        </div>
+                        <div class="b-flex b-items-center b-justify-between b-mb-4 b-text-sm b-text-gray-600 dark:b-text-gray-400">
+                            <span>⏱️ 28 hours</span>
+                            <span>👥 19,580 students</span>
+                        </div>
+                        <div class="b-flex b-items-center b-justify-between">
+                            <div class="b-text-2xl b-font-bold b-text-primary">$74.99</div>
+                            <button class="b-bg-primary b-text-white b-px-6 b-py-2 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80">
+                                Enroll
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 6 -->
+                <div class="course-card">
+                    <div class="course-thumbnail" style="background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);">
+                        <div class="course-level">Beginner</div>
+                        💼
+                    </div>
+                    <div class="b-p-6">
+                        <h3 class="b-text-xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Business Strategy Fundamentals</h3>
+                        <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400 b-mb-3">Strategic planning and business management</p>
+                        <div class="b-flex b-items-center b-justify-between b-mb-3">
+                            <div class="course-rating">
+                                <span class="b-text-yellow-500">⭐⭐⭐⭐⭐</span>
+                                <span class="b-text-sm b-text-gray-600 dark:b-text-gray-400">4.6 (7,520)</span>
+                            </div>
+                        </div>
+                        <div class="b-flex b-items-center b-justify-between b-mb-4 b-text-sm b-text-gray-600 dark:b-text-gray-400">
+                            <span>⏱️ 24 hours</span>
+                            <span>👥 22,340 students</span>
+                        </div>
+                        <div class="b-flex b-items-center b-justify-between">
+                            <div class="b-text-2xl b-font-bold b-text-primary">$59.99</div>
+                            <button class="b-bg-primary b-text-white b-px-6 b-py-2 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80">
+                                Enroll
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructors -->
+    <section id="instructors" class="b-py-20 b-bg-gray-50 dark:b-bg-gray-800">
+        <div class="b-max-w-6xl b-mx-auto b-px-4">
+            <h2 class="b-text-5xl b-font-bold b-text-center b-mb-12 b-text-dark dark:b-text-light">Top Instructors</h2>
+            
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-4 b-gap-8">
+                <div class="instructor-card">
+                    <div class="instructor-photo">👨‍💻</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">John Smith</h3>
+                    <p class="b-text-primary b-font-medium b-mb-2">Web Development</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400 b-mb-2">⭐ 4.9 • 50K students</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">25 courses</p>
+                </div>
+
+                <div class="instructor-card">
+                    <div class="instructor-photo" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">👩‍🎨</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Sarah Design</h3>
+                    <p class="b-text-primary b-font-medium b-mb-2">UI/UX Design</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400 b-mb-2">⭐ 4.8 • 38K students</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">18 courses</p>
+                </div>
+
+                <div class="instructor-card">
+                    <div class="instructor-photo" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">👨‍🔬</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Dr. Mike AI</h3>
+                    <p class="b-text-primary b-font-medium b-mb-2">Data Science</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400 b-mb-2">⭐ 4.9 • 42K students</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">15 courses</p>
+                </div>
+
+                <div class="instructor-card">
+                    <div class="instructor-photo" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">👩‍💼</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Emma Business</h3>
+                    <p class="b-text-primary b-font-medium b-mb-2">Marketing</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400 b-mb-2">⭐ 4.7 • 35K students</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">22 courses</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="b-py-20 b-bg-white dark:b-bg-gray-900">
+        <div class="b-max-w-6xl b-mx-auto b-px-4">
+            <h2 class="b-text-5xl b-font-bold b-text-center b-mb-12 b-text-dark dark:b-text-light">Student Success Stories</h2>
+            
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-3 b-gap-8">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <div class="b-relative b-z-10">
+                        <p class="b-text-gray-700 dark:b-text-gray-300 b-mb-4">"The web development course changed my career. I landed my dream job as a developer within 3 months!"</p>
+                        <div class="b-flex b-items-center b-gap-3">
+                            <div class="b-w-12 b-h-12 b-rounded-full b-bg-gradient-to-br b-from-purple-400 b-to-pink-500 b-flex b-items-center b-justify-center b-text-xl">👨</div>
+                            <div>
+                                <div class="b-font-bold b-text-dark dark:b-text-light">Alex Johnson</div>
+                                <div class="b-text-sm b-text-gray-600 dark:b-text-gray-400">Full Stack Developer</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <div class="b-relative b-z-10">
+                        <p class="b-text-gray-700 dark:b-text-gray-300 b-mb-4">"Best investment I've made! The instructors are amazing and the content is top-notch."</p>
+                        <div class="b-flex b-items-center b-gap-3">
+                            <div class="b-w-12 b-h-12 b-rounded-full b-bg-gradient-to-br b-from-blue-400 b-to-cyan-500 b-flex b-items-center b-justify-center b-text-xl">👩</div>
+                            <div>
+                                <div class="b-font-bold b-text-dark dark:b-text-light">Maria Garcia</div>
+                                <div class="b-text-sm b-text-gray-600 dark:b-text-gray-400">UX Designer</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <div class="b-relative b-z-10">
+                        <p class="b-text-gray-700 dark:b-text-gray-300 b-mb-4">"I can learn at my own pace and the courses are so well structured. Highly recommend!"</p>
+                        <div class="b-flex b-items-center b-gap-3">
+                            <div class="b-w-12 b-h-12 b-rounded-full b-bg-gradient-to-br b-from-pink-400 b-to-yellow-500 b-flex b-items-center b-justify-center b-text-xl">👨</div>
+                            <div>
+                                <div class="b-font-bold b-text-dark dark:b-text-light">David Chen</div>
+                                <div class="b-text-sm b-text-gray-600 dark:b-text-gray-400">Data Analyst</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="b-bg-dark b-text-white b-py-12">
+        <div class="b-max-w-6xl b-mx-auto b-px-4 b-text-center">
+            <div class="b-text-4xl b-mb-4">📚</div>
+            <p class="b-text-2xl b-font-bold b-mb-4">{{PROJECT_NAME}}</p>
+            <p class="b-text-gray-400 b-mb-6">Learn from the best. Start your journey today.</p>
+            <div class="b-flex b-gap-6 b-justify-center b-mb-6">
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">Courses</a>
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">Instructors</a>
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">About</a>
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">Contact</a>
+            </div>
+            <p class="b-text-sm b-text-gray-500">© 2024 {{PROJECT_NAME}}. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/blabs.js"></script>
+    <script>
+        B.darkMode.init();
+        const updateIcon = () => {
+            const icon = document.querySelector('.dark-mode-icon');
+            icon.textContent = B.darkMode.isEnabled() ? '☀️' : '🌙';
+        };
+        updateIcon();
+        document.body.addEventListener('click', (e) => {
+            if (e.target.closest('[onclick*="darkMode.toggle"]')) {
+                setTimeout(updateIcon, 100);
+            }
+        });
+        B.smoothScroll('a[href^="#"]');
+        B.scrollReveal('.course-card, .instructor-card, .category-card, .testimonial-card');
+    </script>
+</body>
+</html>

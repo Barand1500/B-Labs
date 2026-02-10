@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PROJECT_NAME}} - Conference &amp; Event</title>
+    <link rel="stylesheet" href="css/blabs.css">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .hero-event {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 700px;
+            position: relative;
+            overflow: hidden;
+        }
+        .countdown-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            min-width: 100px;
+        }
+        .schedule-card {
+            background: white;
+            border-left: 5px solid #f5576c;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .schedule-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .dark .schedule-card {
+            background: #2d3748;
+        }
+        .speaker-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        .speaker-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .dark .speaker-card {
+            background: #2d3748;
+        }
+        .speaker-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        .ticket-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+        .ticket-card:hover {
+            border-color: #f5576c;
+            transform: scale(1.05);
+        }
+        .dark .ticket-card {
+            background: #2d3748;
+        }
+        .ticket-card.featured {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            transform: scale(1.08);
+        }
+    </style>
+</head>
+<body class="b-bg-light dark:b-bg-dark b-text-dark dark:b-text-light">
+
+    <!-- Dark Mode Toggle -->
+    <button onclick="B.darkMode.toggle()" class="b-fixed b-top-4 b-right-4 b-bg-white dark:b-bg-gray-800 b-p-3 b-rounded-full b-shadow-lg b-cursor-pointer b-z-50 b-border-0">
+        <span class="dark-mode-icon">🌙</span>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="b-bg-white dark:b-bg-gray-800 b-shadow-md b-fixed b-w-full b-z-40">
+        <div class="b-max-w-6xl b-mx-auto b-px-4 b-py-4 b-flex b-items-center b-justify-between">
+            <div class="b-text-2xl b-font-bold b-text-primary">🎭 {{PROJECT_NAME}}</div>
+            <div class="b-flex b-gap-6">
+                <a href="#home" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Home</a>
+                <a href="#speakers" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Speakers</a>
+                <a href="#schedule" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Schedule</a>
+                <a href="#tickets" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Tickets</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-event b-flex b-items-center b-justify-center b-text-white b-text-center" style="margin-top: 70px;">
+        <div class="b-max-w-5xl b-px-4">
+            <div class="b-text-6xl b-mb-4">🎤</div>
+            <h1 class="b-text-6xl b-font-bold b-mb-4">Tech Conference 2024</h1>
+            <p class="b-text-2xl b-mb-2 b-opacity-90">📅 June 15-17, 2024</p>
+            <p class="b-text-xl b-mb-8 b-opacity-80">📍 San Francisco Convention Center</p>
+            
+            <!-- Countdown -->
+            <div class="b-flex b-gap-4 b-justify-center b-mb-8 b-flex-wrap">
+                <div class="countdown-box">
+                    <div class="b-text-4xl b-font-bold">45</div>
+                    <div class="b-text-sm b-opacity-80">Days</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="b-text-4xl b-font-bold">12</div>
+                    <div class="b-text-sm b-opacity-80">Hours</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="b-text-4xl b-font-bold">30</div>
+                    <div class="b-text-sm b-opacity-80">Minutes</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="b-text-4xl b-font-bold">15</div>
+                    <div class="b-text-sm b-opacity-80">Seconds</div>
+                </div>
+            </div>
+
+            <div class="b-flex b-gap-4 b-justify-center">
+                <a href="#tickets" class="b-bg-white b-text-primary b-px-8 b-py-4 b-rounded-full b-no-underline b-font-semibold b-transition hover:b-shadow-xl">Get Tickets</a>
+                <a href="#schedule" class="b-bg-transparent b-border-2 b-border-white b-text-white b-px-8 b-py-4 b-rounded-full b-no-underline b-font-semibold b-transition hover:b-bg-white hover:b-text-primary">View Schedule</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Event -->
+    <section class="b-py-20 b-bg-white dark:b-bg-gray-900">
+        <div class="b-max-w-6xl b-mx-auto b-px-4 b-text-center">
+            <h2 class="b-text-5xl b-font-bold b-mb-6 b-text-dark dark:b-text-light">Why Attend?</h2>
+            <p class="b-text-xl b-text-gray-600 dark:b-text-gray-400 b-mb-12 b-max-w-3xl b-mx-auto">
+                Join 5,000+ technology leaders, innovators, and enthusiasts for three days of inspiring talks, 
+                networking opportunities, and hands-on workshops.
+            </p>
+
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-4 b-gap-8">
+                <div>
+                    <div class="b-text-5xl b-mb-4">🎤</div>
+                    <div class="b-text-3xl b-font-bold b-text-primary b-mb-2">50+</div>
+                    <p class="b-text-gray-600 dark:b-text-gray-400">Expert Speakers</p>
+                </div>
+                <div>
+                    <div class="b-text-5xl b-mb-4">💼</div>
+                    <div class="b-text-3xl b-font-bold b-text-primary b-mb-2">100+</div>
+                    <p class="b-text-gray-600 dark:b-text-gray-400">Workshops</p>
+                </div>
+                <div>
+                    <div class="b-text-5xl b-mb-4">👥</div>
+                    <div class="b-text-3xl b-font-bold b-text-primary b-mb-2">5,000+</div>
+                    <p class="b-text-gray-600 dark:b-text-gray-400">Attendees</p>
+                </div>
+                <div>
+                    <div class="b-text-5xl b-mb-4">🏢</div>
+                    <div class="b-text-3xl b-font-bold b-text-primary b-mb-2">200+</div>
+                    <p class="b-text-gray-600 dark:b-text-gray-400">Companies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Speakers -->
+    <section id="speakers" class="b-py-20 b-bg-gray-50 dark:b-bg-gray-800">
+        <div class="b-max-w-6xl b-mx-auto b-px-4">
+            <h2 class="b-text-5xl b-font-bold b-text-center b-mb-4 b-text-dark dark:b-text-light">Featured Speakers</h2>
+            <p class="b-text-xl b-text-center b-text-gray-600 dark:b-text-gray-400 b-mb-12">Learn from industry experts and thought leaders</p>
+            
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-4 b-gap-8">
+                <div class="speaker-card">
+                    <div class="speaker-avatar">👨‍💼</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">John Smith</h3>
+                    <p class="b-text-primary b-mb-2 b-font-medium">CEO, Tech Corp</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">Keynote: Future of AI</p>
+                </div>
+
+                <div class="speaker-card">
+                    <div class="speaker-avatar">👩‍💻</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Sarah Johnson</h3>
+                    <p class="b-text-primary b-mb-2 b-font-medium">CTO, Innovation Labs</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">Cloud Architecture</p>
+                </div>
+
+                <div class="speaker-card">
+                    <div class="speaker-avatar">👨‍🔬</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Dr. Mike Chen</h3>
+                    <p class="b-text-primary b-mb-2 b-font-medium">Lead Researcher, AI Institute</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">Machine Learning</p>
+                </div>
+
+                <div class="speaker-card">
+                    <div class="speaker-avatar">👩‍🎨</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Emily Davis</h3>
+                    <p class="b-text-primary b-mb-2 b-font-medium">Design Director, UX Studio</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">UX Best Practices</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule -->
+    <section id="schedule" class="b-py-20 b-bg-white dark:b-bg-gray-900">
+        <div class="b-max-w-4xl b-mx-auto b-px-4">
+            <h2 class="b-text-5xl b-font-bold b-text-center b-mb-4 b-text-dark dark:b-text-light">Event Schedule</h2>
+            <p class="b-text-xl b-text-center b-text-gray-600 dark:b-text-gray-400 b-mb-12">3 days packed with knowledge and networking</p>
+            
+            <!-- Day 1 -->
+            <h3 class="b-text-3xl b-font-bold b-mb-6 b-text-primary">Day 1 - June 15</h3>
+            
+            <div class="schedule-card">
+                <div class="b-flex b-justify-between b-items-start b-flex-wrap">
+                    <div>
+                        <h4 class="b-text-xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Opening Keynote: The Future of Technology</h4>
+                        <p class="b-text-gray-600 dark:b-text-gray-400">John Smith, CEO Tech Corp</p>
+                    </div>
+                    <span class="b-text-primary b-font-bold">9:00 AM - 10:00 AM</span>
+                </div>
+            </div>
+
+            <div class="schedule-card">
+                <div class="b-flex b-justify-between b-items-start b-flex-wrap">
+                    <div>
+                        <h4 class="b-text-xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Workshop: Modern Web Development</h4>
+                        <p class="b-text-gray-600 dark:b-text-gray-400">Hands-on session with React and Next.js</p>
+                    </div>
+                    <span class="b-text-primary b-font-bold">10:30 AM - 12:00 PM</span>
+                </div>
+            </div>
+
+            <div class="schedule-card">
+                <div class="b-flex b-justify-between b-items-start b-flex-wrap">
+                    <div>
+                        <h4 class="b-text-xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Lunch & Networking</h4>
+                        <p class="b-text-gray-600 dark:b-text-gray-400">Connect with fellow attendees</p>
+                    </div>
+                    <span class="b-text-primary b-font-bold">12:00 PM - 1:30 PM</span>
+                </div>
+            </div>
+
+            <div class="schedule-card">
+                <div class="b-flex b-justify-between b-items-start b-flex-wrap">
+                    <div>
+                        <h4 class="b-text-xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Panel: AI Ethics and Society</h4>
+                        <p class="b-text-gray-600 dark:b-text-gray-400">Discussion with industry leaders</p>
+                    </div>
+                    <span class="b-text-primary b-font-bold">2:00 PM - 3:30 PM</span>
+                </div>
+            </div>
+
+            <!-- Day 2 -->
+            <h3 class="b-text-3xl b-font-bold b-mb-6 b-mt-12 b-text-primary">Day 2 - June 16</h3>
+            
+            <div class="schedule-card">
+                <div class="b-flex b-justify-between b-items-start b-flex-wrap">
+                    <div>
+                        <h4 class="b-text-xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Cloud Architecture Deep Dive</h4>
+                        <p class="b-text-gray-600 dark:b-text-gray-400">Sarah Johnson, CTO Innovation Labs</p>
+                    </div>
+                    <span class="b-text-primary b-font-bold">9:00 AM - 10:30 AM</span>
+                </div>
+            </div>
+
+            <div class="schedule-card">
+                <div class="b-flex b-justify-between b-items-start b-flex-wrap">
+                    <div>
+                        <h4 class="b-text-xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Machine Learning Workshop</h4>
+                        <p class="b-text-gray-600 dark:b-text-gray-400">Build your first ML model</p>
+                    </div>
+                    <span class="b-text-primary b-font-bold">11:00 AM - 1:00 PM</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tickets -->
+    <section id="tickets" class="b-py-20 b-bg-gray-50 dark:b-bg-gray-800">
+        <div class="b-max-w-6xl b-mx-auto b-px-4">
+            <h2 class="b-text-5xl b-font-bold b-text-center b-mb-4 b-text-dark dark:b-text-light">Get Your Tickets</h2>
+            <p class="b-text-xl b-text-center b-text-gray-600 dark:b-text-gray-400 b-mb-12">Choose the package that's right for you</p>
+            
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-3 b-gap-8">
+                <div class="ticket-card">
+                    <h3 class="b-text-2xl b-font-bold b-mb-4 b-text-dark dark:b-text-light">Early Bird</h3>
+                    <div class="b-text-5xl b-font-bold b-text-primary b-mb-2">$299</div>
+                    <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-6">Limited Time Offer</p>
+                    <ul class="b-text-left b-mb-8 b-list-none b-p-0">
+                        <li class="b-mb-2">✓ All sessions access</li>
+                        <li class="b-mb-2">✓ Conference materials</li>
+                        <li class="b-mb-2">✓ Lunch included</li>
+                        <li class="b-mb-2">✓ Networking events</li>
+                    </ul>
+                    <button class="b-bg-primary b-text-white b-px-8 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-font-bold b-transition hover:b-opacity-80 b-w-full">
+                        Buy Now
+                    </button>
+                </div>
+
+                <div class="ticket-card featured">
+                    <div class="b-bg-white b-text-primary b-px-4 b-py-1 b-rounded-full b-inline-block b-mb-4 b-font-bold">POPULAR</div>
+                    <h3 class="b-text-2xl b-font-bold b-mb-4">VIP Pass</h3>
+                    <div class="b-text-5xl b-font-bold b-mb-2">$699</div>
+                    <p class="b-opacity-90 b-mb-6">Best Value</p>
+                    <ul class="b-text-left b-mb-8 b-list-none b-p-0">
+                        <li class="b-mb-2">✓ Everything in Early Bird</li>
+                        <li class="b-mb-2">✓ Priority seating</li>
+                        <li class="b-mb-2">✓ VIP lounge access</li>
+                        <li class="b-mb-2">✓ Meet & greet speakers</li>
+                        <li class="b-mb-2">✓ Exclusive workshops</li>
+                    </ul>
+                    <button class="b-bg-white b-text-primary b-px-8 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-font-bold b-transition hover:b-opacity-80 b-w-full">
+                        Buy Now
+                    </button>
+                </div>
+
+                <div class="ticket-card">
+                    <h3 class="b-text-2xl b-font-bold b-mb-4 b-text-dark dark:b-text-light">Student</h3>
+                    <div class="b-text-5xl b-font-bold b-text-primary b-mb-2">$99</div>
+                    <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-6">With Valid ID</p>
+                    <ul class="b-text-left b-mb-8 b-list-none b-p-0">
+                        <li class="b-mb-2">✓ All sessions access</li>
+                        <li class="b-mb-2">✓ Conference materials</li>
+                        <li class="b-mb-2">✓ Lunch included</li>
+                        <li class="b-mb-2">✓ Student meetups</li>
+                    </ul>
+                    <button class="b-bg-primary b-text-white b-px-8 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-font-bold b-transition hover:b-opacity-80 b-w-full">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="b-bg-dark b-text-white b-py-12">
+        <div class="b-max-w-6xl b-mx-auto b-px-4 b-text-center">
+            <div class="b-text-4xl b-mb-4">🎭</div>
+            <p class="b-text-2xl b-font-bold b-mb-4">{{PROJECT_NAME}}</p>
+            <p class="b-text-gray-400 b-mb-6">June 15-17, 2024 • San Francisco Convention Center</p>
+            <div class="b-flex b-gap-6 b-justify-center b-mb-6">
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">Twitter</a>
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">LinkedIn</a>
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">Facebook</a>
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">Instagram</a>
+            </div>
+            <p class="b-text-sm b-text-gray-500">© 2024 {{PROJECT_NAME}}. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/blabs.js"></script>
+    <script>
+        B.darkMode.init();
+        const updateIcon = () => {
+            const icon = document.querySelector('.dark-mode-icon');
+            icon.textContent = B.darkMode.isEnabled() ? '☀️' : '🌙';
+        };
+        updateIcon();
+        document.body.addEventListener('click', (e) => {
+            if (e.target.closest('[onclick*="darkMode.toggle"]')) {
+                setTimeout(updateIcon, 100);
+            }
+        });
+        B.smoothScroll('a[href^="#"]');
+        B.scrollReveal('.schedule-card, .speaker-card, .ticket-card');
+    </script>
+</body>
+</html>

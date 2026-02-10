@@ -8,7 +8,8 @@
     "blabs": "./bin/cli.js"
   },
   "scripts": {
-    "test": "echo \"Test suite coming soon...\" && exit 0"
+    "test": "node --test test/*.test.js",
+    "test:watch": "node --test --watch test/*.test.js"
   },
   "keywords": [
     "cli",
@@ -18,10 +19,31 @@
     "javascript",
     "react",
     "utility",
-    "development-tool"
+    "development-tool",
+    "templates",
+    "web-development",
+    "css-framework",
+    "dark-mode",
+    "responsive",
+    "modern-web"
   ],
-  "author": "B-Labs Team",
+  "author": "Baran <barand1500@github.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Barand1500/B-Labs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Barand1500/B-Labs/issues"
+  },
+  "homepage": "https://github.com/Barand1500/B-Labs#readme",
+  "files": [
+    "bin",
+    "src",
+    "templates",
+    "README.md",
+    "LICENSE"
+  ],
   "dependencies": {
     "chalk": "^5.3.0",
     "commander": "^11.1.0",

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PROJECT_NAME}} - Professional Resume</title>
+    <link rel="stylesheet" href="css/blabs.css">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .resume-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            border: 5px solid white;
+        }
+        .section-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .dark .section-card {
+            background: #2d3748;
+        }
+        .skill-bar {
+            height: 10px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            padding-bottom: 2rem;
+            border-left: 2px solid #667eea;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #667eea;
+            border: 3px solid white;
+        }
+        .dark .timeline-item::before {
+            border-color: #1a202c;
+        }
+    </style>
+</head>
+<body class="b-bg-light dark:b-bg-dark b-text-dark dark:b-text-light">
+
+    <!-- Dark Mode Toggle -->
+    <button onclick="B.darkMode.toggle()" class="b-fixed b-top-4 b-right-4 b-bg-white dark:b-bg-gray-800 b-p-3 b-rounded-full b-shadow-lg b-cursor-pointer b-z-50 b-border-0">
+        <span class="dark-mode-icon">🌙</span>
+    </button>
+
+    <!-- Header -->
+    <header class="resume-header">
+        <div class="profile-photo">👨‍💼</div>
+        <h1 class="b-text-5xl b-font-bold b-mb-2">{{PROJECT_NAME}}</h1>
+        <p class="b-text-2xl b-mb-4 b-opacity-90">Senior Full-Stack Developer</p>
+        <div class="b-flex b-gap-6 b-justify-center b-flex-wrap">
+            <div class="b-flex b-items-center b-gap-2">
+                <span>📧</span>
+                <span>email@example.com</span>
+            </div>
+            <div class="b-flex b-items-center b-gap-2">
+                <span>📱</span>
+                <span>+1 (555) 123-4567</span>
+            </div>
+            <div class="b-flex b-items-center b-gap-2">
+                <span>📍</span>
+                <span>San Francisco, CA</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="b-max-w-5xl b-mx-auto b-px-4 b-py-12">
+        <!-- About Me -->
+        <div class="section-card">
+            <h2 class="b-text-3xl b-font-bold b-mb-4 b-text-primary">👋 About Me</h2>
+            <p class="b-text-lg b-text-gray-700 dark:b-text-gray-300 b-leading-relaxed">
+                Passionate full-stack developer with 8+ years of experience building scalable web applications. 
+                Expertise in modern JavaScript frameworks, cloud architecture, and agile methodologies. 
+                Proven track record of delivering high-quality software solutions that drive business growth.
+            </p>
+        </div>
+
+        <!-- Skills -->
+        <div class="section-card">
+            <h2 class="b-text-3xl b-font-bold b-mb-6 b-text-primary">💪 Skills</h2>
+            
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-2 b-gap-6">
+                <div>
+                    <div class="b-flex b-justify-between b-mb-1">
+                        <span class="b-font-medium">JavaScript / TypeScript</span>
+                        <span class="b-text-primary">95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="b-flex b-justify-between b-mb-1">
+                        <span class="b-font-medium">React / Next.js</span>
+                        <span class="b-text-primary">90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="b-flex b-justify-between b-mb-1">
+                        <span class="b-font-medium">Node.js / Express</span>
+                        <span class="b-text-primary">88%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 88%"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="b-flex b-justify-between b-mb-1">
+                        <span class="b-font-medium">Python / Django</span>
+                        <span class="b-text-primary">85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="b-flex b-justify-between b-mb-1">
+                        <span class="b-font-medium">AWS / Docker</span>
+                        <span class="b-text-primary">82%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 82%"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="b-flex b-justify-between b-mb-1">
+                        <span class="b-font-medium">MongoDB / PostgreSQL</span>
+                        <span class="b-text-primary">87%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 87%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="b-mt-8">
+                <h3 class="b-text-xl b-font-bold b-mb-4">Other Skills</h3>
+                <div class="b-flex b-flex-wrap b-gap-2">
+                    <span class="b-bg-primary b-text-white b-px-4 b-py-2 b-rounded-full b-text-sm">Git</span>
+                    <span class="b-bg-primary b-text-white b-px-4 b-py-2 b-rounded-full b-text-sm">GraphQL</span>
+                    <span class="b-bg-primary b-text-white b-px-4 b-py-2 b-rounded-full b-text-sm">REST API</span>
+                    <span class="b-bg-primary b-text-white b-px-4 b-py-2 b-rounded-full b-text-sm">CI/CD</span>
+                    <span class="b-bg-primary b-text-white b-px-4 b-py-2 b-rounded-full b-text-sm">Agile</span>
+                    <span class="b-bg-primary b-text-white b-px-4 b-py-2 b-rounded-full b-text-sm">TDD</span>
+                    <span class="b-bg-primary b-text-white b-px-4 b-py-2 b-rounded-full b-text-sm">Microservices</span>
+                    <span class="b-bg-primary b-text-white b-px-4 b-py-2 b-rounded-full b-text-sm">Redis</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="section-card">
+            <h2 class="b-text-3xl b-font-bold b-mb-6 b-text-primary">💼 Work Experience</h2>
+            
+            <div class="timeline-item">
+                <div class="b-flex b-justify-between b-items-start b-flex-wrap b-mb-2">
+                    <div>
+                        <h3 class="b-text-2xl b-font-bold b-text-dark dark:b-text-light">Senior Software Engineer</h3>
+                        <p class="b-text-primary b-font-medium">Tech Corp Inc.</p>
+                    </div>
+                    <span class="b-text-gray-600 dark:b-text-gray-400">2020 - Present</span>
+                </div>
+                <ul class="b-text-gray-700 dark:b-text-gray-300 b-list-disc b-pl-5">
+                    <li>Led a team of 5 developers in building a scalable e-commerce platform</li>
+                    <li>Improved application performance by 40% through code optimization</li>
+                    <li>Implemented CI/CD pipeline reducing deployment time by 60%</li>
+                    <li>Mentored junior developers and conducted code reviews</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="b-flex b-justify-between b-items-start b-flex-wrap b-mb-2">
+                    <div>
+                        <h3 class="b-text-2xl b-font-bold b-text-dark dark:b-text-light">Full-Stack Developer</h3>
+                        <p class="b-text-primary b-font-medium">StartUp Solutions</p>
+                    </div>
+                    <span class="b-text-gray-600 dark:b-text-gray-400">2018 - 2020</span>
+                </div>
+                <ul class="b-text-gray-700 dark:b-text-gray-300 b-list-disc b-pl-5">
+                    <li>Developed RESTful APIs serving 1M+ daily requests</li>
+                    <li>Built responsive web applications using React and Node.js</li>
+                    <li>Integrated third-party services and payment gateways</li>
+                    <li>Collaborated with UX designers to implement pixel-perfect designs</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="b-flex b-justify-between b-items-start b-flex-wrap b-mb-2">
+                    <div>
+                        <h3 class="b-text-2xl b-font-bold b-text-dark dark:b-text-light">Junior Developer</h3>
+                        <p class="b-text-primary b-font-medium">Web Agency Co.</p>
+                    </div>
+                    <span class="b-text-gray-600 dark:b-text-gray-400">2016 - 2018</span>
+                </div>
+                <ul class="b-text-gray-700 dark:b-text-gray-300 b-list-disc b-pl-5">
+                    <li>Created custom WordPress themes and plugins</li>
+                    <li>Maintained and updated client websites</li>
+                    <li>Implemented responsive designs across multiple browsers</li>
+                    <li>Provided technical support to clients</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="section-card">
+            <h2 class="b-text-3xl b-font-bold b-mb-6 b-text-primary">🎓 Education</h2>
+            
+            <div class="timeline-item">
+                <div class="b-flex b-justify-between b-items-start b-flex-wrap b-mb-2">
+                    <div>
+                        <h3 class="b-text-2xl b-font-bold b-text-dark dark:b-text-light">Master of Computer Science</h3>
+                        <p class="b-text-primary b-font-medium">Stanford University</p>
+                    </div>
+                    <span class="b-text-gray-600 dark:b-text-gray-400">2014 - 2016</span>
+                </div>
+                <p class="b-text-gray-700 dark:b-text-gray-300">Specialized in Distributed Systems and Machine Learning</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="b-flex b-justify-between b-items-start b-flex-wrap b-mb-2">
+                    <div>
+                        <h3 class="b-text-2xl b-font-bold b-text-dark dark:b-text-light">Bachelor of Software Engineering</h3>
+                        <p class="b-text-primary b-font-medium">MIT</p>
+                    </div>
+                    <span class="b-text-gray-600 dark:b-text-gray-400">2010 - 2014</span>
+                </div>
+                <p class="b-text-gray-700 dark:b-text-gray-300">Graduated with Honors, GPA: 3.9/4.0</p>
+            </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="section-card">
+            <h2 class="b-text-3xl b-font-bold b-mb-6 b-text-primary">🚀 Featured Projects</h2>
+            
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-2 b-gap-6">
+                <div class="b-border b-border-gray-200 dark:b-border-gray-700 b-rounded-lg b-p-4">
+                    <h3 class="b-text-xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">E-Commerce Platform</h3>
+                    <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-3">Full-featured online store with cart, checkout, and admin panel</p>
+                    <div class="b-flex b-gap-2 b-flex-wrap">
+                        <span class="b-bg-gray-200 dark:b-bg-gray-700 b-px-3 b-py-1 b-rounded-full b-text-sm">React</span>
+                        <span class="b-bg-gray-200 dark:b-bg-gray-700 b-px-3 b-py-1 b-rounded-full b-text-sm">Node.js</span>
+                        <span class="b-bg-gray-200 dark:b-bg-gray-700 b-px-3 b-py-1 b-rounded-full b-text-sm">MongoDB</span>
+                    </div>
+                </div>
+
+                <div class="b-border b-border-gray-200 dark:b-border-gray-700 b-rounded-lg b-p-4">
+                    <h3 class="b-text-xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Real-Time Chat App</h3>
+                    <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-3">Messaging application with video calls and file sharing</p>
+                    <div class="b-flex b-gap-2 b-flex-wrap">
+                        <span class="b-bg-gray-200 dark:b-bg-gray-700 b-px-3 b-py-1 b-rounded-full b-text-sm">Socket.io</span>
+                        <span class="b-bg-gray-200 dark:b-bg-gray-700 b-px-3 b-py-1 b-rounded-full b-text-sm">WebRTC</span>
+                        <span class="b-bg-gray-200 dark:b-bg-gray-700 b-px-3 b-py-1 b-rounded-full b-text-sm">Redis</span>
+                    </div>
+                </div>
+
+                <div class="b-border b-border-gray-200 dark:b-border-gray-700 b-rounded-lg b-p-4">
+                    <h3 class="b-text-xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Analytics Dashboard</h3>
+                    <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-3">Data visualization platform with real-time updates</p>
+                    <div class="b-flex b-gap-2 b-flex-wrap">
+                        <span class="b-bg-gray-200 dark:b-bg-gray-700 b-px-3 b-py-1 b-rounded-full b-text-sm">D3.js</span>
+                        <span class="b-bg-gray-200 dark:b-bg-gray-700 b-px-3 b-py-1 b-rounded-full b-text-sm">Python</span>
+                        <span class="b-bg-gray-200 dark:b-bg-gray-700 b-px-3 b-py-1 b-rounded-full b-text-sm">PostgreSQL</span>
+                    </div>
+                </div>
+
+                <div class="b-border b-border-gray-200 dark:b-border-gray-700 b-rounded-lg b-p-4">
+                    <h3 class="b-text-xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Mobile Fitness App</h3>
+                    <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-3">Workout tracking with social features and challenges</p>
+                    <div class="b-flex b-gap-2 b-flex-wrap">
+                        <span class="b-bg-gray-200 dark:b-bg-gray-700 b-px-3 b-py-1 b-rounded-full b-text-sm">React Native</span>
+                        <span class="b-bg-gray-200 dark:b-bg-gray-700 b-px-3 b-py-1 b-rounded-full b-text-sm">Firebase</span>
+                        <span class="b-bg-gray-200 dark:b-bg-gray-700 b-px-3 b-py-1 b-rounded-full b-text-sm">AWS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="section-card">
+            <h2 class="b-text-3xl b-font-bold b-mb-6 b-text-primary">🏆 Certifications</h2>
+            
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-2 b-gap-4">
+                <div class="b-flex b-items-center b-gap-3">
+                    <div class="b-text-3xl">✅</div>
+                    <div>
+                        <div class="b-font-bold b-text-dark dark:b-text-light">AWS Certified Solutions Architect</div>
+                        <div class="b-text-sm b-text-gray-600 dark:b-text-gray-400">Amazon Web Services - 2023</div>
+                    </div>
+                </div>
+
+                <div class="b-flex b-items-center b-gap-3">
+                    <div class="b-text-3xl">✅</div>
+                    <div>
+                        <div class="b-font-bold b-text-dark dark:b-text-light">Google Cloud Professional</div>
+                        <div class="b-text-sm b-text-gray-600 dark:b-text-gray-400">Google - 2022</div>
+                    </div>
+                </div>
+
+                <div class="b-flex b-items-center b-gap-3">
+                    <div class="b-text-3xl">✅</div>
+                    <div>
+                        <div class="b-font-bold b-text-dark dark:b-text-light">MongoDB Certified Developer</div>
+                        <div class="b-text-sm b-text-gray-600 dark:b-text-gray-400">MongoDB Inc. - 2021</div>
+                    </div>
+                </div>
+
+                <div class="b-flex b-items-center b-gap-3">
+                    <div class="b-text-3xl">✅</div>
+                    <div>
+                        <div class="b-font-bold b-text-dark dark:b-text-light">Certified Scrum Master</div>
+                        <div class="b-text-sm b-text-gray-600 dark:b-text-gray-400">Scrum Alliance - 2020</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Button -->
+        <div class="b-text-center b-mt-8">
+            <button class="b-bg-primary b-text-white b-px-12 b-py-4 b-rounded-full b-border-0 b-cursor-pointer b-font-bold b-text-lg b-transition hover:b-opacity-80">
+                📥 Download PDF Resume
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="b-bg-dark b-text-white b-py-8 b-text-center">
+        <p class="b-mb-4">Let's connect! Find me on:</p>
+        <div class="b-flex b-gap-6 b-justify-center b-mb-4">
+            <a href="#" class="b-text-white b-no-underline hover:b-text-primary">LinkedIn</a>
+            <a href="#" class="b-text-white b-no-underline hover:b-text-primary">GitHub</a>
+            <a href="#" class="b-text-white b-no-underline hover:b-text-primary">Twitter</a>
+            <a href="#" class="b-text-white b-no-underline hover:b-text-primary">Portfolio</a>
+        </div>
+        <p class="b-text-sm b-text-gray-500">© 2024 {{PROJECT_NAME}}. All rights reserved.</p>
+    </footer>
+
+    <script src="js/blabs.js"></script>
+    <script>
+        B.darkMode.init();
+        const updateIcon = () => {
+            const icon = document.querySelector('.dark-mode-icon');
+            icon.textContent = B.darkMode.isEnabled() ? '☀️' : '🌙';
+        };
+        updateIcon();
+        document.body.addEventListener('click', (e) => {
+            if (e.target.closest('[onclick*="darkMode.toggle"]')) {
+                setTimeout(updateIcon, 100);
+            }
+        });
+        B.smoothScroll('a[href^="#"]');
+        B.scrollReveal('.section-card');
+    </script>
+</body>
+</html>

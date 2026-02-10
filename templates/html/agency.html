@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PROJECT_NAME}} - Creative Agency</title>
+    <link rel="stylesheet" href="css/blabs.css">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .hero-agency {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 700px;
+            position: relative;
+            overflow: hidden;
+        }
+        .portfolio-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            height: 400px;
+            cursor: pointer;
+        }
+        .portfolio-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.8) 100%);
+            z-index: 1;
+        }
+        .portfolio-card:hover .portfolio-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            z-index: 2;
+            opacity: 0.9;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        .dark .service-card {
+            background: #2d3748;
+        }
+        .stat-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+    </style>
+</head>
+<body class="b-bg-light dark:b-bg-dark b-text-dark dark:b-text-light">
+
+    <!-- Dark Mode Toggle -->
+    <button onclick="B.darkMode.toggle()" class="b-fixed b-top-4 b-right-4 b-bg-white dark:b-bg-gray-800 b-p-3 b-rounded-full b-shadow-lg b-cursor-pointer b-z-50 b-border-0">
+        <span class="dark-mode-icon">🌙</span>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="b-bg-white dark:b-bg-gray-800 b-shadow-md b-fixed b-w-full b-z-40">
+        <div class="b-max-w-6xl b-mx-auto b-px-4 b-py-4 b-flex b-items-center b-justify-between">
+            <div class="b-text-2xl b-font-bold b-text-primary">🎨 {{PROJECT_NAME}}</div>
+            <div class="b-flex b-gap-6">
+                <a href="#home" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Home</a>
+                <a href="#services" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Services</a>
+                <a href="#portfolio" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Portfolio</a>
+                <a href="#team" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Team</a>
+                <a href="#contact" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-agency b-flex b-items-center b-justify-center b-text-white b-text-center" style="margin-top: 70px;">
+        <div class="b-max-w-4xl b-px-4">
+            <h1 class="b-text-6xl b-font-bold b-mb-6">We Create Digital Experiences</h1>
+            <p class="b-text-2xl b-mb-8 b-opacity-90">Transform your brand with creative design and innovative solutions</p>
+            <div class="b-flex b-gap-4 b-justify-center">
+                <a href="#portfolio" class="b-bg-white b-text-primary b-px-8 b-py-4 b-rounded-full b-no-underline b-font-semibold b-transition hover:b-shadow-xl">View Our Work</a>
+                <a href="#contact" class="b-bg-transparent b-border-2 b-border-white b-text-white b-px-8 b-py-4 b-rounded-full b-no-underline b-font-semibold b-transition hover:b-bg-white hover:b-text-primary">Start Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="b-py-20 b-bg-white dark:b-bg-gray-900">
+        <div class="b-max-w-6xl b-mx-auto b-px-4">
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-4 b-gap-8 b-text-center">
+                <div>
+                    <div class="stat-circle b-mx-auto b-mb-4">
+                        <div class="b-text-4xl b-font-bold">500+</div>
+                        <div class="b-text-sm">Projects</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="stat-circle b-mx-auto b-mb-4">
+                        <div class="b-text-4xl b-font-bold">250+</div>
+                        <div class="b-text-sm">Clients</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="stat-circle b-mx-auto b-mb-4">
+                        <div class="b-text-4xl b-font-bold">50+</div>
+                        <div class="b-text-sm">Awards</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="stat-circle b-mx-auto b-mb-4">
+                        <div class="b-text-4xl b-font-bold">10+</div>
+                        <div class="b-text-sm">Years</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="b-py-20 b-bg-gray-50 dark:b-bg-gray-800">
+        <div class="b-max-w-6xl b-mx-auto b-px-4">
+            <h2 class="b-text-5xl b-font-bold b-text-center b-mb-4 b-text-dark dark:b-text-light">Our Services</h2>
+            <p class="b-text-xl b-text-center b-text-gray-600 dark:b-text-gray-400 b-mb-12">Everything you need to build a powerful brand</p>
+            
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-3 b-gap-8">
+                <div class="service-card">
+                    <div class="b-text-5xl b-mb-4">🎨</div>
+                    <h3 class="b-text-2xl b-font-bold b-mb-3 b-text-dark dark:b-text-light">Brand Design</h3>
+                    <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4">Creating unique brand identities that stand out and resonate with your audience.</p>
+                    <ul class="b-text-gray-600 dark:b-text-gray-400 b-list-none b-p-0">
+                        <li class="b-mb-2">• Logo Design</li>
+                        <li class="b-mb-2">• Brand Guidelines</li>
+                        <li class="b-mb-2">• Visual Identity</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="b-text-5xl b-mb-4">💻</div>
+                    <h3 class="b-text-2xl b-font-bold b-mb-3 b-text-dark dark:b-text-light">Web Development</h3>
+                    <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4">Building fast, responsive websites that deliver exceptional user experiences.</p>
+                    <ul class="b-text-gray-600 dark:b-text-gray-400 b-list-none b-p-0">
+                        <li class="b-mb-2">• Custom Websites</li>
+                        <li class="b-mb-2">• E-commerce</li>
+                        <li class="b-mb-2">• Web Apps</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="b-text-5xl b-mb-4">📱</div>
+                    <h3 class="b-text-2xl b-font-bold b-mb-3 b-text-dark dark:b-text-light">Mobile Apps</h3>
+                    <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4">Developing beautiful mobile applications for iOS and Android platforms.</p>
+                    <ul class="b-text-gray-600 dark:b-text-gray-400 b-list-none b-p-0">
+                        <li class="b-mb-2">• iOS Development</li>
+                        <li class="b-mb-2">• Android Development</li>
+                        <li class="b-mb-2">• Cross-platform</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="b-text-5xl b-mb-4">📈</div>
+                    <h3 class="b-text-2xl b-font-bold b-mb-3 b-text-dark dark:b-text-light">Digital Marketing</h3>
+                    <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4">Strategic marketing campaigns that drive growth and engagement.</p>
+                    <ul class="b-text-gray-600 dark:b-text-gray-400 b-list-none b-p-0">
+                        <li class="b-mb-2">• SEO Optimization</li>
+                        <li class="b-mb-2">• Social Media</li>
+                        <li class="b-mb-2">• Content Strategy</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="b-text-5xl b-mb-4">🎥</div>
+                    <h3 class="b-text-2xl b-font-bold b-mb-3 b-text-dark dark:b-text-light">Video Production</h3>
+                    <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4">Professional video content that tells your story and engages viewers.</p>
+                    <ul class="b-text-gray-600 dark:b-text-gray-400 b-list-none b-p-0">
+                        <li class="b-mb-2">• Commercial Videos</li>
+                        <li class="b-mb-2">• Explainer Videos</li>
+                        <li class="b-mb-2">• Animation</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="b-text-5xl b-mb-4">✏️</div>
+                    <h3 class="b-text-2xl b-font-bold b-mb-3 b-text-dark dark:b-text-light">Content Creation</h3>
+                    <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4">Compelling content that connects with your audience and drives action.</p>
+                    <ul class="b-text-gray-600 dark:b-text-gray-400 b-list-none b-p-0">
+                        <li class="b-mb-2">• Copywriting</li>
+                        <li class="b-mb-2">• Blog Posts</li>
+                        <li class="b-mb-2">• Social Content</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="b-py-20 b-bg-white dark:b-bg-gray-900">
+        <div class="b-max-w-6xl b-mx-auto b-px-4">
+            <h2 class="b-text-5xl b-font-bold b-text-center b-mb-4 b-text-dark dark:b-text-light">Recent Work</h2>
+            <p class="b-text-xl b-text-center b-text-gray-600 dark:b-text-gray-400 b-mb-12">Projects we're proud of</p>
+            
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-2 b-gap-8">
+                <div class="portfolio-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <div class="portfolio-overlay">
+                        <h3 class="b-text-2xl b-font-bold b-text-white b-mb-2">E-commerce Platform</h3>
+                        <p class="b-text-white b-opacity-90">Modern online store with seamless checkout experience</p>
+                        <div class="b-flex b-gap-2 b-mt-4">
+                            <span class="b-bg-white b-text-primary b-px-3 b-py-1 b-rounded-full b-text-sm">Web Design</span>
+                            <span class="b-bg-white b-text-primary b-px-3 b-py-1 b-rounded-full b-text-sm">Development</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <div class="portfolio-overlay">
+                        <h3 class="b-text-2xl b-font-bold b-text-white b-mb-2">Mobile Banking App</h3>
+                        <p class="b-text-white b-opacity-90">Secure and intuitive banking solution for mobile users</p>
+                        <div class="b-flex b-gap-2 b-mt-4">
+                            <span class="b-bg-white b-text-primary b-px-3 b-py-1 b-rounded-full b-text-sm">Mobile App</span>
+                            <span class="b-bg-white b-text-primary b-px-3 b-py-1 b-rounded-full b-text-sm">UX/UI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    <div class="portfolio-overlay">
+                        <h3 class="b-text-2xl b-font-bold b-text-white b-mb-2">SaaS Dashboard</h3>
+                        <p class="b-text-white b-opacity-90">Analytics platform with real-time data visualization</p>
+                        <div class="b-flex b-gap-2 b-mt-4">
+                            <span class="b-bg-white b-text-primary b-px-3 b-py-1 b-rounded-full b-text-sm">Dashboard</span>
+                            <span class="b-bg-white b-text-primary b-px-3 b-py-1 b-rounded-full b-text-sm">Data Viz</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                    <div class="portfolio-overlay">
+                        <h3 class="b-text-2xl b-font-bold b-text-white b-mb-2">Brand Identity</h3>
+                        <p class="b-text-white b-opacity-90">Complete rebrand for a tech startup</p>
+                        <div class="b-flex b-gap-2 b-mt-4">
+                            <span class="b-bg-white b-text-primary b-px-3 b-py-1 b-rounded-full b-text-sm">Branding</span>
+                            <span class="b-bg-white b-text-primary b-px-3 b-py-1 b-rounded-full b-text-sm">Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="b-py-20 b-bg-gray-50 dark:b-bg-gray-800">
+        <div class="b-max-w-6xl b-mx-auto b-px-4">
+            <h2 class="b-text-5xl b-font-bold b-text-center b-mb-4 b-text-dark dark:b-text-light">Our Team</h2>
+            <p class="b-text-xl b-text-center b-text-gray-600 dark:b-text-gray-400 b-mb-12">Meet the creative minds behind our success</p>
+            
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-4 b-gap-8">
+                <div class="b-text-center">
+                    <div class="b-w-32 b-h-32 b-rounded-full b-bg-gradient-to-br b-from-blue-400 b-to-purple-500 b-mx-auto b-mb-4 b-flex b-items-center b-justify-center b-text-white b-text-5xl">👨‍💼</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">John Smith</h3>
+                    <p class="b-text-primary b-mb-2">Creative Director</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">15 years of design excellence</p>
+                </div>
+
+                <div class="b-text-center">
+                    <div class="b-w-32 b-h-32 b-rounded-full b-bg-gradient-to-br b-from-pink-400 b-to-red-500 b-mx-auto b-mb-4 b-flex b-items-center b-justify-center b-text-white b-text-5xl">👩‍💻</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Sarah Johnson</h3>
+                    <p class="b-text-primary b-mb-2">Lead Developer</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">Full-stack development expert</p>
+                </div>
+
+                <div class="b-text-center">
+                    <div class="b-w-32 b-h-32 b-rounded-full b-bg-gradient-to-br b-from-green-400 b-to-teal-500 b-mx-auto b-mb-4 b-flex b-items-center b-justify-center b-text-white b-text-5xl">👨‍🎨</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Mike Chen</h3>
+                    <p class="b-text-primary b-mb-2">UI/UX Designer</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">User experience specialist</p>
+                </div>
+
+                <div class="b-text-center">
+                    <div class="b-w-32 b-h-32 b-rounded-full b-bg-gradient-to-br b-from-yellow-400 b-to-orange-500 b-mx-auto b-mb-4 b-flex b-items-center b-justify-center b-text-white b-text-5xl">👩‍💼</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Emily Davis</h3>
+                    <p class="b-text-primary b-mb-2">Project Manager</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">Agile methodology expert</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="b-py-20 b-bg-white dark:b-bg-gray-900">
+        <div class="b-max-w-4xl b-mx-auto b-px-4">
+            <h2 class="b-text-5xl b-font-bold b-text-center b-mb-4 b-text-dark dark:b-text-light">Let's Work Together</h2>
+            <p class="b-text-xl b-text-center b-text-gray-600 dark:b-text-gray-400 b-mb-12">Have a project in mind? Let's make it happen.</p>
+            
+            <form class="b-grid b-grid-cols-1 md:b-grid-cols-2 b-gap-6">
+                <input type="text" placeholder="Your Name" class="b-p-4 b-rounded-lg b-border b-border-gray-300 dark:b-border-gray-600 dark:b-bg-gray-800" required>
+                <input type="email" placeholder="Email Address" class="b-p-4 b-rounded-lg b-border b-border-gray-300 dark:b-border-gray-600 dark:b-bg-gray-800" required>
+                <input type="tel" placeholder="Phone Number" class="b-p-4 b-rounded-lg b-border b-border-gray-300 dark:b-border-gray-600 dark:b-bg-gray-800">
+                <select class="b-p-4 b-rounded-lg b-border b-border-gray-300 dark:b-border-gray-600 dark:b-bg-gray-800">
+                    <option>Service Needed</option>
+                    <option>Brand Design</option>
+                    <option>Web Development</option>
+                    <option>Mobile App</option>
+                    <option>Digital Marketing</option>
+                    <option>Other</option>
+                </select>
+                <textarea placeholder="Tell us about your project" rows="6" class="b-p-4 b-rounded-lg b-border b-border-gray-300 dark:b-border-gray-600 dark:b-bg-gray-800 md:b-col-span-2"></textarea>
+                <button type="submit" class="b-bg-primary b-text-white b-px-8 b-py-4 b-rounded-full b-border-0 b-cursor-pointer b-font-bold b-transition hover:b-opacity-80 md:b-col-span-2">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="b-bg-dark b-text-white b-py-12">
+        <div class="b-max-w-6xl b-mx-auto b-px-4 b-text-center">
+            <div class="b-text-3xl b-mb-4">🎨</div>
+            <p class="b-text-2xl b-font-bold b-mb-4">{{PROJECT_NAME}}</p>
+            <p class="b-text-gray-400 b-mb-6">Creating digital experiences that inspire and engage</p>
+            <div class="b-flex b-gap-6 b-justify-center b-mb-6">
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">Dribbble</a>
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">Behance</a>
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">Instagram</a>
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">LinkedIn</a>
+            </div>
+            <p class="b-text-sm b-text-gray-500">© 2024 {{PROJECT_NAME}}. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/blabs.js"></script>
+    <script>
+        B.darkMode.init();
+        const updateIcon = () => {
+            const icon = document.querySelector('.dark-mode-icon');
+            icon.textContent = B.darkMode.isEnabled() ? '☀️' : '🌙';
+        };
+        updateIcon();
+        document.body.addEventListener('click', (e) => {
+            if (e.target.closest('[onclick*="darkMode.toggle"]')) {
+                setTimeout(updateIcon, 100);
+            }
+        });
+        B.smoothScroll('a[href^="#"]');
+        B.scrollReveal('.service-card, .portfolio-card');
+    </script>
+</body>
+</html>

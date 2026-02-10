@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PROJECT_NAME}} - Music Band</title>
+    <link rel="stylesheet" href="css/blabs.css">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .hero-music {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 700px;
+            position: relative;
+            overflow: hidden;
+        }
+        .music-note {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.1;
+            animation: float 10s infinite ease-in-out;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-50px) rotate(180deg); }
+        }
+        .album-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .album-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .dark .album-card {
+            background: #2d3748;
+        }
+        .album-cover {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+        }
+        .track-list {
+            list-style: none;
+            padding: 0;
+        }
+        .track-item {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .dark .track-item {
+            border-bottom-color: #4a5568;
+        }
+        .track-item:hover {
+            background: #f7fafc;
+            padding-left: 1.5rem;
+        }
+        .dark .track-item:hover {
+            background: #1a202c;
+        }
+        .band-member {
+            text-align: center;
+            padding: 2rem;
+        }
+        .member-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .dark .member-photo {
+            border-color: #1a202c;
+        }
+        .tour-date {
+            background: white;
+            border-left: 5px solid #f5576c;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .dark .tour-date {
+            background: #2d3748;
+        }
+    </style>
+</head>
+<body class="b-bg-light dark:b-bg-dark b-text-dark dark:b-text-light">
+
+    <!-- Dark Mode Toggle -->
+    <button onclick="B.darkMode.toggle()" class="b-fixed b-top-4 b-right-4 b-bg-white dark:b-bg-gray-800 b-p-3 b-rounded-full b-shadow-lg b-cursor-pointer b-z-50 b-border-0">
+        <span class="dark-mode-icon">🌙</span>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="b-bg-white dark:b-bg-gray-800 b-shadow-md b-fixed b-w-full b-z-40">
+        <div class="b-max-w-6xl b-mx-auto b-px-4 b-py-4 b-flex b-items-center b-justify-between">
+            <div class="b-text-2xl b-font-bold b-text-primary">🎵 {{PROJECT_NAME}}</div>
+            <div class="b-flex b-gap-6">
+                <a href="#home" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Home</a>
+                <a href="#music" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Music</a>
+                <a href="#tour" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Tour</a>
+                <a href="#band" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Band</a>
+                <a href="#merch" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Store</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-music b-flex b-items-center b-justify-center b-text-white b-text-center b-relative" style="margin-top: 70px;">
+        <div class="music-note" style="top: 10%; left: 10%;">🎵</div>
+        <div class="music-note" style="top: 20%; right: 15%;">🎶</div>
+        <div class="music-note" style="bottom: 15%; left: 20%;">🎸</div>
+        <div class="music-note" style="bottom: 25%; right: 10%;">🎤</div>
+        
+        <div class="b-max-w-4xl b-px-4 b-relative b-z-10">
+            <h1 class="b-text-7xl b-font-bold b-mb-6">{{PROJECT_NAME}}</h1>
+            <p class="b-text-3xl b-mb-8 b-opacity-90">Rock • Pop • Alternative</p>
+            <p class="b-text-xl b-mb-8">New album "Dreams & Reality" out now!</p>
+            <div class="b-flex b-gap-4 b-justify-center b-flex-wrap">
+                <a href="#music" class="b-bg-white b-text-primary b-px-8 b-py-4 b-rounded-full b-no-underline b-font-semibold b-transition hover:b-shadow-xl">🎧 Listen Now</a>
+                <a href="#tour" class="b-bg-transparent b-border-2 b-border-white b-text-white b-px-8 b-py-4 b-rounded-full b-no-underline b-font-semibold b-transition hover:b-bg-white hover:b-text-primary">🎫 Tour Dates</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Video -->
+    <section class="b-py-20 b-bg-white dark:b-bg-gray-900">
+        <div class="b-max-w-4xl b-mx-auto b-px-4">
+            <h2 class="b-text-5xl b-font-bold b-text-center b-mb-12 b-text-dark dark:b-text-light">Latest Music Video</h2>
+            <div class="b-aspect-video b-bg-gradient-to-br b-from-purple-500 b-to-pink-500 b-rounded-2xl b-flex b-items-center b-justify-center b-text-white b-text-8xl b-shadow-2xl">
+                <div class="b-text-center">
+                    <div class="b-text-9xl">▶️</div>
+                    <p class="b-text-2xl b-mt-4">"Summer Nights" Official Video</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Albums -->
+    <section id="music" class="b-py-20 b-bg-gray-50 dark:b-bg-gray-800">
+        <div class="b-max-w-6xl b-mx-auto b-px-4">
+            <h2 class="b-text-5xl b-font-bold b-text-center b-mb-4 b-text-dark dark:b-text-light">Discography</h2>
+            <p class="b-text-xl b-text-center b-text-gray-600 dark:b-text-gray-400 b-mb-12">Stream our music on all major platforms</p>
+            
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-3 b-gap-8">
+                <!-- Album 1 -->
+                <div class="album-card">
+                    <div class="album-cover">🎸</div>
+                    <div class="b-p-6">
+                        <h3 class="b-text-2xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Dreams & Reality</h3>
+                        <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4">2024 • 12 tracks</p>
+                        <div class="b-flex b-gap-2 b-mb-4">
+                            <button class="b-bg-primary b-text-white b-px-6 b-py-2 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80 b-flex-1">
+                                ▶️ Play
+                            </button>
+                            <button class="b-bg-gray-200 dark:b-bg-gray-700 b-text-dark dark:b-text-light b-px-6 b-py-2 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80">
+                                🛒
+                            </button>
+                        </div>
+                        <ul class="track-list">
+                            <li class="track-item">1. Summer Nights</li>
+                            <li class="track-item">2. Electric Love</li>
+                            <li class="track-item">3. Midnight Drive</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Album 2 -->
+                <div class="album-card">
+                    <div class="album-cover" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">🎤</div>
+                    <div class="b-p-6">
+                        <h3 class="b-text-2xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Neon Lights</h3>
+                        <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4">2022 • 10 tracks</p>
+                        <div class="b-flex b-gap-2 b-mb-4">
+                            <button class="b-bg-primary b-text-white b-px-6 b-py-2 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80 b-flex-1">
+                                ▶️ Play
+                            </button>
+                            <button class="b-bg-gray-200 dark:b-bg-gray-700 b-text-dark dark:b-text-light b-px-6 b-py-2 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80">
+                                🛒
+                            </button>
+                        </div>
+                        <ul class="track-list">
+                            <li class="track-item">1. City Lights</li>
+                            <li class="track-item">2. Lost in Time</li>
+                            <li class="track-item">3. Rebel Heart</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Album 3 -->
+                <div class="album-card">
+                    <div class="album-cover" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">🎹</div>
+                    <div class="b-p-6">
+                        <h3 class="b-text-2xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">First Light</h3>
+                        <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4">2020 • 8 tracks</p>
+                        <div class="b-flex b-gap-2 b-mb-4">
+                            <button class="b-bg-primary b-text-white b-px-6 b-py-2 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80 b-flex-1">
+                                ▶️ Play
+                            </button>
+                            <button class="b-bg-gray-200 dark:b-bg-gray-700 b-text-dark dark:b-text-light b-px-6 b-py-2 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80">
+                                🛒
+                            </button>
+                        </div>
+                        <ul class="track-list">
+                            <li class="track-item">1. Breaking Free</li>
+                            <li class="track-item">2. Stargazer</li>
+                            <li class="track-item">3. Rise Up</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tour Dates -->
+    <section id="tour" class="b-py-20 b-bg-white dark:b-bg-gray-900">
+        <div class="b-max-w-4xl b-mx-auto b-px-4">
+            <h2 class="b-text-5xl b-font-bold b-text-center b-mb-4 b-text-dark dark:b-text-light">Upcoming Shows</h2>
+            <p class="b-text-xl b-text-center b-text-gray-600 dark:b-text-gray-400 b-mb-12">Join us on tour - Get tickets now!</p>
+            
+            <div class="tour-date">
+                <div>
+                    <div class="b-text-primary b-font-bold b-text-lg">JUN 15, 2024</div>
+                    <div class="b-text-2xl b-font-bold b-text-dark dark:b-text-light">Madison Square Garden</div>
+                    <div class="b-text-gray-600 dark:b-text-gray-400">New York, NY</div>
+                </div>
+                <button class="b-bg-primary b-text-white b-px-8 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-font-bold b-transition hover:b-opacity-80">
+                    Get Tickets
+                </button>
+            </div>
+
+            <div class="tour-date">
+                <div>
+                    <div class="b-text-primary b-font-bold b-text-lg">JUN 22, 2024</div>
+                    <div class="b-text-2xl b-font-bold b-text-dark dark:b-text-light">The Forum</div>
+                    <div class="b-text-gray-600 dark:b-text-gray-400">Los Angeles, CA</div>
+                </div>
+                <button class="b-bg-primary b-text-white b-px-8 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-font-bold b-transition hover:b-opacity-80">
+                    Get Tickets
+                </button>
+            </div>
+
+            <div class="tour-date">
+                <div>
+                    <div class="b-text-primary b-font-bold b-text-lg">JUL 05, 2024</div>
+                    <div class="b-text-2xl b-font-bold b-text-dark dark:b-text-light">Wembley Stadium</div>
+                    <div class="b-text-gray-600 dark:b-text-gray-400">London, UK</div>
+                </div>
+                <button class="b-bg-primary b-text-white b-px-8 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-font-bold b-transition hover:b-opacity-80">
+                    Get Tickets
+                </button>
+            </div>
+
+            <div class="tour-date">
+                <div>
+                    <div class="b-text-primary b-font-bold b-text-lg">JUL 18, 2024</div>
+                    <div class="b-text-2xl b-font-bold b-text-dark dark:b-text-light">AccorHotels Arena</div>
+                    <div class="b-text-gray-600 dark:b-text-gray-400">Paris, France</div>
+                </div>
+                <button class="b-bg-primary b-text-white b-px-8 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-font-bold b-transition hover:b-opacity-80">
+                    Get Tickets
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Band Members -->
+    <section id="band" class="b-py-20 b-bg-gray-50 dark:b-bg-gray-800">
+        <div class="b-max-w-6xl b-mx-auto b-px-4">
+            <h2 class="b-text-5xl b-font-bold b-text-center b-mb-12 b-text-dark dark:b-text-light">Meet the Band</h2>
+            
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-4 b-gap-8">
+                <div class="band-member">
+                    <div class="member-photo">🎤</div>
+                    <h3 class="b-text-2xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Alex Storm</h3>
+                    <p class="b-text-primary b-font-medium b-mb-3">Lead Vocals</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">"Music is life, life is music"</p>
+                </div>
+
+                <div class="band-member">
+                    <div class="member-photo" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">🎸</div>
+                    <h3 class="b-text-2xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Jake Rivers</h3>
+                    <p class="b-text-primary b-font-medium b-mb-3">Lead Guitar</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">"Let the guitar speak"</p>
+                </div>
+
+                <div class="band-member">
+                    <div class="member-photo" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">🥁</div>
+                    <h3 class="b-text-2xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Mike Thunder</h3>
+                    <p class="b-text-primary b-font-medium b-mb-3">Drums</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">"Feel the rhythm"</p>
+                </div>
+
+                <div class="band-member">
+                    <div class="member-photo" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">🎹</div>
+                    <h3 class="b-text-2xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Sarah Keys</h3>
+                    <p class="b-text-primary b-font-medium b-mb-3">Keyboards</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">"Creating magic"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Merch -->
+    <section id="merch" class="b-py-20 b-bg-white dark:b-bg-gray-900">
+        <div class="b-max-w-6xl b-mx-auto b-px-4">
+            <h2 class="b-text-5xl b-font-bold b-text-center b-mb-12 b-text-dark dark:b-text-light">Official Merchandise</h2>
+            
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-3 b-gap-8">
+                <div class="b-bg-gray-50 dark:b-bg-gray-800 b-rounded-2xl b-p-6 b-text-center">
+                    <div class="b-text-8xl b-mb-4">👕</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Tour T-Shirt</h3>
+                    <p class="b-text-2xl b-font-bold b-text-primary b-mb-4">$29.99</p>
+                    <button class="b-bg-primary b-text-white b-px-8 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80 b-w-full">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="b-bg-gray-50 dark:b-bg-gray-800 b-rounded-2xl b-p-6 b-text-center">
+                    <div class="b-text-8xl b-mb-4">🧢</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Snapback Cap</h3>
+                    <p class="b-text-2xl b-font-bold b-text-primary b-mb-4">$24.99</p>
+                    <button class="b-bg-primary b-text-white b-px-8 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80 b-w-full">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="b-bg-gray-50 dark:b-bg-gray-800 b-rounded-2xl b-p-6 b-text-center">
+                    <div class="b-text-8xl b-mb-4">📀</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Vinyl Album</h3>
+                    <p class="b-text-2xl b-font-bold b-text-primary b-mb-4">$34.99</p>
+                    <button class="b-bg-primary b-text-white b-px-8 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80 b-w-full">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="b-bg-dark b-text-white b-py-12">
+        <div class="b-max-w-6xl b-mx-auto b-px-4 b-text-center">
+            <div class="b-text-4xl b-mb-4">🎵</div>
+            <p class="b-text-3xl b-font-bold b-mb-4">{{PROJECT_NAME}}</p>
+            <p class="b-text-gray-400 b-mb-6">Follow us on social media for updates</p>
+            <div class="b-flex b-gap-6 b-justify-center b-mb-6">
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">Spotify</a>
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">Apple Music</a>
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">YouTube</a>
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">Instagram</a>
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">Twitter</a>
+            </div>
+            <p class="b-text-sm b-text-gray-500">© 2024 {{PROJECT_NAME}}. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/blabs.js"></script>
+    <script>
+        B.darkMode.init();
+        const updateIcon = () => {
+            const icon = document.querySelector('.dark-mode-icon');
+            icon.textContent = B.darkMode.isEnabled() ? '☀️' : '🌙';
+        };
+        updateIcon();
+        document.body.addEventListener('click', (e) => {
+            if (e.target.closest('[onclick*="darkMode.toggle"]')) {
+                setTimeout(updateIcon, 100);
+            }
+        });
+        B.smoothScroll('a[href^="#"]');
+        B.scrollReveal('.album-card, .tour-date, .band-member');
+    </script>
+</body>
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PROJECT_NAME}} - Real Estate</title>
+    <link rel="stylesheet" href="css/blabs.css">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .hero-realestate {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 650px;
+            position: relative;
+            overflow: hidden;
+        }
+        .property-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .property-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .dark .property-card {
+            background: #2d3748;
+        }
+        .property-image {
+            aspect-ratio: 16/10;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+        }
+        .property-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #f5576c;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.875rem;
+        }
+        .property-badge.sale {
+            background: #22c55e;
+        }
+        .filter-btn {
+            background: white;
+            border: 2px solid #e2e8f0;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        .dark .filter-btn {
+            background: #2d3748;
+            border-color: #4a5568;
+            color: white;
+        }
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: transparent;
+        }
+        .agent-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        .agent-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            border: 4px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .dark .agent-photo {
+            border-color: #1a202c;
+        }
+        .price-tag {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body class="b-bg-light dark:b-bg-dark b-text-dark dark:b-text-light">
+
+    <!-- Dark Mode Toggle -->
+    <button onclick="B.darkMode.toggle()" class="b-fixed b-top-4 b-right-4 b-bg-white dark:b-bg-gray-800 b-p-3 b-rounded-full b-shadow-lg b-cursor-pointer b-z-50 b-border-0">
+        <span class="dark-mode-icon">🌙</span>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="b-bg-white dark:b-bg-gray-800 b-shadow-md b-fixed b-w-full b-z-40">
+        <div class="b-max-w-6xl b-mx-auto b-px-4 b-py-4 b-flex b-items-center b-justify-between">
+            <div class="b-text-2xl b-font-bold b-text-primary">🏠 {{PROJECT_NAME}}</div>
+            <div class="b-flex b-gap-6">
+                <a href="#home" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Home</a>
+                <a href="#properties" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Properties</a>
+                <a href="#agents" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Agents</a>
+                <a href="#contact" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-realestate b-flex b-items-center b-justify-center b-text-white b-text-center" style="margin-top: 70px;">
+        <div class="b-max-w-4xl b-px-4">
+            <h1 class="b-text-6xl b-font-bold b-mb-6">Find Your Dream Home</h1>
+            <p class="b-text-2xl b-mb-8 b-opacity-90">Whether you're buying, selling, or renting - we've got you covered</p>
+            
+            <!-- Search Bar -->
+            <div class="b-bg-white b-rounded-full b-p-2 b-flex b-gap-2 b-max-w-3xl b-mx-auto b-shadow-2xl">
+                <input type="text" placeholder="Enter location..." class="b-flex-1 b-px-6 b-py-4 b-rounded-full b-border-0 b-text-dark">
+                <select class="b-px-6 b-py-4 b-rounded-full b-border-0 b-bg-gray-50 b-text-dark">
+                    <option>Buy</option>
+                    <option>Rent</option>
+                    <option>Sell</option>
+                </select>
+                <button class="b-bg-primary b-text-white b-px-10 b-py-4 b-rounded-full b-border-0 b-cursor-pointer b-font-bold b-transition hover:b-opacity-80">
+                    Search 🔍
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="b-py-20 b-bg-white dark:b-bg-gray-900">
+        <div class="b-max-w-6xl b-mx-auto b-px-4">
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-4 b-gap-8 b-text-center">
+                <div>
+                    <div class="b-text-5xl b-mb-2">🏡</div>
+                    <div class="b-text-4xl b-font-bold b-text-primary b-mb-2">2,500+</div>
+                    <p class="b-text-gray-600 dark:b-text-gray-400">Properties Listed</p>
+                </div>
+                <div>
+                    <div class="b-text-5xl b-mb-2">😊</div>
+                    <div class="b-text-4xl b-font-bold b-text-primary b-mb-2">1,200+</div>
+                    <p class="b-text-gray-600 dark:b-text-gray-400">Happy Clients</p>
+                </div>
+                <div>
+                    <div class="b-text-5xl b-mb-2">🏆</div>
+                    <div class="b-text-4xl b-font-bold b-text-primary b-mb-2">35</div>
+                    <p class="b-text-gray-600 dark:b-text-gray-400">Awards Won</p>
+                </div>
+                <div>
+                    <div class="b-text-5xl b-mb-2">📅</div>
+                    <div class="b-text-4xl b-font-bold b-text-primary b-mb-2">15+</div>
+                    <p class="b-text-gray-600 dark:b-text-gray-400">Years Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties -->
+    <section id="properties" class="b-py-20 b-bg-gray-50 dark:b-bg-gray-800">
+        <div class="b-max-w-7xl b-mx-auto b-px-4">
+            <h2 class="b-text-5xl b-font-bold b-text-center b-mb-4 b-text-dark dark:b-text-light">Featured Properties</h2>
+            <p class="b-text-xl b-text-center b-text-gray-600 dark:b-text-gray-400 b-mb-8">Discover your perfect home</p>
+            
+            <!-- Filters -->
+            <div class="b-flex b-gap-3 b-justify-center b-mb-12 b-flex-wrap">
+                <button class="filter-btn active" data-type="all">All Properties</button>
+                <button class="filter-btn" data-type="house">Houses</button>
+                <button class="filter-btn" data-type="apartment">Apartments</button>
+                <button class="filter-btn" data-type="villa">Villas</button>
+                <button class="filter-btn" data-type="commercial">Commercial</button>
+            </div>
+
+            <!-- Property Grid -->
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-3 b-gap-8">
+                <!-- Property 1 -->
+                <div class="property-card" data-type="house">
+                    <div class="property-image">
+                        <div class="property-badge sale">For Sale</div>
+                        🏡
+                    </div>
+                    <div class="b-p-6">
+                        <h3 class="b-text-2xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Modern Family House</h3>
+                        <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-3">📍 Beverly Hills, CA</p>
+                        <div class="price-tag">$1,250,000</div>
+                        <div class="b-flex b-gap-4 b-mb-4 b-text-sm b-text-gray-600 dark:b-text-gray-400">
+                            <span>🛏️ 4 Beds</span>
+                            <span>🚿 3 Baths</span>
+                            <span>📐 3,200 sqft</span>
+                        </div>
+                        <button class="b-bg-primary b-text-white b-px-6 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80 b-w-full">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 2 -->
+                <div class="property-card" data-type="apartment">
+                    <div class="property-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <div class="property-badge">For Rent</div>
+                        🏢
+                    </div>
+                    <div class="b-p-6">
+                        <h3 class="b-text-2xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Luxury Penthouse</h3>
+                        <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-3">📍 Manhattan, NY</p>
+                        <div class="price-tag">$8,500/mo</div>
+                        <div class="b-flex b-gap-4 b-mb-4 b-text-sm b-text-gray-600 dark:b-text-gray-400">
+                            <span>🛏️ 3 Beds</span>
+                            <span>🚿 2 Baths</span>
+                            <span>📐 2,100 sqft</span>
+                        </div>
+                        <button class="b-bg-primary b-text-white b-px-6 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80 b-w-full">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 3 -->
+                <div class="property-card" data-type="villa">
+                    <div class="property-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <div class="property-badge sale">For Sale</div>
+                        🏰
+                    </div>
+                    <div class="b-p-6">
+                        <h3 class="b-text-2xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Oceanfront Villa</h3>
+                        <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-3">📍 Malibu, CA</p>
+                        <div class="price-tag">$4,750,000</div>
+                        <div class="b-flex b-gap-4 b-mb-4 b-text-sm b-text-gray-600 dark:b-text-gray-400">
+                            <span>🛏️ 6 Beds</span>
+                            <span>🚿 5 Baths</span>
+                            <span>📐 5,800 sqft</span>
+                        </div>
+                        <button class="b-bg-primary b-text-white b-px-6 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80 b-w-full">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 4 -->
+                <div class="property-card" data-type="apartment">
+                    <div class="property-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                        <div class="property-badge">For Rent</div>
+                        🏙️
+                    </div>
+                    <div class="b-p-6">
+                        <h3 class="b-text-2xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Downtown Loft</h3>
+                        <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-3">📍 San Francisco, CA</p>
+                        <div class="price-tag">$4,200/mo</div>
+                        <div class="b-flex b-gap-4 b-mb-4 b-text-sm b-text-gray-600 dark:b-text-gray-400">
+                            <span>🛏️ 2 Beds</span>
+                            <span>🚿 2 Baths</span>
+                            <span>📐 1,400 sqft</span>
+                        </div>
+                        <button class="b-bg-primary b-text-white b-px-6 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80 b-w-full">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 5 -->
+                <div class="property-card" data-type="house">
+                    <div class="property-image" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                        <div class="property-badge sale">For Sale</div>
+                        🏘️
+                    </div>
+                    <div class="b-p-6">
+                        <h3 class="b-text-2xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Suburban Home</h3>
+                        <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-3">📍 Austin, TX</p>
+                        <div class="price-tag">$685,000</div>
+                        <div class="b-flex b-gap-4 b-mb-4 b-text-sm b-text-gray-600 dark:b-text-gray-400">
+                            <span>🛏️ 4 Beds</span>
+                            <span>🚿 3 Baths</span>
+                            <span>📐 2,800 sqft</span>
+                        </div>
+                        <button class="b-bg-primary b-text-white b-px-6 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80 b-w-full">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 6 -->
+                <div class="property-card" data-type="commercial">
+                    <div class="property-image" style="background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);">
+                        <div class="property-badge sale">For Sale</div>
+                        🏢
+                    </div>
+                    <div class="b-p-6">
+                        <h3 class="b-text-2xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Office Building</h3>
+                        <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-3">📍 Chicago, IL</p>
+                        <div class="price-tag">$2,900,000</div>
+                        <div class="b-flex b-gap-4 b-mb-4 b-text-sm b-text-gray-600 dark:b-text-gray-400">
+                            <span>🏢 5 Floors</span>
+                            <span>🚪 20 Units</span>
+                            <span>📐 12,000 sqft</span>
+                        </div>
+                        <button class="b-bg-primary b-text-white b-px-6 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80 b-w-full">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agents -->
+    <section id="agents" class="b-py-20 b-bg-white dark:b-bg-gray-900">
+        <div class="b-max-w-6xl b-mx-auto b-px-4">
+            <h2 class="b-text-5xl b-font-bold b-text-center b-mb-12 b-text-dark dark:b-text-light">Meet Our Agents</h2>
+            
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-4 b-gap-8">
+                <div class="agent-card">
+                    <div class="agent-photo">👨‍💼</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">John Mitchell</h3>
+                    <p class="b-text-primary b-font-medium b-mb-2">Senior Agent</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400 b-mb-3">250+ Properties Sold</p>
+                    <button class="b-bg-primary b-text-white b-px-6 b-py-2 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80">
+                        Contact
+                    </button>
+                </div>
+
+                <div class="agent-card">
+                    <div class="agent-photo" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">👩‍💼</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Sarah Johnson</h3>
+                    <p class="b-text-primary b-font-medium b-mb-2">Luxury Specialist</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400 b-mb-3">180+ Properties Sold</p>
+                    <button class="b-bg-primary b-text-white b-px-6 b-py-2 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80">
+                        Contact
+                    </button>
+                </div>
+
+                <div class="agent-card">
+                    <div class="agent-photo" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">🧑‍💼</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Mike Davis</h3>
+                    <p class="b-text-primary b-font-medium b-mb-2">Commercial Expert</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400 b-mb-3">120+ Properties Sold</p>
+                    <button class="b-bg-primary b-text-white b-px-6 b-py-2 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80">
+                        Contact
+                    </button>
+                </div>
+
+                <div class="agent-card">
+                    <div class="agent-photo" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">👩</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Emily Brown</h3>
+                    <p class="b-text-primary b-font-medium b-mb-2">Rentals Specialist</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400 b-mb-3">300+ Properties Rented</p>
+                    <button class="b-bg-primary b-text-white b-px-6 b-py-2 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80">
+                        Contact
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="b-py-20 b-bg-gray-50 dark:b-bg-gray-800">
+        <div class="b-max-w-2xl b-mx-auto b-px-4">
+            <h2 class="b-text-5xl b-font-bold b-text-center b-mb-4 b-text-dark dark:b-text-light">Schedule a Viewing</h2>
+            <p class="b-text-xl b-text-center b-text-gray-600 dark:b-text-gray-400 b-mb-12">Let us help you find your dream property</p>
+            
+            <form class="b-flex b-flex-col b-gap-4">
+                <input type="text" placeholder="Your Name" class="b-p-4 b-rounded-lg b-border b-border-gray-300 dark:b-border-gray-600 dark:b-bg-gray-700" required>
+                <input type="email" placeholder="Email Address" class="b-p-4 b-rounded-lg b-border b-border-gray-300 dark:b-border-gray-600 dark:b-bg-gray-700" required>
+                <input type="tel" placeholder="Phone Number" class="b-p-4 b-rounded-lg b-border b-border-gray-300 dark:b-border-gray-600 dark:b-bg-gray-700">
+                <select class="b-p-4 b-rounded-lg b-border b-border-gray-300 dark:b-border-gray-600 dark:b-bg-gray-700" required>
+                    <option>I'm looking to...</option>
+                    <option>Buy a Property</option>
+                    <option>Rent a Property</option>
+                    <option>Sell My Property</option>
+                </select>
+                <textarea placeholder="Additional details..." rows="5" class="b-p-4 b-rounded-lg b-border b-border-gray-300 dark:b-border-gray-600 dark:b-bg-gray-700"></textarea>
+                <button type="submit" class="b-bg-primary b-text-white b-px-8 b-py-4 b-rounded-full b-border-0 b-cursor-pointer b-font-bold b-transition hover:b-opacity-80">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="b-bg-dark b-text-white b-py-12">
+        <div class="b-max-w-6xl b-mx-auto b-px-4 b-text-center">
+            <div class="b-text-4xl b-mb-4">🏠</div>
+            <p class="b-text-2xl b-font-bold b-mb-4">{{PROJECT_NAME}}</p>
+            <p class="b-text-gray-400 b-mb-6">Your trusted real estate partner</p>
+            <div class="b-flex b-gap-6 b-justify-center b-mb-6">
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">Properties</a>
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">Agents</a>
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">About</a>
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">Contact</a>
+            </div>
+            <p class="b-text-sm b-text-gray-500">© 2024 {{PROJECT_NAME}}. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/blabs.js"></script>
+    <script>
+        B.darkMode.init();
+        const updateIcon = () => {
+            const icon = document.querySelector('.dark-mode-icon');
+            icon.textContent = B.darkMode.isEnabled() ? '☀️' : '🌙';
+        };
+        updateIcon();
+        document.body.addEventListener('click', (e) => {
+            if (e.target.closest('[onclick*="darkMode.toggle"]')) {
+                setTimeout(updateIcon, 100);
+            }
+        });
+        B.smoothScroll('a[href^="#"]');
+        B.scrollReveal('.property-card, .agent-card');
+        
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const properties = document.querySelectorAll('.property-card');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const type = btn.dataset.type;
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                properties.forEach(prop => {
+                    if (type === 'all' || prop.dataset.type === type) {
+                        prop.style.display = 'block';
+                    } else {
+                        prop.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PROJECT_NAME}} - Delicious Cuisine</title>
+    <link rel="stylesheet" href="css/blabs.css">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .hero-restaurant {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+        .reservation-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+        .menu-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .menu-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .dark .menu-item {
+            background: #2d3748;
+        }
+        .chef-badge {
+            background: linear-gradient(135deg, #ffa500 0%, #ff6b6b 100%);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body class="b-bg-light dark:b-bg-dark b-text-dark dark:b-text-light">
+
+    <!-- Dark Mode Toggle -->
+    <button onclick="B.darkMode.toggle()" class="b-fixed b-top-4 b-right-4 b-bg-white dark:b-bg-gray-800 b-p-3 b-rounded-full b-shadow-lg b-cursor-pointer b-z-50 b-border-0">
+        <span class="dark-mode-icon">🌙</span>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="b-bg-white dark:b-bg-gray-800 b-shadow-md b-fixed b-w-full b-z-40">
+        <div class="b-max-w-6xl b-mx-auto b-px-4 b-py-4 b-flex b-items-center b-justify-between">
+            <div class="b-text-2xl b-font-bold b-text-primary">🍽️ {{PROJECT_NAME}}</div>
+            <div class="b-flex b-gap-6">
+                <a href="#home" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Home</a>
+                <a href="#menu" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Menu</a>
+                <a href="#chef" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Chef</a>
+                <a href="#reservation" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Reserve</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-restaurant b-flex b-items-center b-justify-center b-text-white b-text-center" style="margin-top: 70px;">
+        <div class="b-max-w-4xl b-px-4">
+            <div class="b-text-6xl b-mb-4">👨‍🍳</div>
+            <h1 class="b-text-5xl b-font-bold b-mb-4">Experience Fine Dining</h1>
+            <p class="b-text-xl b-mb-8 b-opacity-90">Authentic flavors, fresh ingredients, unforgettable moments</p>
+            <div class="b-flex b-gap-4 b-justify-center">
+                <a href="#menu" class="b-bg-white b-text-primary b-px-8 b-py-3 b-rounded-full b-no-underline b-font-semibold b-transition hover:b-shadow-xl">View Menu</a>
+                <a href="#reservation" class="b-bg-transparent b-border-2 b-border-white b-text-white b-px-8 b-py-3 b-rounded-full b-no-underline b-font-semibold b-transition hover:b-bg-white hover:b-text-primary">Book Table</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="b-py-20 b-bg-white dark:b-bg-gray-900">
+        <div class="b-max-w-6xl b-mx-auto b-px-4">
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-3 b-gap-8">
+                <div class="b-text-center">
+                    <div class="b-text-5xl b-mb-4">🥘</div>
+                    <h3 class="b-text-2xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Fresh Daily</h3>
+                    <p class="b-text-gray-600 dark:b-text-gray-400">All ingredients sourced fresh every morning</p>
+                </div>
+                <div class="b-text-center">
+                    <div class="b-text-5xl b-mb-4">⭐</div>
+                    <h3 class="b-text-2xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">5-Star Chef</h3>
+                    <p class="b-text-gray-600 dark:b-text-gray-400">Award-winning culinary expertise</p>
+                </div>
+                <div class="b-text-center">
+                    <div class="b-text-5xl b-mb-4">🍷</div>
+                    <h3 class="b-text-2xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Fine Wine</h3>
+                    <p class="b-text-gray-600 dark:b-text-gray-400">Curated selection from around the world</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="b-py-20 b-bg-gray-50 dark:b-bg-gray-800">
+        <div class="b-max-w-6xl b-mx-auto b-px-4">
+            <h2 class="b-text-4xl b-font-bold b-text-center b-mb-12 b-text-dark dark:b-text-light">Our Special Menu</h2>
+            
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-2 lg:b-grid-cols-3 b-gap-8">
+                <!-- Menu Item 1 -->
+                <div class="menu-item">
+                    <div class="b-h-48 b-bg-gradient-to-br b-from-orange-400 b-to-pink-500 b-flex b-items-center b-justify-center b-text-white b-text-6xl">
+                        🥩
+                    </div>
+                    <div class="b-p-6">
+                        <div class="b-flex b-justify-between b-items-start b-mb-2">
+                            <h3 class="b-text-xl b-font-bold b-text-dark dark:b-text-light">Grilled Steak</h3>
+                            <span class="b-text-primary b-font-bold">$29</span>
+                        </div>
+                        <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4">Premium beef with roasted vegetables and herb butter</p>
+                        <button class="b-bg-primary b-text-white b-px-6 b-py-2 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80">Order Now</button>
+                    </div>
+                </div>
+
+                <!-- Menu Item 2 -->
+                <div class="menu-item">
+                    <div class="b-h-48 b-bg-gradient-to-br b-from-blue-400 b-to-purple-500 b-flex b-items-center b-justify-center b-text-white b-text-6xl">
+                        🦞
+                    </div>
+                    <div class="b-p-6">
+                        <div class="b-flex b-justify-between b-items-start b-mb-2">
+                            <h3 class="b-text-xl b-font-bold b-text-dark dark:b-text-light">Grilled Lobster</h3>
+                            <span class="b-text-primary b-font-bold">$45</span>
+                        </div>
+                        <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4">Fresh lobster with garlic butter and lemon</p>
+                        <button class="b-bg-primary b-text-white b-px-6 b-py-2 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80">Order Now</button>
+                    </div>
+                </div>
+
+                <!-- Menu Item 3 -->
+                <div class="menu-item">
+                    <div class="b-h-48 b-bg-gradient-to-br b-from-green-400 b-to-teal-500 b-flex b-items-center b-justify-center b-text-white b-text-6xl">
+                        🥗
+                    </div>
+                    <div class="b-p-6">
+                        <div class="b-flex b-justify-between b-items-start b-mb-2">
+                            <h3 class="b-text-xl b-font-bold b-text-dark dark:b-text-light">Caesar Salad</h3>
+                            <span class="b-text-primary b-font-bold">$15</span>
+                        </div>
+                        <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4">Crispy romaine with parmesan and croutons</p>
+                        <button class="b-bg-primary b-text-white b-px-6 b-py-2 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80">Order Now</button>
+                    </div>
+                </div>
+
+                <!-- Menu Item 4 -->
+                <div class="menu-item">
+                    <div class="b-h-48 b-bg-gradient-to-br b-from-yellow-400 b-to-orange-500 b-flex b-items-center b-justify-center b-text-white b-text-6xl">
+                        🍝
+                    </div>
+                    <div class="b-p-6">
+                        <div class="b-flex b-justify-between b-items-start b-mb-2">
+                            <h3 class="b-text-xl b-font-bold b-text-dark dark:b-text-light">Pasta Carbonara</h3>
+                            <span class="b-text-primary b-font-bold">$22</span>
+                        </div>
+                        <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4">Creamy pasta with bacon and parmesan</p>
+                        <button class="b-bg-primary b-text-white b-px-6 b-py-2 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80">Order Now</button>
+                    </div>
+                </div>
+
+                <!-- Menu Item 5 -->
+                <div class="menu-item">
+                    <div class="b-h-48 b-bg-gradient-to-br b-from-red-400 b-to-pink-500 b-flex b-items-center b-justify-center b-text-white b-text-6xl">
+                        🍕
+                    </div>
+                    <div class="b-p-6">
+                        <div class="b-flex b-justify-between b-items-start b-mb-2">
+                            <h3 class="b-text-xl b-font-bold b-text-dark dark:b-text-light">Wood-fired Pizza</h3>
+                            <span class="b-text-primary b-font-bold">$18</span>
+                        </div>
+                        <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4">Traditional Italian pizza with fresh mozzarella</p>
+                        <button class="b-bg-primary b-text-white b-px-6 b-py-2 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80">Order Now</button>
+                    </div>
+                </div>
+
+                <!-- Menu Item 6 -->
+                <div class="menu-item">
+                    <div class="b-h-48 b-bg-gradient-to-br b-from-purple-400 b-to-indigo-500 b-flex b-items-center b-justify-center b-text-white b-text-6xl">
+                        🍰
+                    </div>
+                    <div class="b-p-6">
+                        <div class="b-flex b-justify-between b-items-start b-mb-2">
+                            <h3 class="b-text-xl b-font-bold b-text-dark dark:b-text-light">Tiramisu</h3>
+                            <span class="b-text-primary b-font-bold">$12</span>
+                        </div>
+                        <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4">Classic Italian dessert with espresso</p>
+                        <button class="b-bg-primary b-text-white b-px-6 b-py-2 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80">Order Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chef Section -->
+    <section id="chef" class="b-py-20 b-bg-white dark:b-bg-gray-900">
+        <div class="b-max-w-6xl b-mx-auto b-px-4">
+            <div class="b-flex b-flex-col md:b-flex-row b-items-center b-gap-12">
+                <div class="b-flex-1">
+                    <div class="chef-badge">👨‍🍳</div>
+                    <h2 class="b-text-4xl b-font-bold b-mb-4 b-mt-4 b-text-dark dark:b-text-light">Meet Our Chef</h2>
+                    <h3 class="b-text-2xl b-text-primary b-mb-4">Chef Marco Rossi</h3>
+                    <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4">
+                        With over 20 years of experience in fine dining, Chef Marco brings authentic Italian cuisine with a modern twist. 
+                        Trained in Milan and Paris, he creates unforgettable culinary experiences.
+                    </p>
+                    <div class="b-flex b-gap-4 b-mb-4">
+                        <div class="b-text-center">
+                            <div class="b-text-3xl b-font-bold b-text-primary">20+</div>
+                            <div class="b-text-sm b-text-gray-600 dark:b-text-gray-400">Years Experience</div>
+                        </div>
+                        <div class="b-text-center">
+                            <div class="b-text-3xl b-font-bold b-text-primary">5</div>
+                            <div class="b-text-sm b-text-gray-600 dark:b-text-gray-400">Michelin Stars</div>
+                        </div>
+                        <div class="b-text-center">
+                            <div class="b-text-3xl b-font-bold b-text-primary">100+</div>
+                            <div class="b-text-sm b-text-gray-600 dark:b-text-gray-400">Signature Dishes</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="b-flex-1">
+                    <div class="b-bg-gradient-to-br b-from-orange-400 b-to-pink-500 b-rounded-3xl b-p-12 b-text-center b-text-white">
+                        <div class="b-text-8xl b-mb-4">👨‍🍳</div>
+                        <div class="b-text-2xl b-font-bold">Chef's Special</div>
+                        <div class="b-text-lg b-opacity-90">Every Weekend</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section id="reservation" class="b-py-20" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <div class="b-max-w-2xl b-mx-auto b-px-4">
+            <h2 class="b-text-4xl b-font-bold b-text-center b-mb-12 b-text-white">Reserve Your Table</h2>
+            
+            <div class="reservation-card">
+                <form class="b-flex b-flex-col b-gap-4">
+                    <input type="text" placeholder="Your Name" class="b-p-3 b-rounded-lg b-border-0 b-bg-white dark:b-bg-gray-700" required>
+                    <input type="email" placeholder="Email Address" class="b-p-3 b-rounded-lg b-border-0 b-bg-white dark:b-bg-gray-700" required>
+                    <input type="tel" placeholder="Phone Number" class="b-p-3 b-rounded-lg b-border-0 b-bg-white dark:b-bg-gray-700" required>
+                    <input type="date" class="b-p-3 b-rounded-lg b-border-0 b-bg-white dark:b-bg-gray-700" required>
+                    <select class="b-p-3 b-rounded-lg b-border-0 b-bg-white dark:b-bg-gray-700" required>
+                        <option>Number of Guests</option>
+                        <option>1-2 People</option>
+                        <option>3-4 People</option>
+                        <option>5-6 People</option>
+                        <option>7+ People</option>
+                    </select>
+                    <textarea placeholder="Special Requests" rows="3" class="b-p-3 b-rounded-lg b-border-0 b-bg-white dark:b-bg-gray-700"></textarea>
+                    <button type="submit" class="b-bg-white b-text-primary b-px-8 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-font-bold b-transition hover:b-shadow-xl">
+                        Book Now
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="b-bg-dark b-text-white b-py-12">
+        <div class="b-max-w-6xl b-mx-auto b-px-4 b-text-center">
+            <div class="b-text-3xl b-mb-4">🍽️</div>
+            <p class="b-text-lg b-mb-4">{{PROJECT_NAME}}</p>
+            <p class="b-text-gray-400 b-mb-4">123 Gourmet Street, Food District, FC 12345</p>
+            <p class="b-text-gray-400 b-mb-6">Open Daily: 11:00 AM - 11:00 PM | Phone: (555) 123-4567</p>
+            <div class="b-flex b-gap-4 b-justify-center b-mb-6">
+                <a href="#" class="b-text-white b-no-underline">Facebook</a>
+                <a href="#" class="b-text-white b-no-underline">Instagram</a>
+                <a href="#" class="b-text-white b-no-underline">Twitter</a>
+            </div>
+            <p class="b-text-sm b-text-gray-500">© 2024 {{PROJECT_NAME}}. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/blabs.js"></script>
+    <script>
+        // Initialize dark mode
+        B.darkMode.init();
+
+        // Update dark mode icon
+        const updateIcon = () => {
+            const icon = document.querySelector('.dark-mode-icon');
+            icon.textContent = B.darkMode.isEnabled() ? '☀️' : '🌙';
+        };
+        updateIcon();
+        document.body.addEventListener('click', (e) => {
+            if (e.target.closest('[onclick*="darkMode.toggle"]')) {
+                setTimeout(updateIcon, 100);
+            }
+        });
+
+        // Smooth scroll
+        B.smoothScroll('a[href^="#"]');
+
+        // Scroll reveal
+        B.scrollReveal('.menu-item');
+    </script>
+</body>
+</html>

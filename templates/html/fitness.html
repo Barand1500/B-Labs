@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PROJECT_NAME}} - Fitness Center</title>
+    <link rel="stylesheet" href="css/blabs.css">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .hero-fitness {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 650px;
+            position: relative;
+            overflow: hidden;
+        }
+        .class-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border-left: 5px solid #f5576c;
+        }
+        .class-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .dark .class-card {
+            background: #2d3748;
+        }
+        .trainer-card {
+            text-align: center;
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        .dark .trainer-card {
+            background: #2d3748;
+        }
+        .trainer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .trainer-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            border: 4px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .dark .trainer-photo {
+            border-color: #1a202c;
+        }
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid #e2e8f0;
+        }
+        .dark .pricing-card {
+            background: #2d3748;
+            border-color: #4a5568;
+        }
+        .pricing-card.featured {
+            transform: scale(1.05);
+            border-color: #f5576c;
+            box-shadow: 0 20px 40px rgba(245, 87, 108, 0.2);
+        }
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+        .pricing-card.featured:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+        .schedule-table {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .dark .schedule-table {
+            background: #2d3748;
+        }
+        .schedule-row {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .dark .schedule-row {
+            border-bottom-color: #4a5568;
+        }
+        .schedule-time {
+            padding: 1.5rem;
+            font-weight: bold;
+            background: #f7fafc;
+        }
+        .dark .schedule-time {
+            background: #1a202c;
+        }
+        .schedule-classes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }
+        .schedule-class {
+            padding: 1rem;
+            border-left: 1px solid #e2e8f0;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .dark .schedule-class {
+            border-left-color: #4a5568;
+        }
+        .schedule-class:hover {
+            background: #f7fafc;
+        }
+        .dark .schedule-class:hover {
+            background: #1a202c;
+        }
+    </style>
+</head>
+<body class="b-bg-light dark:b-bg-dark b-text-dark dark:b-text-light">
+
+    <!-- Dark Mode Toggle -->
+    <button onclick="B.darkMode.toggle()" class="b-fixed b-top-4 b-right-4 b-bg-white dark:b-bg-gray-800 b-p-3 b-rounded-full b-shadow-lg b-cursor-pointer b-z-50 b-border-0">
+        <span class="dark-mode-icon">🌙</span>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="b-bg-white dark:b-bg-gray-800 b-shadow-md b-fixed b-w-full b-z-40">
+        <div class="b-max-w-6xl b-mx-auto b-px-4 b-py-4 b-flex b-items-center b-justify-between">
+            <div class="b-text-2xl b-font-bold b-text-primary">💪 {{PROJECT_NAME}}</div>
+            <div class="b-flex b-gap-6">
+                <a href="#home" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Home</a>
+                <a href="#classes" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Classes</a>
+                <a href="#trainers" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Trainers</a>
+                <a href="#pricing" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Pricing</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-fitness b-flex b-items-center b-justify-center b-text-white b-text-center" style="margin-top: 70px;">
+        <div class="b-max-w-4xl b-px-4">
+            <h1 class="b-text-7xl b-font-bold b-mb-6">Transform Your Body & Mind</h1>
+            <p class="b-text-2xl b-mb-8 b-opacity-90">Join {{PROJECT_NAME}} and start your fitness journey today</p>
+            <div class="b-flex b-gap-4 b-justify-center b-flex-wrap">
+                <a href="#pricing" class="b-bg-white b-text-primary b-px-8 b-py-4 b-rounded-full b-no-underline b-font-semibold b-transition hover:b-shadow-xl">Start Free Trial</a>
+                <a href="#classes" class="b-bg-transparent b-border-2 b-border-white b-text-white b-px-8 b-py-4 b-rounded-full b-no-underline b-font-semibold b-transition hover:b-bg-white hover:b-text-primary">View Classes</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="b-py-20 b-bg-white dark:b-bg-gray-900">
+        <div class="b-max-w-6xl b-mx-auto b-px-4">
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-4 b-gap-8 b-text-center">
+                <div>
+                    <div class="b-text-5xl b-mb-2">💪</div>
+                    <div class="b-text-4xl b-font-bold b-text-primary b-mb-2">5,000+</div>
+                    <p class="b-text-gray-600 dark:b-text-gray-400">Active Members</p>
+                </div>
+                <div>
+                    <div class="b-text-5xl b-mb-2">🏋️</div>
+                    <div class="b-text-4xl b-font-bold b-text-primary b-mb-2">50+</div>
+                    <p class="b-text-gray-600 dark:b-text-gray-400">Expert Trainers</p>
+                </div>
+                <div>
+                    <div class="b-text-5xl b-mb-2">📅</div>
+                    <div class="b-text-4xl b-font-bold b-text-primary b-mb-2">100+</div>
+                    <p class="b-text-gray-600 dark:b-text-gray-400">Classes Weekly</p>
+                </div>
+                <div>
+                    <div class="b-text-5xl b-mb-2">⭐</div>
+                    <div class="b-text-4xl b-font-bold b-text-primary b-mb-2">15+</div>
+                    <p class="b-text-gray-600 dark:b-text-gray-400">Years Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classes -->
+    <section id="classes" class="b-py-20 b-bg-gray-50 dark:b-bg-gray-800">
+        <div class="b-max-w-6xl b-mx-auto b-px-4">
+            <h2 class="b-text-5xl b-font-bold b-text-center b-mb-4 b-text-dark dark:b-text-light">Our Classes</h2>
+            <p class="b-text-xl b-text-center b-text-gray-600 dark:b-text-gray-400 b-mb-12">Choose from a variety of fitness programs</p>
+            
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-2 b-gap-6">
+                <div class="class-card">
+                    <div class="b-flex b-items-start b-gap-4">
+                        <div class="b-text-5xl">🏋️</div>
+                        <div class="b-flex-1">
+                            <h3 class="b-text-2xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Weight Training</h3>
+                            <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-3">Build strength and muscle with guided resistance training</p>
+                            <div class="b-flex b-gap-4 b-text-sm b-text-gray-600 dark:b-text-gray-400">
+                                <span>⏱️ 60 min</span>
+                                <span>🔥 High Intensity</span>
+                                <span>👥 Max 15</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="class-card" style="border-left-color: #667eea;">
+                    <div class="b-flex b-items-start b-gap-4">
+                        <div class="b-text-5xl">🧘</div>
+                        <div class="b-flex-1">
+                            <h3 class="b-text-2xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Yoga & Pilates</h3>
+                            <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-3">Improve flexibility, balance, and mental wellness</p>
+                            <div class="b-flex b-gap-4 b-text-sm b-text-gray-600 dark:b-text-gray-400">
+                                <span>⏱️ 45 min</span>
+                                <span>🔥 Low Intensity</span>
+                                <span>👥 Max 20</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="class-card" style="border-left-color: #4facfe;">
+                    <div class="b-flex b-items-start b-gap-4">
+                        <div class="b-text-5xl">🏃</div>
+                        <div class="b-flex-1">
+                            <h3 class="b-text-2xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">CardioBlast</h3>
+                            <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-3">High-energy cardio workouts to burn calories fast</p>
+                            <div class="b-flex b-gap-4 b-text-sm b-text-gray-600 dark:b-text-gray-400">
+                                <span>⏱️ 45 min</span>
+                                <span>🔥 High Intensity</span>
+                                <span>👥 Max 25</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="class-card" style="border-left-color: #fa709a;">
+                    <div class="b-flex b-items-start b-gap-4">
+                        <div class="b-text-5xl">🥊</div>
+                        <div class="b-flex-1">
+                            <h3 class="b-text-2xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Boxing & HIIT</h3>
+                            <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-3">Intense interval training combined with boxing techniques</p>
+                            <div class="b-flex b-gap-4 b-text-sm b-text-gray-600 dark:b-text-gray-400">
+                                <span>⏱️ 50 min</span>
+                                <span>🔥 Very High</span>
+                                <span>👥 Max 15</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="class-card" style="border-left-color: #fee140;">
+                    <div class="b-flex b-items-start b-gap-4">
+                        <div class="b-text-5xl">💃</div>
+                        <div class="b-flex-1">
+                            <h3 class="b-text-2xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Zumba Dance</h3>
+                            <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-3">Fun dance fitness combining Latin rhythms</p>
+                            <div class="b-flex b-gap-4 b-text-sm b-text-gray-600 dark:b-text-gray-400">
+                                <span>⏱️ 60 min</span>
+                                <span>🔥 Medium Intensity</span>
+                                <span>👥 Max 30</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="class-card" style="border-left-color: #00f2fe;">
+                    <div class="b-flex b-items-start b-gap-4">
+                        <div class="b-text-5xl">🏊</div>
+                        <div class="b-flex-1">
+                            <h3 class="b-text-2xl b-font-bold b-mb-2 b-text-dark dark:b-text-light">Aqua Aerobics</h3>
+                            <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-3">Low-impact water exercises for all fitness levels</p>
+                            <div class="b-flex b-gap-4 b-text-sm b-text-gray-600 dark:b-text-gray-400">
+                                <span>⏱️ 45 min</span>
+                                <span>🔥 Low Intensity</span>
+                                <span>👥 Max 20</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trainers -->
+    <section id="trainers" class="b-py-20 b-bg-white dark:b-bg-gray-900">
+        <div class="b-max-w-6xl b-mx-auto b-px-4">
+            <h2 class="b-text-5xl b-font-bold b-text-center b-mb-12 b-text-dark dark:b-text-light">Expert Trainers</h2>
+            
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-4 b-gap-8">
+                <div class="trainer-card">
+                    <div class="trainer-photo">💪</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Mike Strong</h3>
+                    <p class="b-text-primary b-font-medium b-mb-2">Head Trainer</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">Weight Training & Nutrition</p>
+                </div>
+
+                <div class="trainer-card">
+                    <div class="trainer-photo" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">🧘</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Sarah Zen</h3>
+                    <p class="b-text-primary b-font-medium b-mb-2">Yoga Instructor</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">Yoga & Mindfulness</p>
+                </div>
+
+                <div class="trainer-card">
+                    <div class="trainer-photo" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">🏃</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Alex Speed</h3>
+                    <p class="b-text-primary b-font-medium b-mb-2">Cardio Specialist</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">HIIT & Running</p>
+                </div>
+
+                <div class="trainer-card">
+                    <div class="trainer-photo" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">🥊</div>
+                    <h3 class="b-text-xl b-font-bold b-mb-1 b-text-dark dark:b-text-light">Chris Fighter</h3>
+                    <p class="b-text-primary b-font-medium b-mb-2">Boxing Coach</p>
+                    <p class="b-text-sm b-text-gray-600 dark:b-text-gray-400">Boxing & Combat Sports</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="b-py-20 b-bg-gray-50 dark:b-bg-gray-800">
+        <div class="b-max-w-6xl b-mx-auto b-px-4">
+            <h2 class="b-text-5xl b-font-bold b-text-center b-mb-4 b-text-dark dark:b-text-light">Membership Plans</h2>
+            <p class="b-text-xl b-text-center b-text-gray-600 dark:b-text-gray-400 b-mb-12">Choose the perfect plan for your fitness goals</p>
+            
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-3 b-gap-8">
+                <div class="pricing-card">
+                    <div class="b-text-5xl b-mb-4">🥉</div>
+                    <h3 class="b-text-2xl b-font-bold b-mb-4 b-text-dark dark:b-text-light">Basic</h3>
+                    <div class="b-text-5xl b-font-bold b-text-primary b-mb-2">$29</div>
+                    <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-6">per month</p>
+                    <ul class="b-text-left b-mb-8 b-space-y-3">
+                        <li class="b-flex b-items-center b-gap-2">✅ Gym Access (6am-10pm)</li>
+                        <li class="b-flex b-items-center b-gap-2">✅ All Equipment</li>
+                        <li class="b-flex b-items-center b-gap-2">✅ Locker Room</li>
+                        <li class="b-flex b-items-center b-gap-2">❌ Group Classes</li>
+                        <li class="b-flex b-items-center b-gap-2">❌ Personal Training</li>
+                    </ul>
+                    <button class="b-bg-primary b-text-white b-px-8 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80 b-w-full">
+                        Get Started
+                    </button>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="b-text-5xl b-mb-4">🥈</div>
+                    <h3 class="b-text-2xl b-font-bold b-mb-4 b-text-dark dark:b-text-light">Premium</h3>
+                    <div class="b-text-5xl b-font-bold b-text-primary b-mb-2">$59</div>
+                    <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-6">per month</p>
+                    <ul class="b-text-left b-mb-8 b-space-y-3">
+                        <li class="b-flex b-items-center b-gap-2">✅ 24/7 Gym Access</li>
+                        <li class="b-flex b-items-center b-gap-2">✅ All Equipment</li>
+                        <li class="b-flex b-items-center b-gap-2">✅ Locker Room + Sauna</li>
+                        <li class="b-flex b-items-center b-gap-2">✅ All Group Classes</li>
+                        <li class="b-flex b-items-center b-gap-2">✅ 2 PT Sessions/month</li>
+                    </ul>
+                    <button class="b-bg-primary b-text-white b-px-8 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80 b-w-full">
+                        Most Popular
+                    </button>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="b-text-5xl b-mb-4">🥇</div>
+                    <h3 class="b-text-2xl b-font-bold b-mb-4 b-text-dark dark:b-text-light">Elite</h3>
+                    <div class="b-text-5xl b-font-bold b-text-primary b-mb-2">$99</div>
+                    <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-6">per month</p>
+                    <ul class="b-text-left b-mb-8 b-space-y-3">
+                        <li class="b-flex b-items-center b-gap-2">✅ 24/7 VIP Access</li>
+                        <li class="b-flex b-items-center b-gap-2">✅ All Equipment</li>
+                        <li class="b-flex b-items-center b-gap-2">✅ Premium Amenities</li>
+                        <li class="b-flex b-items-center b-gap-2">✅ Unlimited Classes</li>
+                        <li class="b-flex b-items-center b-gap-2">✅ 8 PT Sessions/month</li>
+                    </ul>
+                    <button class="b-bg-primary b-text-white b-px-8 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80 b-w-full">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="b-bg-dark b-text-white b-py-12">
+        <div class="b-max-w-6xl b-mx-auto b-px-4 b-text-center">
+            <div class="b-text-4xl b-mb-4">💪</div>
+            <p class="b-text-2xl b-font-bold b-mb-4">{{PROJECT_NAME}}</p>
+            <p class="b-text-gray-400 b-mb-6">Transform your life through fitness</p>
+            <div class="b-flex b-gap-6 b-justify-center b-mb-6">
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">Classes</a>
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">Trainers</a>
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">Pricing</a>
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">Contact</a>
+            </div>
+            <p class="b-text-sm b-text-gray-500">© 2024 {{PROJECT_NAME}}. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/blabs.js"></script>
+    <script>
+        B.darkMode.init();
+        const updateIcon = () => {
+            const icon = document.querySelector('.dark-mode-icon');
+            icon.textContent = B.darkMode.isEnabled() ? '☀️' : '🌙';
+        };
+        updateIcon();
+        document.body.addEventListener('click', (e) => {
+            if (e.target.closest('[onclick*="darkMode.toggle"]')) {
+                setTimeout(updateIcon, 100);
+            }
+        });
+        B.smoothScroll('a[href^="#"]');
+        B.scrollReveal('.class-card, .trainer-card, .pricing-card');
+    </script>
+</body>
+</html>

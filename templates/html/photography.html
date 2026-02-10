@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PROJECT_NAME}} - Photography Portfolio</title>
+    <link rel="stylesheet" href="css/blabs.css">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .hero-photo {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .photo-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            cursor: pointer;
+            aspect-ratio: 1;
+        }
+        .photo-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.7) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+        .photo-card:hover::before {
+            opacity: 1;
+        }
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            color: white;
+            z-index: 2;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .photo-card:hover .photo-overlay {
+            transform: translateY(0);
+        }
+        .photo-card.tall {
+            grid-row: span 2;
+        }
+        .photo-card.wide {
+            grid-column: span 2;
+        }
+        .category-badge {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .category-badge:hover,
+        .category-badge.active {
+            transform: scale(1.1);
+            box-shadow: 0 5px 20px rgba(240, 147, 251, 0.4);
+        }
+    </style>
+</head>
+<body class="b-bg-light dark:b-bg-dark b-text-dark dark:b-text-light">
+
+    <!-- Dark Mode Toggle -->
+    <button onclick="B.darkMode.toggle()" class="b-fixed b-top-4 b-right-4 b-bg-white dark:b-bg-gray-800 b-p-3 b-rounded-full b-shadow-lg b-cursor-pointer b-z-50 b-border-0">
+        <span class="dark-mode-icon">🌙</span>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="b-bg-white dark:b-bg-gray-800 b-shadow-md b-fixed b-w-full b-z-40">
+        <div class="b-max-w-6xl b-mx-auto b-px-4 b-py-4 b-flex b-items-center b-justify-between">
+            <div class="b-text-2xl b-font-bold b-text-primary">📸 {{PROJECT_NAME}}</div>
+            <div class="b-flex b-gap-6">
+                <a href="#home" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Home</a>
+                <a href="#gallery" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Gallery</a>
+                <a href="#about" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">About</a>
+                <a href="#contact" class="b-text-dark dark:b-text-light b-no-underline b-font-medium hover:b-text-primary">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-photo b-flex b-items-center b-justify-center b-text-white b-text-center" style="margin-top: 70px;">
+        <div class="b-max-w-4xl b-px-4">
+            <h1 class="b-text-6xl b-font-bold b-mb-6">Capturing Moments, Creating Memories</h1>
+            <p class="b-text-2xl b-mb-8 b-opacity-90">Professional photographer specializing in portraits, landscapes, and events</p>
+            <div class="b-flex b-gap-4 b-justify-center">
+                <a href="#gallery" class="b-bg-white b-text-primary b-px-8 b-py-4 b-rounded-full b-no-underline b-font-semibold b-transition hover:b-shadow-xl">View Portfolio</a>
+                <a href="#contact" class="b-bg-transparent b-border-2 b-border-white b-text-white b-px-8 b-py-4 b-rounded-full b-no-underline b-font-semibold b-transition hover:b-bg-white hover:b-text-primary">Book Session</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="b-py-20 b-bg-white dark:b-bg-gray-900">
+        <div class="b-max-w-6xl b-mx-auto b-px-4">
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-4 b-gap-8 b-text-center">
+                <div>
+                    <div class="b-text-5xl b-mb-2">📷</div>
+                    <div class="b-text-4xl b-font-bold b-text-primary b-mb-2">10K+</div>
+                    <p class="b-text-gray-600 dark:b-text-gray-400">Photos Taken</p>
+                </div>
+                <div>
+                    <div class="b-text-5xl b-mb-2">😊</div>
+                    <div class="b-text-4xl b-font-bold b-text-primary b-mb-2">500+</div>
+                    <p class="b-text-gray-600 dark:b-text-gray-400">Happy Clients</p>
+                </div>
+                <div>
+                    <div class="b-text-5xl b-mb-2">🏆</div>
+                    <div class="b-text-4xl b-font-bold b-text-primary b-mb-2">25</div>
+                    <p class="b-text-gray-600 dark:b-text-gray-400">Awards Won</p>
+                </div>
+                <div>
+                    <div class="b-text-5xl b-mb-2">📅</div>
+                    <div class="b-text-4xl b-font-bold b-text-primary b-mb-2">8+</div>
+                    <p class="b-text-gray-600 dark:b-text-gray-400">Years Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="b-py-20 b-bg-gray-50 dark:b-bg-gray-800">
+        <div class="b-max-w-7xl b-mx-auto b-px-4">
+            <h2 class="b-text-5xl b-font-bold b-text-center b-mb-4 b-text-dark dark:b-text-light">My Work</h2>
+            <p class="b-text-xl b-text-center b-text-gray-600 dark:b-text-gray-400 b-mb-8">Explore my photography collection</p>
+            
+            <!-- Categories -->
+            <div class="b-flex b-gap-4 b-justify-center b-mb-12 b-flex-wrap">
+                <button class="category-badge active" data-category="all">All</button>
+                <button class="category-badge" data-category="portrait">Portraits</button>
+                <button class="category-badge" data-category="landscape">Landscapes</button>
+                <button class="category-badge" data-category="wedding">Weddings</button>
+                <button class="category-badge" data-category="street">Street</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid">
+                <div class="photo-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);" data-category="portrait">
+                    <div class="b-h-full b-flex b-items-center b-justify-center b-text-white b-text-6xl">👨‍💼</div>
+                    <div class="photo-overlay">
+                        <h3 class="b-text-xl b-font-bold b-mb-1">Corporate Portrait</h3>
+                        <p class="b-text-sm b-opacity-90">Professional headshot session</p>
+                    </div>
+                </div>
+
+                <div class="photo-card wide" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);" data-category="landscape">
+                    <div class="b-h-full b-flex b-items-center b-justify-center b-text-white b-text-6xl">🏔️</div>
+                    <div class="photo-overlay">
+                        <h3 class="b-text-xl b-font-bold b-mb-1">Mountain Vista</h3>
+                        <p class="b-text-sm b-opacity-90">Sunrise in the Alps</p>
+                    </div>
+                </div>
+
+                <div class="photo-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);" data-category="wedding">
+                    <div class="b-h-full b-flex b-items-center b-justify-center b-text-white b-text-6xl">💑</div>
+                    <div class="photo-overlay">
+                        <h3 class="b-text-xl b-font-bold b-mb-1">Wedding Bliss</h3>
+                        <p class="b-text-sm b-opacity-90">Sarah & John, June 2024</p>
+                    </div>
+                </div>
+
+                <div class="photo-card tall" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);" data-category="portrait">
+                    <div class="b-h-full b-flex b-items-center b-justify-center b-text-white b-text-6xl">👩</div>
+                    <div class="photo-overlay">
+                        <h3 class="b-text-xl b-font-bold b-mb-1">Fashion Editorial</h3>
+                        <p class="b-text-sm b-opacity-90">Vogue magazine shoot</p>
+                    </div>
+                </div>
+
+                <div class="photo-card" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);" data-category="landscape">
+                    <div class="b-h-full b-flex b-items-center b-justify-center b-text-white b-text-6xl">🌅</div>
+                    <div class="photo-overlay">
+                        <h3 class="b-text-xl b-font-bold b-mb-1">Golden Hour</h3>
+                        <p class="b-text-sm b-opacity-90">Coastal sunset</p>
+                    </div>
+                </div>
+
+                <div class="photo-card" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);" data-category="street">
+                    <div class="b-h-full b-flex b-items-center b-justify-center b-text-white b-text-6xl">🏙️</div>
+                    <div class="photo-overlay">
+                        <h3 class="b-text-xl b-font-bold b-mb-1">Urban Life</h3>
+                        <p class="b-text-sm b-opacity-90">New York City streets</p>
+                    </div>
+                </div>
+
+                <div class="photo-card wide" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);" data-category="wedding">
+                    <div class="b-h-full b-flex b-items-center b-justify-center b-text-white b-text-6xl">💐</div>
+                    <div class="photo-overlay">
+                        <h3 class="b-text-xl b-font-bold b-mb-1">Wedding Details</h3>
+                        <p class="b-text-sm b-opacity-90">Floral arrangements</p>
+                    </div>
+                </div>
+
+                <div class="photo-card" style="background: linear-gradient(135deg, #ff6e7f 0%, #bfe9ff 100%);" data-category="portrait">
+                    <div class="b-h-full b-flex b-items-center b-justify-center b-text-white b-text-6xl">👶</div>
+                    <div class="photo-overlay">
+                        <h3 class="b-text-xl b-font-bold b-mb-1">Newborn Session</h3>
+                        <p class="b-text-sm b-opacity-90">Pure innocence</p>
+                    </div>
+                </div>
+
+                <div class="photo-card" style="background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);" data-category="landscape">
+                    <div class="b-h-full b-flex b-items-center b-justify-center b-text-white b-text-6xl">🌲</div>
+                    <div class="photo-overlay">
+                        <h3 class="b-text-xl b-font-bold b-mb-1">Forest Path</h3>
+                        <p class="b-text-sm b-opacity-90">Morning mist</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="b-text-center b-mt-12">
+                <button class="b-bg-primary b-text-white b-px-10 b-py-4 b-rounded-full b-border-0 b-cursor-pointer b-font-bold b-transition hover:b-opacity-80">
+                    Load More Photos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="b-py-20 b-bg-white dark:b-bg-gray-900">
+        <div class="b-max-w-4xl b-mx-auto b-px-4">
+            <div class="b-flex b-flex-col md:b-flex-row b-items-center b-gap-12">
+                <div class="b-flex-1">
+                    <div class="b-w-64 b-h-64 b-rounded-full b-bg-gradient-to-br b-from-purple-400 b-to-pink-500 b-flex b-items-center b-justify-center b-text-white b-text-9xl b-mx-auto">
+                        📸
+                    </div>
+                </div>
+                <div class="b-flex-1">
+                    <h2 class="b-text-4xl b-font-bold b-mb-4 b-text-dark dark:b-text-light">About Me</h2>
+                    <p class="b-text-lg b-text-gray-600 dark:b-text-gray-400 b-mb-4">
+                        Hi! I'm a passionate photographer with 8+ years of experience capturing life's most precious moments. 
+                        My focus is on creating authentic, emotional images that tell your unique story.
+                    </p>
+                    <p class="b-text-lg b-text-gray-600 dark:b-text-gray-400 b-mb-6">
+                        Whether it's a wedding, portrait session, or landscape photograph, I bring creativity, 
+                        professionalism, and attention to detail to every project.
+                    </p>
+                    <div class="b-flex b-gap-4">
+                        <div>
+                            <div class="b-text-2xl b-font-bold b-text-primary">500+</div>
+                            <div class="b-text-sm b-text-gray-600 dark:b-text-gray-400">Sessions</div>
+                        </div>
+                        <div>
+                            <div class="b-text-2xl b-font-bold b-text-primary">25</div>
+                            <div class="b-text-sm b-text-gray-600 dark:b-text-gray-400">Awards</div>
+                        </div>
+                        <div>
+                            <div class="b-text-2xl b-font-bold b-text-primary">100%</div>
+                            <div class="b-text-sm b-text-gray-600 dark:b-text-gray-400">Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="b-py-20 b-bg-gray-50 dark:b-bg-gray-800">
+        <div class="b-max-w-6xl b-mx-auto b-px-4">
+            <h2 class="b-text-5xl b-font-bold b-text-center b-mb-12 b-text-dark dark:b-text-light">Photography Services</h2>
+            
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-3 b-gap-8">
+                <div class="b-bg-white dark:b-bg-gray-700 b-rounded-2xl b-p-8 b-text-center b-transition hover:b-shadow-2xl">
+                    <div class="b-text-6xl b-mb-4">💑</div>
+                    <h3 class="b-text-2xl b-font-bold b-mb-3 b-text-dark dark:b-text-light">Weddings</h3>
+                    <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4">Capture your special day with beautiful, timeless photos</p>
+                    <div class="b-text-3xl b-font-bold b-text-primary b-mb-4">$1,500</div>
+                    <button class="b-bg-primary b-text-white b-px-8 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80">
+                        Learn More
+                    </button>
+                </div>
+
+                <div class="b-bg-white dark:b-bg-gray-700 b-rounded-2xl b-p-8 b-text-center b-transition hover:b-shadow-2xl">
+                    <div class="b-text-6xl b-mb-4">👨‍👩‍👧‍👦</div>
+                    <h3 class="b-text-2xl b-font-bold b-mb-3 b-text-dark dark:b-text-light">Portraits</h3>
+                    <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4">Professional portraits for individuals and families</p>
+                    <div class="b-text-3xl b-font-bold b-text-primary b-mb-4">$300</div>
+                    <button class="b-bg-primary b-text-white b-px-8 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80">
+                        Learn More
+                    </button>
+                </div>
+
+                <div class="b-bg-white dark:b-bg-gray-700 b-rounded-2xl b-p-8 b-text-center b-transition hover:b-shadow-2xl">
+                    <div class="b-text-6xl b-mb-4">🎉</div>
+                    <h3 class="b-text-2xl b-font-bold b-mb-3 b-text-dark dark:b-text-light">Events</h3>
+                    <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4">Corporate events, parties, and celebrations</p>
+                    <div class="b-text-3xl b-font-bold b-text-primary b-mb-4">$500</div>
+                    <button class="b-bg-primary b-text-white b-px-8 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="b-py-20 b-bg-white dark:b-bg-gray-900">
+        <div class="b-max-w-2xl b-mx-auto b-px-4">
+            <h2 class="b-text-5xl b-font-bold b-text-center b-mb-4 b-text-dark dark:b-text-light">Book a Session</h2>
+            <p class="b-text-xl b-text-center b-text-gray-600 dark:b-text-gray-400 b-mb-12">Let's create something beautiful together</p>
+            
+            <form class="b-flex b-flex-col b-gap-4">
+                <input type="text" placeholder="Your Name" class="b-p-4 b-rounded-lg b-border b-border-gray-300 dark:b-border-gray-600 dark:b-bg-gray-800" required>
+                <input type="email" placeholder="Email Address" class="b-p-4 b-rounded-lg b-border b-border-gray-300 dark:b-border-gray-600 dark:b-bg-gray-800" required>
+                <input type="tel" placeholder="Phone Number" class="b-p-4 b-rounded-lg b-border b-border-gray-300 dark:b-border-gray-600 dark:b-bg-gray-800">
+                <select class="b-p-4 b-rounded-lg b-border b-border-gray-300 dark:b-border-gray-600 dark:b-bg-gray-800" required>
+                    <option>Select Service</option>
+                    <option>Wedding Photography</option>
+                    <option>Portrait Session</option>
+                    <option>Event Coverage</option>
+                    <option>Other</option>
+                </select>
+                <textarea placeholder="Tell me about your vision..." rows="5" class="b-p-4 b-rounded-lg b-border b-border-gray-300 dark:b-border-gray-600 dark:b-bg-gray-800"></textarea>
+                <button type="submit" class="b-bg-primary b-text-white b-px-8 b-py-4 b-rounded-full b-border-0 b-cursor-pointer b-font-bold b-transition hover:b-opacity-80">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="b-bg-dark b-text-white b-py-12">
+        <div class="b-max-w-6xl b-mx-auto b-px-4 b-text-center">
+            <div class="b-text-4xl b-mb-4">📸</div>
+            <p class="b-text-2xl b-font-bold b-mb-4">{{PROJECT_NAME}}</p>
+            <p class="b-text-gray-400 b-mb-6">Professional Photography Services</p>
+            <div class="b-flex b-gap-6 b-justify-center b-mb-6">
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">Instagram</a>
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">Facebook</a>
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">Pinterest</a>
+                <a href="#" class="b-text-white b-no-underline hover:b-text-primary">500px</a>
+            </div>
+            <p class="b-text-sm b-text-gray-500">© 2024 {{PROJECT_NAME}}. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/blabs.js"></script>
+    <script>
+        B.darkMode.init();
+        const updateIcon = () => {
+            const icon = document.querySelector('.dark-mode-icon');
+            icon.textContent = B.darkMode.isEnabled() ? '☀️' : '🌙';
+        };
+        updateIcon();
+        document.body.addEventListener('click', (e) => {
+            if (e.target.closest('[onclick*="darkMode.toggle"]')) {
+                setTimeout(updateIcon, 100);
+            }
+        });
+        B.smoothScroll('a[href^="#"]');
+        B.scrollReveal('.photo-card');
+        
+        // Category filter
+        const badges = document.querySelectorAll('.category-badge');
+        const photos = document.querySelectorAll('.photo-card');
+        badges.forEach(badge => {
+            badge.addEventListener('click', () => {
+                const category = badge.dataset.category;
+                badges.forEach(b => b.classList.remove('active'));
+                badge.classList.add('active');
+                photos.forEach(photo => {
+                    if (category === 'all' || photo.dataset.category === category) {
+                        photo.style.display = 'block';
+                    } else {
+                        photo.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -45,11 +45,12 @@ The CLI will guide you through:
 ╔══════════════════════════════════╗
 ║  🚀 B-Labs v1.0.0                ║
 ║  Modern Frontend Toolkit         ║
+║  Make From Baran                 ║
 ╚══════════════════════════════════╝
 
 ✨ Let's build something amazing!
 
-? Project name: my-awesome-site
+? Project name: hello-world
 ? Project type: 📄 HTML - Classic HTML/CSS/JS
 ? Choose a template: 💎 SaaS - Professional landing page
 ? Enable dark mode support? Yes
