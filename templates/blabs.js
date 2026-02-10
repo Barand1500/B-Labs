@@ -747,6 +747,346 @@
           });
         });
       }
+    },
+
+    /**
+     * ==========================================
+     * UTILITY HELPERS (NEW)
+     * ==========================================
+     */
+
+    /**
+     * Copy to Clipboard - Copy text to clipboard
+     * @param {string} text - Text to copy
+     * @returns {Promise} Promise that resolves when copied
+     * 
+     * @example
+     * B.copyToClipboard('Hello World').then(() => alert('Copied!'))
+     */
+    async copyToClipboard(text) {
+      try {
+        await navigator.clipboard.writeText(text);
+        return true;
+      } catch (err) {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = '0';
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        return true;
+      }
+    },
+
+    /**
+     * Local Storage Helper - Get/Set/Remove localStorage with JSON support
+     */
+    storage: {
+      get(key) {
+        const item = localStorage.getItem(key);
+        try {
+          return JSON.parse(item);
+        } catch {
+          return item;
+        }
+      },
+      
+      set(key, value) {
+        const item = typeof value === 'object' ? JSON.stringify(value) : value;
+        localStorage.setItem(key, item);
+      },
+      
+      remove(key) {
+        localStorage.removeItem(key);
+      },
+      
+      clear() {
+        localStorage.clear();
+      }
+    },
+
+    /**
+     * Countdown Timer - Create countdown timer
+     * @param {Date|string} targetDate - Target date
+     * @param {Function} callback - Callback with time remaining
+     * 
+     * @example
+     * B.countdown('2025-12-31', (time) => {
+     *   console.log(`${time.days} days, ${time.hours} hours left`)
+     * })
+     */
+    countdown(targetDate, callback) {
+      const target = new Date(targetDate).getTime();
+      
+      const update = () => {
+        const now = new Date().getTime();
+        const distance = target - now;
+        
+        if (distance < 0) {
+          clearInterval(interval);
+          callback({ days: 0, hours: 0, minutes: 0, seconds: 0, expired: true });
+          return;
+        }
+        
+        const time = {
+          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((distance % (1000 * 60)) / 1000),
+          expired: false
+        };
+        
+        callback(time);
+      };
+      
+      update();
+      const interval = setInterval(update, 1000);
+      return () => clearInterval(interval);
+    },
+
+    /**
+     * Format Date - Format date to readable string
+     * @param {Date|string} date - Date to format
+     * @param {string} format - Format string (default: 'YYYY-MM-DD')
+     * 
+     * @example
+     * B.formatDate(new Date(), 'DD/MM/YYYY')
+     */
+    formatDate(date, format = 'YYYY-MM-DD') {
+      const d = new Date(date);
+      const map = {
+        YYYY: d.getFullYear(),
+        MM: String(d.getMonth() + 1).padStart(2, '0'),
+        DD: String(d.getDate()).padStart(2, '0'),
+        HH: String(d.getHours()).padStart(2, '0'),
+        mm: String(d.getMinutes()).padStart(2, '0'),
+        ss: String(d.getSeconds()).padStart(2, '0')
+      };
+      
+      return format.replace(/YYYY|MM|DD|HH|mm|ss/g, matched => map[matched]);
+    },
+
+    /**
+     * Create Observer - Create intersection observer easily
+     * @param {string} selector - Elements to observe
+     * @param {Function} callback - Callback when element in view
+     * @param {Object} options - Observer options
+     * 
+     * @example
+     * B.observe('.animate-on-scroll', (element, isVisible) => {
+     *   if (isVisible) element.classList.add('visible')
+     * })
+     */
+    observe(selector, callback, options = {}) {
+      const defaults = {
+        threshold: 0.1,
+        rootMargin: '0px'
+      };
+      
+      const settings = { ...defaults, ...options };
+      const elements = document.querySelectorAll(selector);
+      
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            callback(entry.target, entry.isIntersecting);
+          });
+        }, settings);
+        
+        elements.forEach(el => observer.observe(el));
+        return observer;
+      }
+    },
+
+    /**
+     * Slugify - Convert string to URL-friendly slug
+     * @param {string} text - Text to slugify
+     * 
+     * @example
+     * B.slugify('Hello World!') // 'hello-world'
+     */
+    slugify(text) {
+      return text
+        .toString()
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w\-]+/g, '')
+        .replace(/\-\-+/g, '-')
+        .replace(/^-+/, '')
+        .replace(/-+$/, '');
+    },
+
+    /**
+     * Generate Random ID - Generate unique ID
+     * @param {number} length - ID length (default: 8)
+     * 
+     * @example
+     * const id = B.randomId() // 'x7k9p2m4'
+     */
+    randomId(length = 8) {
+      return Math.random().toString(36).substring(2, 2 + length);
+    },
+
+    /**
+     * Capitalize - Capitalize first letter of string
+     * @param {string} str - String to capitalize
+     * 
+     * @example
+     * B.capitalize('hello') // 'Hello'
+     */
+    capitalize(str) {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    },
+
+    /**
+     * Parse Query String - Parse URL query parameters
+     * @param {string} url - URL to parse (optional, defaults to current URL)
+     * 
+     * @example
+     * B.parseQuery('?name=John&age=30') // { name: 'John', age: '30' }
+     */
+    parseQuery(url = window.location.search) {
+      return Object.fromEntries(new URLSearchParams(url));
+    },
+
+    /**
+     * Build Query String - Build query string from object
+     * @param {Object} params - Parameters object
+     * 
+     * @example
+     * B.buildQuery({ name: 'John', age: 30 }) // 'name=John&age=30'
+     */
+    buildQuery(params) {
+      return new URLSearchParams(params).toString();
+    },
+
+    /**
+     * Scroll To - Scroll to element or position
+     * @param {string|number} target - Element selector or Y position
+     * @param {Object} options - Scroll options
+     * 
+     * @example
+     * B.scrollTo('#section')
+     * B.scrollTo(500, { behavior: 'smooth' })
+     */
+    scrollTo(target, options = {}) {
+      const defaults = {
+        behavior: 'smooth',
+        offset: 0
+      };
+      
+      const settings = { ...defaults, ...options };
+      
+      if (typeof target === 'number') {
+        window.scrollTo({
+          top: target,
+          behavior: settings.behavior
+        });
+      } else {
+        const element = document.querySelector(target);
+        if (element) {
+          const y = element.offsetTop - settings.offset;
+          window.scrollTo({
+            top: y,
+            behavior: settings.behavior
+          });
+        }
+      }
+    },
+
+    /**
+     * Detect Device - Detect mobile/tablet/desktop
+     * 
+     * @example
+     * if (B.isMobile()) { ... }
+     */
+    isMobile() {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    },
+
+    isTablet() {
+      return /iPad|Android/i.test(navigator.userAgent) && window.innerWidth >= 768;
+    },
+
+    isDesktop() {
+      return !this.isMobile() && !this.isTablet();
+    },
+
+    /**
+     * Wait - Promise-based setTimeout
+     * @param {number} ms - Milliseconds to wait
+     * 
+     * @example
+     * await B.wait(1000) // Wait 1 second
+     */
+    wait(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    },
+
+    /**
+     * Once - Run function only once
+     * @param {Function} func - Function to run once
+     * 
+     * @example
+     * const initOnce = B.once(() => console.log('Init!'))
+     * initOnce() // 'Init!'
+     * initOnce() // nothing
+     */
+    once(func) {
+      let called = false;
+      return function(...args) {
+        if (!called) {
+          called = true;
+          return func.apply(this, args);
+        }
+      };
+    },
+
+    /**
+     * Chain - Method chaining helper
+     * @param {Element} element - Element to chain
+     * 
+     * @example
+     * B.chain(element)
+     *   .addClass('active')
+     *   .setStyle('color', 'red')
+     *   .on('click', handler)
+     */
+    chain(element) {
+      return {
+        el: element,
+        addClass(className) {
+          this.el.classList.add(className);
+          return this;
+        },
+        removeClass(className) {
+          this.el.classList.remove(className);
+          return this;
+        },
+        toggleClass(className) {
+          this.el.classList.toggle(className);
+          return this;
+        },
+        setStyle(prop, value) {
+          this.el.style[prop] = value;
+          return this;
+        },
+        on(event, handler) {
+          this.el.addEventListener(event, handler);
+          return this;
+        },
+        off(event, handler) {
+          this.el.removeEventListener(event, handler);
+          return this;
+        },
+        get() {
+          return this.el;
+        }
+      };
     }
   };
 

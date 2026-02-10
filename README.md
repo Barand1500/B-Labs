@@ -124,16 +124,26 @@ Choose from **17+ professionally designed templates:**
 my-project/
 ├── index.html              # Your main HTML file
 ├── css/
-│   ├── blabs.css          # Auto-generated utility CSS (640+ lines!)
+│   ├── blabs.css          # Auto-generated utility CSS (750+ classes!)
 │   └── main.css           # Your custom styles
 ├── js/
-│   ├── blabs.js           # Helper library (20+ functions)
+│   ├── blabs.js           # Helper library (40+ functions)
 │   └── main.js            # Your JavaScript code
+├── .vscode/
+│   └── blabs.code-snippets # VS Code snippets (b-card, b-button, etc)
 ├── images/                # Image assets (optional)
 ├── fonts/                 # Font files (optional)
+├── dev-server.js          # Simple dev server with live reload
+├── BLABS-GUIDE.md         # Quick reference guide (can be deleted)
 ├── blabs.config.js        # Configuration file
 └── README.md              # Project documentation
 ```
+
+**New in your project:**
+- 📘 **BLABS-GUIDE.md** - Complete reference guide showing all features
+- ⚡ **dev-server.js** - Simple HTTP server with live reload
+- 🎨 **VS Code Snippets** - Type `b-card` and press Tab!
+- ✨ All files you need to start building immediately
 
 ### React Project
 
@@ -154,15 +164,21 @@ my-project/
 
 ## 🎨 CSS Utility Classes
 
-B-Labs generates **640+ utility classes** inspired by Tailwind CSS:
+B-Labs generates **750+ utility classes** inspired by Tailwind CSS:
 
-### Colors
+### Colors & Gradients
 ```css
 .b-text-primary    .b-bg-primary    .b-border-primary
 .b-text-secondary  .b-bg-secondary  .b-border-secondary
 .b-text-success    .b-bg-success    .b-border-success
 .b-text-danger     .b-bg-danger     .b-border-danger
 .b-text-warning    .b-bg-warning    .b-border-warning
+
+/* NEW: Gradient Backgrounds */
+.b-bg-gradient-to-r   /* Left to right */
+.b-bg-gradient-to-b   /* Top to bottom */
+.b-from-purple-500    /* Gradient start color */
+.b-to-pink-500        /* Gradient end color */
 ```
 
 ### Spacing
@@ -173,12 +189,21 @@ B-Labs generates **640+ utility classes** inspired by Tailwind CSS:
 .b-my-8    /* margin-top & bottom: 2rem */
 ```
 
-### Layout
+### Layout & Grid
 ```css
 .b-flex            .b-grid
 .b-flex-col        .b-grid-cols-3
 .b-items-center    .b-gap-4
 .b-justify-between .b-w-full
+
+/* NEW: Grid Utilities */
+.b-grid-cols-1       /* 1 column grid */
+.b-grid-cols-2       /* 2 column grid */
+.b-grid-cols-3       /* 3 column grid */
+.b-grid-cols-4       /* 4 column grid */
+.b-grid-cols-auto-fit /* Auto-fit columns */
+.md:b-grid-cols-2    /* Responsive grid */
+.lg:b-grid-cols-4    /* Large screen grid */
 ```
 
 ### Typography
@@ -186,34 +211,19 @@ B-Labs generates **640+ utility classes** inspired by Tailwind CSS:
 .b-text-xs    .b-text-sm    .b-text-lg
 .b-text-2xl   .b-text-4xl   .b-text-6xl
 .b-font-bold  .b-font-semibold
+.b-no-underline  .b-line-clamp-2
 ```
 
-### Effects
+### Effects & Transform
 ```css
 .b-shadow      .b-shadow-lg    .b-shadow-xl
 .b-rounded     .b-rounded-lg   .b-rounded-full
 .b-opacity-50  .b-opacity-75   .b-opacity-100
-```
 
-### Animations
-```css
-.b-animate-fade-in      .b-animate-slide-in-up
-.b-animate-scale-in     .b-animate-bounce
-.b-transition           .b-hover-opacity
-```
-
-### Responsive
-```css
-.md:b-flex          /* flex on medium screens+ */
-.lg:b-grid-cols-3   /* 3 columns on large screens+ */
-.b-hidden md:b-block /* hidden on mobile, visible on desktop */
-```
-
----
-
-## 💻 JavaScript Helpers
-
-B-Labs includes **20+ utility functions**:
+/* NEW: Transform & Effects */
+.b-transform              /* Enable transforms */
+.b--translate-y-2        /* Move up */
+.b-scale-105      40+ utility functions**:
 
 ### DOM Manipulation
 ```javascript
@@ -223,8 +233,8 @@ B.ready(() => {
 });
 
 // Query elements
-B.q('.my-class')    // querySelector
-B.qa('.my-class')   // querySelectorAll
+const el = B.$('.my-class');        // querySelector
+const els = B.$('.my-class', true); // querySelectorAll
 
 // Toggle visibility
 B.toggle('.menu-button', '.menu');
@@ -251,6 +261,10 @@ const isDark = B.darkMode.isEnabled();
 // Smooth scroll
 B.smoothScroll('a[href^="#"]', 80);
 
+// Scroll to element or position
+B.scrollTo('#section', { offset: 80 });
+B.scrollTo(500); // Scroll to 500px
+
 // Lazy load images
 B.lazyImages();
 
@@ -265,28 +279,122 @@ B.animate('.element', 'slideInUp', {
   duration: 1000,
   delay: 200
 });
+
+// Observe elements (intersection observer)
+B.observe('.animate-me', (el, isVisible) => {
+  if (isVisible) el.classList.add('visible');
+});
 ```
 
 ### Components
 ```javascript
 // Modal
-B.components.modal({
+const modal = B.components.modal({
   title: 'Welcome!',
   content: '<p>Hello World</p>',
+  onConfirm: () => console.log('confirmed'),
   onClose: () => console.log('closed')
 });
 
 // Toast notification
-B.components.toast('Success!', {
-  type: 'success',
-  duration: 3000
-});
+B.components.toast('Success!', { type: 'success', duration: 3000 });
+B.components.toast('Error!', { type: 'danger' });
+B.components.toast('Warning!', { type: 'warning' });
 
 // Dropdown, Tabs, Accordion
 B.components.dropdown('.dropdown-trigger', '.dropdown-menu');
 B.components.tabs('.tabs-container');
 B.components.accordion('.accordion');
 ```
+
+### AJAX & HTTP
+```javascript
+// Fetch data
+B.ajax('/api/data', { method: 'GET' })
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+
+// POST request
+B.ajax('/api/users', {
+  method: 'POST',
+  body: JSON.stringify({ name: 'John', email: 'john@example.com' })
+});
+```
+
+### Utilities
+```javascript
+// Debounce & Throttle (performance)
+const debouncedSearch = B.debounce(search, 300);
+const throttledScroll = B.throttle(handleScroll, 100);
+
+// Copy to clipboard
+await B.copyToClipboard('Hello World');
+B.components.toast('Copied!', { type: 'success' });
+
+// Local Storage with JSON support
+B.storage.set('user', { name: 'John', age: 30 });
+const user = B.storage.get('user'); // Returns object
+B.storage.remove('user');
+B.storage.clear();
+
+// Countdown timer
+B.countdown('2025-12-31', (time) => {
+  console.log(`${time.days} days, ${time.hours}h ${time.minutes}m left`);
+});
+
+// Format date
+B.formatDate(new Date(), 'DD/MM/YYYY'); // '10/02/2025'
+B.formatDate(new Date(), 'YYYY-MM-DD HH:mm'); // '2025-02-10 14:30'
+
+// String utilities
+B.slugify('Hello World!');  // 'hello-world'
+B.capitalize('hello');       // 'Hello'
+B.truncate('Long text...', 10); // 'Long te...'
+B.randomId(8);              // 'x7k9p2m4'
+
+// URL helpers
+B.parseQuery('?name=John&age=30'); // { name: 'John', age: '30' }
+B.buildQuery({ name: 'John', age: 30 }); // 'name=John&age=30'
+
+// Device detection
+if (B.isMobile()) { /* mobile code */ }
+if (B.isTablet()) { /* tablet code */ }
+if (B.isDesktop()) { /* desktop code */ }
+
+// Check viewport
+if (B.isInViewport(element)) {
+  // Element is visible
+}
+
+// Async wait
+await B.wait(1000); // Wait 1 second
+
+// Run function only once
+const initOnce = B.once(() => console.log('Init!'));
+initOnce(); // 'Init!'
+initOnce(); // nothing happens
+
+// Method chaining
+B.chain(element)
+  .addClass('active')
+  .setStyle('color', 'red')
+  .on('click', handler)
+  .get();
+
+// Array & Number helpers
+B.random(1, 100);        // Random number between 1-100
+B.shuffle([1, 2, 3, 4]); // Shuffled array
+B.formatNumber(1234567); // '1,234,567'
+
+// Cookies
+B.setCookie('theme', 'dark', 7);
+const theme = B.getCookie('theme');
+B.deleteCookie('theme');
+
+// Email validation
+if (B.isEmail('test@example.com')) {
+  // Valid email
+}
 
 ### AJAX
 ```javascript
@@ -302,18 +410,67 @@ B.post('https://api.example.com/users', {
 ```
 
 ### Utilities
-```javascript
-// Debounce & Throttle
-const debouncedSearch = B.debounce(search, 300);
-const throttledScroll = B.throttle(handleScroll, 100);
+``Show version
+blabs --version
 
-// Check viewport
-if (B.isInViewport(element)) {
-  // Do something
-}
+# Show help
+blabs --help
+```
 
-// Copy to clipboard
-B.copyToClipboard('Hello World');
+### 🚀 Development Server
+
+Every project includes a simple dev server with live reload:
+
+```bash
+# Navigate to your project
+cd my-project
+
+# Start dev server (port 3000)
+node dev-server.js
+
+# Or specify custom port
+PORT=8080 node dev-server.js
+```
+
+**Features:**
+- ✅ Live reload on file changes
+- ✅ Watches HTML, CSS, JS files
+- ✅ Auto-injects reload script
+- ✅ Zero configuration needed
+
+### 🎨 VS Code Snippets
+
+Type these in HTML files and press TAB:
+
+```
+b-card       → Card component with image and button
+b-button     → Styled button
+b-hero       → Hero section with CTA buttons
+b-nav        → Navigation bar
+b-form       → Form with inputs and submit button
+b-grid       → Responsive grid layout
+b-flex       → Flex container
+b-modal      → Modal trigger with script
+b-toast      → Toast notification
+b-dark-toggle → Dark mode toggle button
+b-container  → Container with max-width
+b-section    → Section with title
+b-reveal     → Scroll reveal animation
+b-smooth     → Smooth scroll
+```
+
+### 📖 Quick Reference Guide
+
+Every project includes `BLABS-GUIDE.md` with:
+- ✅ All CSS utility classes explained
+- ✅ JavaScript helper functions guide
+- ✅ Component examples (modal, toast, dropdown)
+- ✅ Dark mode setup guide
+- ✅ Practical code snippets
+- ✅ Responsive design patterns
+- ✅ Animation examples
+
+**You can delete it anytime** - it's just for reference!opyToClipboard('Hello World');
 ```
 
 ---

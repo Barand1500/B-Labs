@@ -1,0 +1,205 @@
+{
+  "B-Labs Card Component": {
+    "prefix": "b-card",
+    "body": [
+      "<div class=\"b-bg-white dark:b-bg-gray-800 b-rounded-xl b-shadow-lg b-p-6 b-transition hover:b-shadow-2xl hover:-b-translate-y-2\">",
+      "  <h3 class=\"b-text-2xl b-font-bold b-mb-3 b-text-dark dark:b-text-light\">${1:Card Title}</h3>",
+      "  <p class=\"b-text-gray-600 dark:b-text-gray-400 b-mb-4\">${2:Card description goes here}</p>",
+      "  <button class=\"b-bg-primary b-text-white b-px-6 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-transition hover:b-opacity-80\">",
+      "    ${3:Button Text}",
+      "  </button>",
+      "</div>"
+    ],
+    "description": "B-Labs Card Component with dark mode"
+  },
+  
+  "B-Labs Button": {
+    "prefix": "b-button",
+    "body": [
+      "<button class=\"b-bg-primary b-text-white b-px-8 b-py-4 b-rounded-full b-border-0 b-cursor-pointer b-font-bold b-transition hover:b-opacity-80\">",
+      "  ${1:Button Text}",
+      "</button>"
+    ],
+    "description": "B-Labs styled button"
+  },
+  
+  "B-Labs Hero Section": {
+    "prefix": "b-hero",
+    "body": [
+      "<section class=\"b-min-h-screen b-flex b-items-center b-justify-center b-bg-gradient-to-r b-from-purple-500 b-to-pink-500 b-text-white b-text-center\">",
+      "  <div class=\"b-max-w-4xl b-px-4\">",
+      "    <h1 class=\"b-text-6xl b-font-bold b-mb-6\">${1:Hero Title}</h1>",
+      "    <p class=\"b-text-2xl b-mb-8 b-opacity-90\">${2:Hero subtitle}</p>",
+      "    <div class=\"b-flex b-gap-4 b-justify-center\">",
+      "      <a href=\"#\" class=\"b-bg-white b-text-primary b-px-8 b-py-4 b-rounded-full b-no-underline b-font-semibold\">",
+      "        ${3:Primary Button}",
+      "      </a>",
+      "      <a href=\"#\" class=\"b-border-2 b-border-white b-text-white b-px-8 b-py-4 b-rounded-full b-no-underline b-font-semibold\">",
+      "        ${4:Secondary Button}",
+      "      </a>",
+      "    </div>",
+      "  </div>",
+      "</section>"
+    ],
+    "description": "B-Labs Hero Section with gradient"
+  },
+  
+  "B-Labs Navigation": {
+    "prefix": "b-nav",
+    "body": [
+      "<nav class=\"b-bg-white dark:b-bg-gray-800 b-shadow-md b-fixed b-w-full b-z-50\">",
+      "  <div class=\"b-max-w-6xl b-mx-auto b-px-4 b-py-4 b-flex b-items-center b-justify-between\">",
+      "    <div class=\"b-text-2xl b-font-bold b-text-primary\">${1:Logo}</div>",
+      "    <div class=\"b-flex b-gap-6\">",
+      "      <a href=\"#\" class=\"b-text-dark dark:b-text-light b-no-underline hover:b-text-primary\">${2:Home}</a>",
+      "      <a href=\"#\" class=\"b-text-dark dark:b-text-light b-no-underline hover:b-text-primary\">${3:About}</a>",
+      "      <a href=\"#\" class=\"b-text-dark dark:b-text-light b-no-underline hover:b-text-primary\">${4:Contact}</a>",
+      "    </div>",
+      "  </div>",
+      "</nav>"
+    ],
+    "description": "B-Labs Navigation Bar"
+  },
+  
+  "B-Labs Grid Layout": {
+    "prefix": "b-grid",
+    "body": [
+      "<div class=\"b-grid b-grid-cols-1 md:b-grid-cols-2 lg:b-grid-cols-${1:3} b-gap-${2:6}\">",
+      "  <div>$3</div>",
+      "  <div>$4</div>",
+      "  <div>$5</div>",
+      "</div>"
+    ],
+    "description": "B-Labs Responsive Grid"
+  },
+  
+  "B-Labs Flex Layout": {
+    "prefix": "b-flex",
+    "body": [
+      "<div class=\"b-flex b-items-${1:center} b-justify-${2:between} b-gap-${3:4}\">",
+      "  <div>$4</div>",
+      "  <div>$5</div>",
+      "</div>"
+    ],
+    "description": "B-Labs Flex Container"
+  },
+  
+  "B-Labs Form": {
+    "prefix": "b-form",
+    "body": [
+      "<form class=\"b-flex b-flex-col b-gap-4 b-max-w-md b-mx-auto\">",
+      "  <input type=\"text\" ",
+      "         placeholder=\"${1:Name}\" ",
+      "         class=\"b-p-4 b-rounded-lg b-border b-border-gray-300 dark:b-border-gray-600 dark:b-bg-gray-800\">",
+      "  ",
+      "  <input type=\"email\" ",
+      "         placeholder=\"${2:Email}\" ",
+      "         class=\"b-p-4 b-rounded-lg b-border b-border-gray-300 dark:b-border-gray-600 dark:b-bg-gray-800\">",
+      "  ",
+      "  <textarea placeholder=\"${3:Message}\" ",
+      "            rows=\"5\" ",
+      "            class=\"b-p-4 b-rounded-lg b-border b-border-gray-300 dark:b-border-gray-600 dark:b-bg-gray-800\"></textarea>",
+      "  ",
+      "  <button type=\"submit\" ",
+      "          class=\"b-bg-primary b-text-white b-px-8 b-py-4 b-rounded-full b-border-0 b-cursor-pointer b-font-bold b-transition hover:b-opacity-80\">",
+      "    ${4:Submit}",
+      "  </button>",
+      "</form>"
+    ],
+    "description": "B-Labs Form with styling"
+  },
+  
+  "B-Labs Dark Mode Toggle": {
+    "prefix": "b-dark-toggle",
+    "body": [
+      "<button onclick=\"B.darkMode.toggle()\" ",
+      "        class=\"b-fixed b-top-4 b-right-4 b-bg-white dark:b-bg-gray-800 b-p-3 b-rounded-full b-shadow-lg b-cursor-pointer b-z-50 b-border-0\">",
+      "  <span class=\"dark-mode-icon\">🌙</span>",
+      "</button>",
+      "",
+      "<script>",
+      "  B.darkMode.init();",
+      "  const updateIcon = () => {",
+      "    const icon = document.querySelector('.dark-mode-icon');",
+      "    icon.textContent = B.darkMode.isEnabled() ? '☀️' : '🌙';",
+      "  };",
+      "  updateIcon();",
+      "  document.body.addEventListener('click', (e) => {",
+      "    if (e.target.closest('[onclick*=\"darkMode.toggle\"]')) {",
+      "      setTimeout(updateIcon, 100);",
+      "    }",
+      "  });",
+      "</script>"
+    ],
+    "description": "B-Labs Dark Mode Toggle Button"
+  },
+  
+  "B-Labs Container": {
+    "prefix": "b-container",
+    "body": [
+      "<div class=\"b-max-w-${1:6xl} b-mx-auto b-px-4 b-py-${2:12}\">",
+      "  $3",
+      "</div>"
+    ],
+    "description": "B-Labs Container with max-width"
+  },
+  
+  "B-Labs Section": {
+    "prefix": "b-section",
+    "body": [
+      "<section class=\"b-py-20 b-bg-${1:white} dark:b-bg-${2:gray-900}\">",
+      "  <div class=\"b-max-w-6xl b-mx-auto b-px-4\">",
+      "    <h2 class=\"b-text-5xl b-font-bold b-text-center b-mb-12 b-text-dark dark:b-text-light\">",
+      "      ${3:Section Title}",
+      "    </h2>",
+      "    $4",
+      "  </div>",
+      "</section>"
+    ],
+    "description": "B-Labs Section with heading"
+  },
+  
+  "B-Labs Modal Trigger": {
+    "prefix": "b-modal",
+    "body": [
+      "<button id=\"open-modal-${1:1}\" class=\"b-bg-primary b-text-white b-px-6 b-py-3 b-rounded-full\">",
+      "  ${2:Open Modal}",
+      "</button>",
+      "",
+      "<script>",
+      "  const modal${1:1} = B.components.modal({",
+      "    title: '${3:Modal Title}',",
+      "    content: '<p>${4:Modal content goes here}</p>',",
+      "    onClose: () => console.log('Modal closed')",
+      "  });",
+      "  ",
+      "  document.querySelector('#open-modal-${1:1}').onclick = () => modal${1:1}.show();",
+      "</script>"
+    ],
+    "description": "B-Labs Modal Component"
+  },
+  
+  "B-Labs Toast Notification": {
+    "prefix": "b-toast",
+    "body": [
+      "B.components.toast('${1:Message}', '${2|success,error,info,warning|}');"
+    ],
+    "description": "B-Labs Toast Notification"
+  },
+  
+  "B-Labs Scroll Reveal": {
+    "prefix": "b-reveal",
+    "body": [
+      "B.scrollReveal('${1:.animate-class}');"
+    ],
+    "description": "B-Labs Scroll Reveal Animation"
+  },
+  
+  "B-Labs Smooth Scroll": {
+    "prefix": "b-smooth",
+    "body": [
+      "B.smoothScroll('${1:a[href^=\"#\"]}');"
+    ],
+    "description": "B-Labs Smooth Scroll"
+  }
+}

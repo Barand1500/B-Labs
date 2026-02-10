@@ -50,6 +50,26 @@ async function generateHTMLProject(projectPath, options) {
     path.join(projectPath, 'js', 'blabs.js')
   );
 
+  // Copy BLABS-GUIDE.md (kullanıcı rehberi)
+  const guideTemplate = path.join(templatesDir, 'BLABS-GUIDE.md');
+  if (await fs.pathExists(guideTemplate)) {
+    let guideContent = await fs.readFile(guideTemplate, 'utf-8');
+    guideContent = guideContent.replace(/\{\{PROJECT_NAME\}\}/g, projectName || 'My Project');
+    await fs.writeFile(path.join(projectPath, 'BLABS-GUIDE.md'), guideContent);
+  }
+
+  // Copy VS Code snippets (.vscode klasörü)
+  const vscodeSnippets = path.join(templatesDir, '.vscode');
+  if (await fs.pathExists(vscodeSnippets)) {
+    await fs.copy(vscodeSnippets, path.join(projectPath, '.vscode'));
+  }
+
+  // Copy dev-server.js if exists
+  const devServerPath = path.join(templatesDir, 'dev-server.js');
+  if (await fs.pathExists(devServerPath)) {
+    await fs.copy(devServerPath, path.join(projectPath, 'dev-server.js'));
+  }
+
   // Create main.js with dark mode support
   const mainJS = `// Your custom JavaScript
 
