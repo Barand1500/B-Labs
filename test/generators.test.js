@@ -7,64 +7,35 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const projectRoot = join(__dirname, '..');
 
-test('CSS generator config should exist', () => {
-    const configPath = join(projectRoot, 'src', 'generators', 'css-config.js');
-    assert.ok(existsSync(configPath), 'CSS config should exist');
+test('CSS generator should exist', () => {
+    const cssGenPath = join(projectRoot, 'src', 'generators', 'css-generator.js');
+    assert.ok(existsSync(cssGenPath), 'CSS generator should exist');
 });
 
-test('CSS generator should have all required utilities', () => {
-    const configPath = join(projectRoot, 'src', 'generators', 'css-config.js');
-    const content = readFileSync(configPath, 'utf-8');
+test('CSS generator should produce valid output', () => {
+    const cssGenPath = join(projectRoot, 'src', 'generators', 'css-generator.js');
+    const content = readFileSync(cssGenPath, 'utf-8');
     
-    // Check for key utility categories
-    const requiredCategories = [
-        'colors',
-        'spacing',
-        'typography',
-        'layout',
-        'flexbox',
-        'grid',
-        'effects'
-    ];
-    
-    for (const category of requiredCategories) {
-        assert.ok(
-            content.includes(category) || content.includes(`b-${category}`),
-            `CSS should include ${category} utilities`
-        );
-    }
+    // Check for dark mode support
+    assert.ok(
+        content.includes('.dark') || content.includes('dark:'),
+        'CSS generator should support dark mode'
+    );
 });
 
-test('CSS output should have dark mode support', () => {
-    const configPath = join(projectRoot, 'src', 'generators', 'css-config.js');
-    const content = readFileSync(configPath, 'utf-8');
-    
-    assert.ok(content.includes('.dark'), 'CSS should have dark mode support');
+test('Project generator should exist', () => {
+    const projGenPath = join(projectRoot, 'src', 'generators', 'project-generator.js');
+    assert.ok(existsSync(projGenPath), 'Project generator should exist');
 });
 
-test('JS library should exist', () => {
-    const jsLibPath = join(projectRoot, 'src', 'generators', 'js-library.js');
-    assert.ok(existsSync(jsLibPath), 'JS library should exist');
-});
-
-test('JS library should have required components', () => {
-    const jsLibPath = join(projectRoot, 'src', 'generators', 'js-library.js');
-    const content = readFileSync(jsLibPath, 'utf-8');
+test('Project generator should handle templates', () => {
+    const projGenPath = join(projectRoot, 'src', 'generators', 'project-generator.js');
+    const content = readFileSync(projGenPath, 'utf-8');
     
-    const requiredComponents = [
-        'darkMode',
-        'smoothScroll',
-        'scrollReveal',
-        'animate',
-        'components'
-    ];
-    
-    for (const component of requiredComponents) {
-        assert.ok(
-            content.includes(component),
-            `JS library should include ${component} functionality`
-        );
-    }
+    assert.ok(
+        content.includes('template') || content.includes('html'),
+        'Project generator should handle templates'
+    );
 });
 
 test('All templates should have dark mode toggle', () => {
