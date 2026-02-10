@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SaaS Platform - {{PROJECT_NAME}}</title>
+  <link rel="stylesheet" href="css/blabs.css">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .gradient-purple { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .gradient-blue { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+    .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3); }
+    .hover-scale { transition: transform 0.3s ease; }
+    .hover-scale:hover { transform: scale(1.05); }
+  </style>
+</head>
+<body class="b-bg-light">
+  <!-- Dark Mode Toggle -->
+  <button id="darkModeToggle" class="b-fixed b-top-4 b-right-4 b-bg-dark b-text-white b-px-4 b-py-2 b-rounded-lg b-cursor-pointer b-z-50 b-transition b-hover-opacity b-shadow-lg">
+    🌙 Dark Mode
+  </button>
+
+  <!-- Hero Section -->
+  <section class="gradient-purple b-text-white b-relative b-overflow-hidden">
+    <!-- Floating Elements -->
+    <div class="b-absolute b-opacity-10" style="top:10%;left:5%;font-size:100px;">💎</div>
+    <div class="b-absolute b-opacity-10" style="top:60%;right:10%;font-size:80px;">⚡</div>
+    
+    <nav class="b-py-6">
+      <div class="container b-flex b-items-center b-justify-between">
+        <div class="b-text-2xl b-font-bold">💎 SaasPlatform</div>
+        <div class="b-hidden md:b-flex b-gap-8">
+          <a href="#features" class="b-transition b-hover-opacity">Features</a>
+          <a href="#pricing" class="b-transition b-hover-opacity">Pricing</a>
+          <a href="#testimonials" class="b-transition b-hover-opacity">Testimonials</a>
+        </div>
+        <div class="b-flex b-gap-4">
+          <button class="b-text-white b-px-6 b-py-2 b-rounded-lg b-transition b-hover-opacity">Sign In</button>
+          <button class="b-bg-white b-text-primary b-px-6 b-py-2 b-rounded-lg b-cursor-pointer b-font-semibold b-transition b-hover-opacity b-shadow-lg">
+            Start Free Trial
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container b-py-24 b-relative b-z-10">
+      <div class="b-text-center b-max-w-4xl b-mx-auto">
+        <div class="b-inline-block b-bg-white b-bg-opacity-20 b-px-4 b-py-2 b-rounded-full b-mb-6">
+          🚀 Trusted by 10,000+ companies worldwide
+        </div>
+        <h1 class="b-text-7xl b-font-bold b-mb-8 b-leading-tight">
+          Grow Your Business <br>
+          <span class="b-text-warning">10x Faster</span>
+        </h1>
+        <p class="b-text-2xl b-mb-12 b-opacity-90 b-leading-relaxed">
+          The all-in-one platform for modern teams to collaborate, manage projects, 
+          and scale their business to new heights.
+        </p>
+        <div class="b-flex b-gap-4 b-justify-center b-mb-12">
+          <button class="b-bg-white b-text-primary b-px-10 b-py-5 b-rounded-xl b-font-bold b-text-lg b-cursor-pointer b-transition b-hover-opacity b-shadow-2xl">
+            Get Started Free →
+          </button>
+          <button class="b-border-2 b-border-white b-text-white b-px-10 b-py-5 b-rounded-xl b-font-semibold b-text-lg b-cursor-pointer b-transition b-hover-opacity">
+            Watch Demo
+          </button>
+        </div>
+        <p class="b-text-sm b-opacity-75">✓ No credit card required  ✓ 14-day free trial  ✓ Cancel anytime</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="b-bg-white b-py-20" style="margin-top:-60px;">
+    <div class="container">
+      <div class="glass b-rounded-3xl b-shadow-2xl b-p-12">
+        <div class="b-grid b-grid-cols-1 md:b-grid-cols-4 b-gap-8 b-text-center">
+          <div>
+            <div class="b-text-5xl b-font-bold b-text-primary b-mb-2">10K+</div>
+            <p class="b-text-dark b-opacity-75">Active Users</p>
+          </div>
+          <div>
+            <div class="b-text-5xl b-font-bold b-text-secondary b-mb-2">99.9%</div>
+            <p class="b-text-dark b-opacity-75">Uptime SLA</p>
+          </div>
+          <div>
+            <div class="b-text-5xl b-font-bold b-text-success b-mb-2">150+</div>
+            <p class="b-text-dark b-opacity-75">Countries</p>
+          </div>
+          <div>
+            <div class="b-text-5xl b-font-bold b-text-warning b-mb-2">24/7</div>
+            <p class="b-text-dark b-opacity-75">Support</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="b-py-24">
+    <div class="container">
+      <div class="b-text-center b-mb-16">
+        <h2 class="b-text-5xl b-font-bold b-mb-6">Everything You Need to Scale</h2>
+        <p class="b-text-xl b-text-dark b-opacity-75 b-max-w-2xl b-mx-auto">
+          Powerful features designed for modern teams
+        </p>
+      </div>
+
+      <div class="b-grid b-grid-cols-1 md:b-grid-cols-3 b-gap-8">
+        <!-- Feature 1 -->
+        <div class="b-bg-white b-p-8 b-rounded-2xl b-shadow-lg hover-scale">
+          <div class="gradient-purple b-w-16 b-h-16 b-rounded-2xl b-flex b-items-center b-justify-center b-text-3xl b-mb-6 b-shadow-lg">
+            ⚡
+          </div>
+          <h3 class="b-text-2xl b-font-bold b-mb-4">Lightning Fast</h3>
+          <p class="b-text-dark b-opacity-75 b-leading-relaxed">
+            Built for speed with cutting-edge technology. Experience blazing fast performance.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="b-bg-white b-p-8 b-rounded-2xl b-shadow-lg hover-scale">
+          <div class="gradient-blue b-w-16 b-h-16 b-rounded-2xl b-flex b-items-center b-justify-center b-text-3xl b-mb-6 b-shadow-lg">
+            🔐
+          </div>
+          <h3 class="b-text-2xl b-font-bold b-mb-4">Bank-Level Security</h3>
+          <p class="b-text-dark b-opacity-75 b-leading-relaxed">
+            Your data is protected with enterprise-grade encryption and security protocols.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="b-bg-white b-p-8 b-rounded-2xl b-shadow-lg hover-scale">
+          <div class="b-w-16 b-h-16 b-rounded-2xl b-flex b-items-center b-justify-center b-text-3xl b-mb-6 b-shadow-lg" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+            🤖
+          </div>
+          <h3 class="b-text-2xl b-font-bold b-mb-4">AI-Powered</h3>
+          <p class="b-text-dark b-opacity-75 b-leading-relaxed">
+            Smart automation and insights powered by advanced artificial intelligence.
+          </p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="b-bg-white b-p-8 b-rounded-2xl b-shadow-lg hover-scale">
+          <div class="b-w-16 b-h-16 b-rounded-2xl b-flex b-items-center b-justify-center b-text-3xl b-mb-6 b-shadow-lg" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+            📊
+          </div>
+          <h3 class="b-text-2xl b-font-bold b-mb-4">Real-time Analytics</h3>
+          <p class="b-text-dark b-opacity-75 b-leading-relaxed">
+            Track performance with beautiful dashboards and detailed analytics.
+          </p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="b-bg-white b-p-8 b-rounded-2xl b-shadow-lg hover-scale">
+          <div class="b-w-16 b-h-16 b-rounded-2xl b-flex b-items-center b-justify-center b-text-3xl b-mb-6 b-shadow-lg" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+            🔄
+          </div>
+          <h3 class="b-text-2xl b-font-bold b-mb-4">Seamless Integration</h3>
+          <p class="b-text-dark b-opacity-75 b-leading-relaxed">
+            Connect with 100+ tools you already use. One-click integrations.
+          </p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="b-bg-white b-p-8 b-rounded-2xl b-shadow-lg hover-scale">
+          <div class="b-bg-success b-w-16 b-h-16 b-rounded-2xl b-flex b-items-center b-justify-center b-text-3xl b-mb-6 b-shadow-lg">
+            👥
+          </div>
+          <h3 class="b-text-2xl b-font-bold b-mb-4">Team Collaboration</h3>
+          <p class="b-text-dark b-opacity-75 b-leading-relaxed">
+            Work together in real-time with your team from anywhere in the world.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="b-bg-white b-py-24">
+    <div class="container">
+      <div class="b-text-center b-mb-16">
+        <h2 class="b-text-5xl b-font-bold b-mb-6">Simple, Transparent Pricing</h2>
+        <p class="b-text-xl b-text-dark b-opacity-75">Choose the perfect plan for your team</p>
+      </div>
+
+      <div class="b-grid b-grid-cols-1 md:b-grid-cols-3 b-gap-8 b-max-w-6xl b-mx-auto">
+        <!-- Starter -->
+        <div class="b-bg-light b-p-8 b-rounded-3xl b-shadow-lg hover-scale">
+          <div class="b-text-center b-mb-8">
+            <h3 class="b-text-2xl b-font-bold b-mb-4">Starter</h3>
+            <div class="b-mb-4">
+              <span class="b-text-5xl b-font-bold">$29</span>
+              <span class="b-text-dark b-opacity-75">/month</span>
+            </div>
+            <p class="b-text-sm b-text-dark b-opacity-75">Perfect for small teams</p>
+          </div>
+          <ul class="b-mb-8 b-space-y-4">
+            <li class="b-flex b-items-center b-gap-3">
+              <span class="b-text-success b-text-xl">✓</span>
+              <span>Up to 10 users</span>
+            </li>
+            <li class="b-flex b-items-center b-gap-3">
+              <span class="b-text-success b-text-xl">✓</span>
+              <span>10 GB storage</span>
+            </li>
+            <li class="b-flex b-items-center b-gap-3">
+              <span class="b-text-success b-text-xl">✓</span>
+              <span>Basic analytics</span>
+            </li>
+            <li class="b-flex b-items-center b-gap-3">
+              <span class="b-text-success b-text-xl">✓</span>
+              <span>Email support</span>
+            </li>
+          </ul>
+          <button class="b-w-full b-bg-dark b-text-white b-py-4 b-rounded-xl b-font-semibold b-cursor-pointer b-transition b-hover-opacity">
+            Get Started
+          </button>
+        </div>
+
+        <!-- Professional (Popular) -->
+        <div class="b-bg-white b-p-8 b-rounded-3xl b-shadow-2xl b-relative b-transform b-scale-105">
+          <div class="b-absolute gradient-purple b-text-white b-px-6 b-py-2 b-rounded-full b-text-sm b-font-bold" style="top:-15px;right:20px;">
+            MOST POPULAR
+          </div>
+          <div class="b-text-center b-mb-8">
+            <h3 class="b-text-2xl b-font-bold b-mb-4">Professional</h3>
+            <div class="b-mb-4">
+              <span class="b-text-5xl b-font-bold b-text-primary">$99</span>
+              <span class="b-text-dark b-opacity-75">/month</span>
+            </div>
+            <p class="b-text-sm b-text-dark b-opacity-75">For growing businesses</p>
+          </div>
+          <ul class="b-mb-8 b-space-y-4">
+            <li class="b-flex b-items-center b-gap-3">
+              <span class="b-text-success b-text-xl">✓</span>
+              <span>Unlimited users</span>
+            </li>
+            <li class="b-flex b-items-center b-gap-3">
+              <span class="b-text-success b-text-xl">✓</span>
+              <span>100 GB storage</span>
+            </li>
+            <li class="b-flex b-items-center b-gap-3">
+              <span class="b-text-success b-text-xl">✓</span>
+              <span>Advanced analytics</span>
+            </li>
+            <li class="b-flex b-items-center b-gap-3">
+              <span class="b-text-success b-text-xl">✓</span>
+              <span>Priority support</span>
+            </li>
+            <li class="b-flex b-items-center b-gap-3">
+              <span class="b-text-success b-text-xl">✓</span>
+              <span>API access</span>
+            </li>
+          </ul>
+          <button class="b-w-full gradient-purple b-text-white b-py-4 b-rounded-xl b-font-bold b-cursor-pointer b-transition b-hover-opacity b-shadow-lg">
+            Get Started
+          </button>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="b-bg-light b-p-8 b-rounded-3xl b-shadow-lg hover-scale">
+          <div class="b-text-center b-mb-8">
+            <h3 class="b-text-2xl b-font-bold b-mb-4">Enterprise</h3>
+            <div class="b-mb-4">
+              <span class="b-text-5xl b-font-bold">$299</span>
+              <span class="b-text-dark b-opacity-75">/month</span>
+            </div>
+            <p class="b-text-sm b-text-dark b-opacity-75">For large organizations</p>
+          </div>
+          <ul class="b-mb-8 b-space-y-4">
+            <li class="b-flex b-items-center b-gap-3">
+              <span class="b-text-success b-text-xl">✓</span>
+              <span>Unlimited everything</span>
+            </li>
+            <li class="b-flex b-items-center b-gap-3">
+              <span class="b-text-success b-text-xl">✓</span>
+              <span>Unlimited storage</span>
+            </li>
+            <li class="b-flex b-items-center b-gap-3">
+              <span class="b-text-success b-text-xl">✓</span>
+              <span>Custom analytics</span>
+            </li>
+            <li class="b-flex b-items-center b-gap-3">
+              <span class="b-text-success b-text-xl">✓</span>
+              <span>24/7 phone support</span>
+            </li>
+            <li class="b-flex b-items-center b-gap-3">
+              <span class="b-text-success b-text-xl">✓</span>
+              <span>Dedicated manager</span>
+            </li>
+          </ul>
+          <button class="b-w-full b-bg-dark b-text-white b-py-4 b-rounded-xl b-font-semibold b-cursor-pointer b-transition b-hover-opacity">
+            Contact Sales
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="gradient-purple b-text-white b-py-24">
+    <div class="container b-text-center">
+      <h2 class="b-text-5xl b-font-bold b-mb-6">Ready to Transform Your Business?</h2>
+      <p class="b-text-2xl b-mb-12 b-opacity-90">Join thousands of companies already growing with us</p>
+      <button class="b-bg-white b-text-primary b-px-12 b-py-5 b-rounded-xl b-font-bold b-text-xl b-cursor-pointer b-transition b-hover-opacity b-shadow-2xl">
+        Start Your Free Trial →
+      </button>
+      <p class="b-mt-6 b-text-sm b-opacity-75">No credit card required • 14-day free trial</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="b-bg-dark b-text-white b-py-16">
+    <div class="container">
+      <div class="b-grid b-grid-cols-1 md:b-grid-cols-4 b-gap-12 b-mb-12">
+        <div>
+          <h3 class="b-text-2xl b-font-bold b-mb-4">💎 SaasPlatform</h3>
+          <p class="b-opacity-75 b-text-sm">
+            The all-in-one platform for modern businesses
+          </p>
+        </div>
+        <div>
+          <h4 class="b-font-semibold b-mb-4">Product</h4>
+          <ul class="b-flex b-flex-col b-gap-3 b-text-sm b-opacity-75">
+            <li><a href="#" class="b-transition b-hover-opacity">Features</a></li>
+            <li><a href="#" class="b-transition b-hover-opacity">Pricing</a></li>
+            <li><a href="#" class="b-transition b-hover-opacity">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="b-font-semibold b-mb-4">Company</h4>
+          <ul class="b-flex b-flex-col b-gap-3 b-text-sm b-opacity-75">
+            <li><a href="#" class="b-transition b-hover-opacity">About</a></li>
+            <li><a href="#" class="b-transition b-hover-opacity">Careers</a></li>
+            <li><a href="#" class="b-transition b-hover-opacity">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="b-font-semibold b-mb-4">Connect</h4>
+          <div class="b-flex b-gap-4 b-text-2xl">
+            <a href="#" class="b-transition b-hover-opacity">📘</a>
+            <a href="#" class="b-transition b-hover-opacity">🐦</a>
+            <a href="#" class="b-transition b-hover-opacity">💼</a>
+          </div>
+        </div>
+      </div>
+      <div class="b-border-t b-pt-8 b-text-center b-text-sm b-opacity-75">
+        <p>© 2024 SaasPlatform. Built with ❤️ using B-Labs</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/blabs.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    B.ready(() => {
+      const darkModeToggle = document.querySelector('#darkModeToggle');
+      if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', () => {
+          const isDark = B.darkMode.toggle();
+          darkModeToggle.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+        });
+        
+        B.darkMode.init();
+        const isDark = B.darkMode.isEnabled();
+        darkModeToggle.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+      }
+      
+      B.smoothScroll('a[href^="#"]');
+    });
+  </script>
+</body>
+</html>

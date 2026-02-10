@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - {{PROJECT_NAME}}</title>
+  <link rel="stylesheet" href="css/blabs.css">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); }
+    .hover-lift { transition: all 0.3s ease; }
+    .hover-lift:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+  </style>
+</head>
+<body class="b-bg-light">
+  <!-- Dark Mode Toggle -->
+  <button id="darkModeToggle" class="b-fixed b-top-4 b-right-4 b-bg-dark b-text-white b-px-4 b-py-2 b-rounded-lg b-cursor-pointer b-z-50 b-transition b-hover-opacity b-shadow-lg">
+    🌙 Dark Mode
+  </button>
+
+  <!-- Navigation -->
+  <nav class="b-bg-white b-shadow-lg b-sticky" style="top:0;z-index:100;">
+    <div class="container b-flex b-items-center b-justify-between b-py-4">
+      <div class="b-text-2xl b-font-bold b-text-primary">✍️ MyBlog</div>
+      <div class="b-hidden md:b-flex b-gap-6">
+        <a href="#" class="b-text-dark b-transition b-hover-opacity b-font-semibold">Ana Sayfa</a>
+        <a href="#" class="b-text-dark b-transition b-hover-opacity">Yazılar</a>
+        <a href="#" class="b-text-dark b-transition b-hover-opacity">Kategoriler</a>
+        <a href="#" class="b-text-dark b-transition b-hover-opacity">Hakkımda</a>
+      </div>
+      <button class="b-bg-primary b-text-white b-px-6 b-py-2 b-rounded-lg b-cursor-pointer b-transition b-hover-opacity">
+        Abone Ol
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Gradient -->
+  <section class="gradient-bg b-text-white b-py-24">
+    <div class="container b-text-center">
+      <div class="b-inline-block b-bg-white b-bg-opacity-25 b-px-4 b-py-2 b-rounded-full b-mb-4 b-text-sm">
+        ✨ Hoş Geldiniz
+      </div>
+      <h1 class="b-text-6xl b-font-bold b-mb-6 b-animate b-animate-fade-in">
+        Fikirlerinizi Paylaşın
+      </h1>
+      <p class="b-text-2xl b-mb-8 b-opacity-90 b-max-w-2xl b-mx-auto">
+        Teknoloji, yaşam ve sanat üzerine ilham verici yazılar
+      </p>
+      <div class="b-flex b-gap-4 b-justify-center">
+        <button class="b-bg-white b-text-primary b-px-8 b-py-4 b-rounded-lg b-font-semibold b-cursor-pointer b-transition b-hover-opacity b-shadow-lg">
+          Son Yazılar
+        </button>
+        <button class="b-border-2 b-border-white b-text-white b-px-8 b-py-4 b-rounded-lg b-font-semibold b-cursor-pointer b-transition b-hover-opacity">
+          Popüler Yazılar
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Posts Grid -->
+  <section class="b-py-20" style="margin-top:-100px;">
+    <div class="container">{
+      <div class="b-grid b-grid-cols-1 md:b-grid-cols-2 lg:b-grid-cols-3 b-gap-8">
+        <!-- Post 1 - Featured -->
+        <article class="glass-card hover-lift b-rounded-2xl b-overflow-hidden b-shadow-xl lg:b-col-span-2">
+          <div class="b-bg-primary b-h-96 b-flex b-items-center b-justify-center gradient-bg">
+            <span class="b-text-9xl">🚀</span>
+          </div>
+          <div class="b-p-8">
+            <div class="b-flex b-gap-2 b-mb-4">
+              <span class="b-bg-primary b-text-white b-text-xs b-px-4 b-py-1 b-rounded-full b-font-semibold">ÖZEL</span>
+              <span class="b-bg-secondary b-text-white b-text-xs b-px-4 b-py-1 b-rounded-full b-font-semibold">TEKNOLOJİ</span>
+            </div>
+            <h2 class="b-text-3xl b-font-bold b-mb-4">
+              2024'te Web Geliştirme Trendleri
+            </h2>
+            <p class="b-text-lg b-text-dark b-opacity-75 b-mb-6 b-leading-relaxed">
+              Modern web geliştirme dünyasında öne çıkan teknolojiler ve yaklaşımlar. 
+              AI destekli araçlar, performans optimizasyonları ve kullanıcı deneyimi...
+            </p>
+            <div class="b-flex b-items-center b-justify-between">
+              <div class="b-flex b-items-center b-gap-3">
+                <div class="b-bg-primary b-text-white b-w-12 b-h-12 b-rounded-full b-flex b-items-center b-justify-center b-font-bold b-text-lg">
+                  A
+                </div>
+                <div>
+                  <p class="b-font-semibold">Ahmet Yılmaz</p>
+                  <p class="b-text-sm b-text-dark b-opacity-75">5 dakika okuma • 2 saat önce</p>
+                </div>
+              </div>
+              <div class="b-flex b-gap-6 b-text-sm b-text-dark b-opacity-75">
+                <span>👁️ 2.4K</span>
+                <span>❤️ 185</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 2 -->
+        <article class="glass-card hover-lift b-rounded-2xl b-overflow-hidden b-shadow-xl">
+          <div class="b-bg-light b-h-56 b-flex b-items-center b-justify-center" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+            <span class="b-text-7xl">🎨</span>
+          </div>
+          <div class="b-p-6">
+            <span class="b-bg-warning b-text-white b-text-xs b-px-3 b-py-1 b-rounded-full b-font-semibold">TASARIM</span>
+            <h3 class="b-text-2xl b-font-bold b-mt-4 b-mb-3">
+              Minimalist Tasarımın Gücü
+            </h3>
+            <p class="b-text-sm b-text-dark b-opacity-75 b-mb-4">
+              Az çoktur felsefesi ile modern ve etkileyici arayüzler yaratmak...
+            </p>
+            <div class="b-flex b-items-center b-justify-between b-text-xs b-text-dark b-opacity-75">
+              <span>👤 Zeynep Kaya</span>
+              <span>6 saat önce</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 3 -->
+        <article class="glass-card hover-lift b-rounded-2xl b-overflow-hidden b-shadow-xl">
+          <div class="b-bg-light b-h-56 b-flex b-items-center b-justify-center" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+            <span class="b-text-7xl">💡</span>
+          </div>
+          <div class="b-p-6">
+            <span class="b-bg-success b-text-white b-text-xs b-px-3 b-py-1 b-rounded-full b-font-semibold">İPUCU</span>
+            <h3 class="b-text-2xl b-font-bold b-mt-4 b-mb-3">
+              Kod Kalitesini Artırmanın 10 Yolu
+            </h3>
+            <p class="b-text-sm b-text-dark b-opacity-75 b-mb-4">
+              Clean code prensipleri ve best practice'ler ile profesyonel geliştirme...
+            </p>
+            <div class="b-flex b-items-center b-justify-between b-text-xs b-text-dark b-opacity-75">
+              <span>👤 Mehmet Demir</span>
+              <span>1 gün önce</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 4 -->
+        <article class="glass-card hover-lift b-rounded-2xl b-overflow-hidden b-shadow-xl">
+          <div class="b-bg-light b-h-56 b-flex b-items-center b-justify-center" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+            <span class="b-text-7xl">📱</span>
+          </div>
+          <div class="b-p-6">
+            <span class="b-bg-secondary b-text-white b-text-xs b-px-3 b-py-1 b-rounded-full b-font-semibold">MOBILE</span>
+            <h3 class="b-text-2xl b-font-bold b-mt-4 b-mb-3">
+              React Native ile Hızlı Başlangıç
+            </h3>
+            <p class="b-text-sm b-text-dark b-opacity-75 b-mb-4">
+              Bir kod tabanı ile iOS ve Android uygulamaları geliştirme rehberi...
+            </p>
+            <div class="b-flex b-items-center b-justify-between b-text-xs b-text-dark b-opacity-75">
+              <span>👤 Elif Öztürk</span>
+              <span>2 gün önce</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 5 -->
+        <article class="glass-card hover-lift b-rounded-2xl b-overflow-hidden b-shadow-xl lg:b-col-span-2">
+          <div class="md:b-flex">
+            <div class="md:b-w-1/2 b-bg-light b-h-64 md:b-h-auto b-flex b-items-center b-justify-center" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+              <span class="b-text-9xl">🤖</span>
+            </div>
+            <div class="b-p-8 md:b-w-1/2">
+              <span class="b-bg-danger b-text-white b-text-xs b-px-3 b-py-1 b-rounded-full b-font-semibold">YAPAY ZEKA</span>
+              <h3 class="b-text-2xl b-font-bold b-mt-4 b-mb-3">
+                AI'ın Yazılım Geliştirmedeki Rolü
+              </h3>
+              <p class="b-text-dark b-opacity-75 b-mb-4">
+                ChatGPT, GitHub Copilot ve diğer AI araçları yazılım geliştirme sürecini nasıl değiştiriyor...
+              </p>
+              <div class="b-flex b-items-center b-gap-3 b-mt-6">
+                <div class="b-bg-danger b-text-white b-w-10 b-h-10 b-rounded-full b-flex b-items-center b-justify-center b-font-bold">
+                  K
+                </div>
+                <div>
+                  <p class="b-font-semibold b-text-sm">Kemal Arslan</p>
+                  <p class="b-text-xs b-text-dark b-opacity-75">3 gün önce • 8 min okuma</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section with Gradient -->
+  <section class="gradient-bg b-text-white b-py-20">
+    <div class="container b-text-center">
+      <div class="b-max-w-2xl b-mx-auto">
+        <h2 class="b-text-4xl b-font-bold b-mb-4">📬 Blog Güncellemelerini Kaçırmayın</h2>
+        <p class="b-text-lg b-mb-8 b-opacity-90">
+          Yeni yazılardan haberdar olmak için e-posta listemize katılın
+        </p>
+        <div class="b-flex b-gap-3 b-max-w-lg b-mx-auto">
+          <input 
+            type="email" 
+            placeholder="E-posta adresiniz" 
+            class="b-flex-1 b-px-6 b-py-4 b-rounded-lg b-text-dark b-border-0"
+            style="outline:none;"
+          >
+          <button class="b-bg-white b-text-primary b-px-8 b-py-4 b-rounded-lg b-cursor-pointer b-font-semibold b-transition b-hover-opacity b-shadow-lg">
+            Abone Ol
+          </button>
+        </div>
+        <p class="b-text-sm b-mt-4 b-opacity-75">✓ Spam göndermiyoruz  ✓ İstediğiniz zaman iptal edin</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="b-bg-dark b-text-white b-py-16">
+    <div class="container">
+      <div class="b-grid b-grid-cols-1 md:b-grid-cols-4 b-gap-12 b-mb-12">
+        <div>
+          <h3 class="b-text-2xl b-font-bold b-mb-4">✍️ MyBlog</h3>
+          <p class="b-opacity-75 b-text-sm b-leading-relaxed">
+            Teknoloji ve yaşam üzerine ilham verici içerikler
+          </p>
+          <div class="b-flex b-gap-4 b-mt-6 b-text-2xl">
+            <a href="#" class="b-transition b-hover-opacity">📘</a>
+            <a href="#" class="b-transition b-hover-opacity">🐦</a>
+            <a href="#" class="b-transition b-hover-opacity">📷</a>
+            <a href="#" class="b-transition b-hover-opacity">💼</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="b-font-semibold b-mb-4 b-text-lg">Kategoriler</h4>
+          <ul class="b-flex b-flex-col b-gap-3 b-text-sm b-opacity-75">
+            <li><a href="#" class="b-transition b-hover-opacity">Teknoloji</a></li>
+            <li><a href="#" class="b-transition b-hover-opacity">Tasarım</a></li>
+            <li><a href="#" class="b-transition b-hover-opacity">Yazılım</a></li>
+            <li><a href="#" class="b-transition b-hover-opacity">Yaşam</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="b-font-semibold b-mb-4 b-text-lg">Linkler</h4>
+          <ul class="b-flex b-flex-col b-gap-3 b-text-sm b-opacity-75">
+            <li><a href="#" class="b-transition b-hover-opacity">Hakkımda</a></li>
+            <li><a href="#" class="b-transition b-hover-opacity">İletişim</a></li>
+            <li><a href="#" class="b-transition b-hover-opacity">Gizlilik</a></li>
+            <li><a href="#" class="b-transition b-hover-opacity">Şartlar</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="b-font-semibold b-mb-4 b-text-lg">Popüler Etiketler</h4>
+          <div class="b-flex b-flex-wrap b-gap-2">
+            <span class="b-bg-white b-bg-opacity-10 b-px-3 b-py-1 b-rounded-full b-text-xs">JavaScript</span>
+            <span class="b-bg-white b-bg-opacity-10 b-px-3 b-py-1 b-rounded-full b-text-xs">React</span>
+            <span class="b-bg-white b-bg-opacity-10 b-px-3 b-py-1 b-rounded-full b-text-xs">CSS</span>
+            <span class="b-bg-white b-bg-opacity-10 b-px-3 b-py-1 b-rounded-full b-text-xs">Node.js</span>
+            <span class="b-bg-white b-bg-opacity-10 b-px-3 b-py-1 b-rounded-full b-text-xs">AI</span>
+          </div>
+        </div>
+      </div>
+      <div class="b-border-t b-pt-8 b-text-center b-text-sm b-opacity-75">
+        <p>© 2024 MyBlog. Built with ❤️ using B-Labs</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/blabs.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Dark mode initialization
+    B.ready(() => {
+      const darkModeToggle = document.querySelector('#darkModeToggle');
+      if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', () => {
+          const isDark = B.darkMode.toggle();
+          darkModeToggle.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+        });
+        
+        B.darkMode.init();
+        const isDark = B.darkMode.isEnabled();
+        darkModeToggle.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+      }
+      
+      // Smooth scroll for gradient section
+      B.smoothScroll('a[href^="#"]');
+    });
+  </script>
+</body>
+</html>
+  <!-- Dark Mode Toggle -->
+  <button id="darkModeToggle" class="b-fixed b-top-4 b-right-4 b-bg-dark b-text-white b-px-4 b-py-2 b-rounded b-cursor-pointer b-z-50 b-transition b-hover-opacity">
+    🌙 Dark Mode
+  </button>
+
+  <!-- Navigation -->
+  <nav class="b-bg-white b-shadow b-sticky" style="top:0;z-index:100;">
+    <div class="container b-flex b-items-center b-justify-between b-py-4">
+      <div class="b-text-2xl b-font-bold b-text-primary">MyBlog</div>
+      <div class="b-flex b-gap-6">
+        <a href="#" class="b-text-dark b-transition b-hover-opacity">Ana Sayfa</a>
+        <a href="#" class="b-text-dark b-transition b-hover-opacity">Yazılar</a>
+        <a href="#" class="b-text-dark b-transition b-hover-opacity">Hakkımda</a>
+        <a href="#" class="b-text-dark b-transition b-hover-opacity">İletişim</a>
+      </div>
+      <button class="dark-mode-toggle b-bg-light b-px-4 b-py-2 b-rounded b-cursor-pointer b-transition">
+        🌙
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="b-bg-primary b-text-white b-py-20 b-text-center">
+    <div class="container">
+      <h1 class="b-text-5xl b-font-bold b-mb-4 b-animate b-animate-fade-in">
+        Hoş Geldiniz
+      </h1>
+      <p class="b-text-xl b-mb-8 b-opacity-75 b-animate b-animate-fade-in b-delay-200">
+        Teknoloji, yazılım ve hayat üzerine yazılar
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container b-py-12">
+    <div class="b-grid b-gap-8" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+      
+      <!-- Blog Post 1 -->
+      <article class="b-bg-white b-rounded-lg b-shadow-md b-overflow-hidden b-transition b-hover-scale">
+        <img data-src="images/blog1.jpg" alt="Blog post" class="b-w-full" style="height:200px;object-fit:cover;background:#e5e7eb;">
+        <div class="b-p-6">
+          <div class="b-flex b-gap-2 b-mb-3">
+            <span class="b-bg-primary b-text-white b-text-xs b-px-3 b-py-1 b-rounded-full">Teknoloji</span>
+            <span class="b-text-sm b-text-dark b-opacity-75">10 Şubat 2026</span>
+          </div>
+          <h2 class="b-text-2xl b-font-bold b-mb-3 b-text-dark">Web Geliştirmenin Geleceği</h2>
+          <p class="b-mb-4 b-text-dark b-opacity-75">
+            Modern web teknolojileri hızla gelişiyor. Bu yazıda 2026'da web geliştirmenin nereye gittiğini inceliyoruz...
+          </p>
+          <a href="#" class="b-text-primary b-font-semibold b-transition b-hover-opacity">Devamını Oku →</a>
+        </div>
+      </article>
+
+      <!-- Blog Post 2 -->
+      <article class="b-bg-white b-rounded-lg b-shadow-md b-overflow-hidden b-transition b-hover-scale">
+        <img data-src="images/blog2.jpg" alt="Blog post" class="b-w-full" style="height:200px;object-fit:cover;background:#e5e7eb;">
+        <div class="b-p-6">
+          <div class="b-flex b-gap-2 b-mb-3">
+            <span class="b-bg-secondary b-text-white b-text-xs b-px-3 b-py-1 b-rounded-full">Yazılım</span>
+            <span class="b-text-sm b-text-dark b-opacity-75">9 Şubat 2026</span>
+          </div>
+          <h2 class="b-text-2xl b-font-bold b-mb-3 b-text-dark">JavaScript'te Yenilikler</h2>
+          <p class="b-mb-4 b-text-dark b-opacity-75">
+            JavaScript ekosistemi sürekli gelişiyor. Son güncellemelere ve yeni özelliklere birlikte göz atalım...
+          </p>
+          <a href="#" class="b-text-primary b-font-semibold b-transition b-hover-opacity">Devamını Oku →</a>
+        </div>
+      </article>
+
+      <!-- Blog Post 3 -->
+      <article class="b-bg-white b-rounded-lg b-shadow-md b-overflow-hidden b-transition b-hover-scale">
+        <img data-src="images/blog3.jpg" alt="Blog post" class="b-w-full" style="height:200px;object-fit:cover;background:#e5e7eb;">
+        <div class="b-p-6">
+          <div class="b-flex b-gap-2 b-mb-3">
+            <span class="b-bg-success b-text-white b-text-xs b-px-3 b-py-1 b-rounded-full">Kişisel</span>
+            <span class="b-text-sm b-text-dark b-opacity-75">8 Şubat 2026</span>
+          </div>
+          <h2 class="b-text-2xl b-font-bold b-mb-3 b-text-dark">Verimli Çalışmanın Sırları</h2>
+          <p class="b-mb-4 b-text-dark b-opacity-75">
+            Üretkenliği artırmanın ipuçları. Uzaktan çalışırken nasıl daha verimli olunur?
+          </p>
+          <a href="#" class="b-text-primary b-font-semibold b-transition b-hover-opacity">Devamını Oku →</a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Load More Button -->
+    <div class="b-text-center b-mt-12">
+      <button class="b-bg-primary b-text-white b-px-8 b-py-3 b-rounded-lg b-cursor-pointer b-transition b-hover-opacity">
+        Daha Fazla Yükle
+      </button>
+    </div>
+  </main>
+
+  <!-- Newsletter -->
+  <section class="b-bg-light b-py-16">
+    <div class="container b-text-center">
+      <h2 class="b-text-3xl b-font-bold b-mb-4">📧 Bültene Abone Ol</h2>
+      <p class="b-mb-8 b-text-dark b-opacity-75">Yeni yazıları kaçırma, e-posta ile bildirim al</p>
+      <form class="b-flex b-gap-3 b-justify-center b-flex-wrap">
+        <input 
+          type="email" 
+          placeholder="E-mail adresiniz" 
+          class="b-border b-rounded b-px-4 b-py-3" 
+          style="min-width:300px;"
+        >
+        <button type="submit" class="b-bg-primary b-text-white b-px-6 b-py-3 b-rounded b-cursor-pointer b-transition b-hover-opacity">
+          Abone Ol
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="b-bg-dark b-text-white b-py-12">
+    <div class="container b-text-center">
+      <div class="b-flex b-gap-6 b-justify-center b-mb-6">
+        <a href="#" class="b-transition b-hover-opacity">Twitter</a>
+        <a href="#" class="b-transition b-hover-opacity">GitHub</a>
+        <a href="#" class="b-transition b-hover-opacity">LinkedIn</a>
+        <a href="#" class="b-transition b-hover-opacity">Instagram</a>
+      </div>
+      <p class="b-opacity-75">© 2026 MyBlog. Built with B-Labs ❤️</p>
+    </div>
+  </footer>
+
+  <script src="js/blabs.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Dark mode initialization
+    B.ready(() => {
+      const darkModeToggle = document.querySelector('#darkModeToggle');
+      if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', () => {
+          const isDark = B.darkMode.toggle();
+          darkModeToggle.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+        });
+        
+        B.darkMode.init();
+        const isDark = B.darkMode.isEnabled();
+        darkModeToggle.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - {{PROJECT_NAME}}</title>
+  <link rel="stylesheet" href="css/blabs.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <!-- Dark Mode Toggle -->
+  <button id="darkModeToggle" class="b-fixed b-top-4 b-right-4 b-bg-dark b-text-white b-px-4 b-py-2 b-rounded b-cursor-pointer b-z-50 b-transition b-hover-opacity">
+    🌙 Dark Mode
+  </button>
+
+  <!-- Navigation -->
+  <nav class="b-bg-white b-shadow b-fixed b-w-full" style="top:0;z-index:100;">
+    <div class="container b-flex b-items-center b-justify-between b-py-4">
+      <div class="b-text-2xl b-font-bold b-text-primary">JD</div>
+      <div class="b-hidden md:b-flex b-gap-6">
+        <a href="#home" class="b-text-dark b-transition b-hover-opacity">Ana Sayfa</a>
+        <a href="#about" class="b-text-dark b-transition b-hover-opacity">Hakkımda</a>
+        <a href="#projects" class="b-text-dark b-transition b-hover-opacity">Projeler</a>
+        <a href="#skills" class="b-text-dark b-transition b-hover-opacity">Yetenekler</a>
+        <a href="#contact" class="b-text-dark b-transition b-hover-opacity">İletişim</a>
+      </div>
+      <button class="menu-toggle md:b-hidden b-text-2xl b-cursor-pointer">☰</button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu b-hidden b-bg-white b-shadow b-p-4" style="margin-top:70px;">
+    <a href="#home" class="b-block b-py-2 b-text-dark">Ana Sayfa</a>
+    <a href="#about" class="b-block b-py-2 b-text-dark">Hakkımda</a>
+    <a href="#projects" class="b-block b-py-2 b-text-dark">Projeler</a>
+    <a href="#skills" class="b-block b-py-2 b-text-dark">Yetenekler</a>
+    <a href="#contact" class="b-block b-py-2 b-text-dark">İletişim</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="home" class="b-h-screen b-flex b-items-center b-bg-light">
+    <div class="container">
+      <div class="b-flex b-flex-col md:b-flex-row b-items-center b-gap-12">
+        <div class="b-flex-1 b-text-center md:b-text-left">
+          <h1 class="b-text-5xl b-font-bold b-mb-4 b-animate b-animate-fade-in">
+            Merhaba, Ben <span class="b-text-primary">John Doe</span>
+          </h1>
+          <p class="b-text-2xl b-mb-2 b-text-dark b-animate b-animate-fade-in b-delay-200">
+            Full Stack Developer
+          </p>
+          <p class="b-text-lg b-mb-8 b-text-dark b-opacity-75 b-animate b-animate-fade-in b-delay-300">
+            Modern web uygulamaları geliştiriyorum. React, Node.js ve daha fazlası...
+          </p>
+          <div class="b-flex b-gap-4 b-justify-center md:b-justify-start b-animate b-animate-slide-in-up b-delay-500">
+            <button class="b-bg-primary b-text-white b-px-8 b-py-3 b-rounded-lg b-cursor-pointer b-transition b-hover-opacity">
+              Projelerimi Gör
+            </button>
+            <button class="b-border b-border-primary b-text-primary b-px-8 b-py-3 b-rounded-lg b-cursor-pointer b-transition b-hover-opacity">
+              İletişim
+            </button>
+          </div>
+        </div>
+        <div class="b-flex-1 b-text-center">
+          <div class="b-w-64 b-h-64 b-rounded-full b-bg-primary b-mx-auto b-flex b-items-center b-justify-center b-text-8xl b-text-white b-animate b-animate-scale-in b-delay-300">
+            👨‍💻
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="b-py-20">
+    <div class="container">
+      <h2 class="b-text-4xl b-font-bold b-text-center b-mb-12">Hakkımda</h2>
+      <div class="b-max-w-3xl b-mx-auto b-text-center">
+        <p class="b-text-lg b-mb-6 b-text-dark b-opacity-75">
+          5+ yıllık deneyime sahip full stack developer'ım. Modern web teknolojileri ile kullanıcı dostu, 
+          performanslı ve ölçeklenebilir uygulamalar geliştiriyorum.
+        </p>
+        <p class="b-text-lg b-text-dark b-opacity-75">
+          React, Node.js, TypeScript, MongoDB ve AWS gibi teknolojilerde uzmanım. 
+          Sürekli öğrenmeye ve kendimi geliştirmeye önem veriyorum.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="b-bg-light b-py-20">
+    <div class="container">
+      <h2 class="b-text-4xl b-font-bold b-text-center b-mb-12">Projeler</h2>
+      
+      <div class="b-grid b-gap-8" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+        
+        <!-- Project 1 -->
+        <div class="b-bg-white b-rounded-lg b-shadow-md b-overflow-hidden b-transition b-hover-scale">
+          <div class="b-h-48 b-bg-primary b-flex b-items-center b-justify-center b-text-white b-text-6xl">
+            🚀
+          </div>
+          <div class="b-p-6">
+            <h3 class="b-text-2xl b-font-bold b-mb-2">E-Commerce Platform</h3>
+            <p class="b-mb-4 b-text-dark b-opacity-75">
+              Full-stack e-commerce platformu. React, Node.js, MongoDB kullanıldı.
+            </p>
+            <div class="b-flex b-gap-2 b-flex-wrap b-mb-4">
+              <span class="b-bg-light b-px-3 b-py-1 b-rounded-full b-text-sm">React</span>
+              <span class="b-bg-light b-px-3 b-py-1 b-rounded-full b-text-sm">Node.js</span>
+              <span class="b-bg-light b-px-3 b-py-1 b-rounded-full b-text-sm">MongoDB</span>
+            </div>
+            <div class="b-flex b-gap-3">
+              <a href="#" class="b-text-primary b-font-semibold b-transition b-hover-opacity">Demo →</a>
+              <a href="#" class="b-text-dark b-font-semibold b-transition b-hover-opacity">GitHub →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="b-bg-white b-rounded-lg b-shadow-md b-overflow-hidden b-transition b-hover-scale">
+          <div class="b-h-48 b-bg-secondary b-flex b-items-center b-justify-center b-text-white b-text-6xl">
+            💬
+          </div>
+          <div class="b-p-6">
+            <h3 class="b-text-2xl b-font-bold b-mb-2">Real-time Chat App</h3>
+            <p class="b-mb-4 b-text-dark b-opacity-75">
+              Socket.io ile gerçek zamanlı chat uygulaması. WebRTC desteği.
+            </p>
+            <div class="b-flex b-gap-2 b-flex-wrap b-mb-4">
+              <span class="b-bg-light b-px-3 b-py-1 b-rounded-full b-text-sm">Socket.io</span>
+              <span class="b-bg-light b-px-3 b-py-1 b-rounded-full b-text-sm">WebRTC</span>
+              <span class="b-bg-light b-px-3 b-py-1 b-rounded-full b-text-sm">Express</span>
+            </div>
+            <div class="b-flex b-gap-3">
+              <a href="#" class="b-text-primary b-font-semibold b-transition b-hover-opacity">Demo →</a>
+              <a href="#" class="b-text-dark b-font-semibold b-transition b-hover-opacity">GitHub →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="b-bg-white b-rounded-lg b-shadow-md b-overflow-hidden b-transition b-hover-scale">
+          <div class="b-h-48 b-bg-success b-flex b-items-center b-justify-center b-text-white b-text-6xl">
+            📊
+          </div>
+          <div class="b-p-6">
+            <h3 class="b-text-2xl b-font-bold b-mb-2">Analytics Dashboard</h3>
+            <p class="b-mb-4 b-text-dark b-opacity-75">
+              Veri görselleştirme dashboard'u. Chart.js ve D3.js kullanıldı.
+            </p>
+            <div class="b-flex b-gap-2 b-flex-wrap b-mb-4">
+              <span class="b-bg-light b-px-3 b-py-1 b-rounded-full b-text-sm">Chart.js</span>
+              <span class="b-bg-light b-px-3 b-py-1 b-rounded-full b-text-sm">D3.js</span>
+              <span class="b-bg-light b-px-3 b-py-1 b-rounded-full b-text-sm">TypeScript</span>
+            </div>
+            <div class="b-flex b-gap-3">
+              <a href="#" class="b-text-primary b-font-semibold b-transition b-hover-opacity">Demo →</a>
+              <a href="#" class="b-text-dark b-font-semibold b-transition b-hover-opacity">GitHub →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="b-py-20">
+    <div class="container">
+      <h2 class="b-text-4xl b-font-bold b-text-center b-mb-12">Yetenekler</h2>
+      
+      <div class="b-grid b-gap-6" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+        
+        <div class="b-bg-light b-p-6 b-rounded-lg b-text-center">
+          <div class="b-text-5xl b-mb-4">⚛️</div>
+          <h3 class="b-text-xl b-font-bold b-mb-2">Frontend</h3>
+          <p class="b-text-dark b-opacity-75">React, Vue, TypeScript, Tailwind CSS</p>
+        </div>
+
+        <div class="b-bg-light b-p-6 b-rounded-lg b-text-center">
+          <div class="b-text-5xl b-mb-4">⚙️</div>
+          <h3 class="b-text-xl b-font-bold b-mb-2">Backend</h3>
+          <p class="b-text-dark b-opacity-75">Node.js, Express, NestJS, GraphQL</p>
+        </div>
+
+        <div class="b-bg-light b-p-6 b-rounded-lg b-text-center">
+          <div class="b-text-5xl b-mb-4">🗄️</div>
+          <h3 class="b-text-xl b-font-bold b-mb-2">Database</h3>
+          <p class="b-text-dark b-opacity-75">MongoDB, PostgreSQL, Redis</p>
+        </div>
+
+        <div class="b-bg-light b-p-6 b-rounded-lg b-text-center">
+          <div class="b-text-5xl b-mb-4">☁️</div>
+          <h3 class="b-text-xl b-font-bold b-mb-2">DevOps</h3>
+          <p class="b-text-dark b-opacity-75">AWS, Docker, Kubernetes, CI/CD</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="b-bg-primary b-text-white b-py-20">
+    <div class="container b-text-center">
+      <h2 class="b-text-4xl b-font-bold b-mb-8">İletişime Geç</h2>
+      <p class="b-text-xl b-mb-12 b-opacity-75">
+        Bir proje için birlikte çalışmak ister misiniz?
+      </p>
+      
+      <form class="b-max-w-2xl b-mx-auto">
+        <div class="b-grid b-gap-6 b-mb-6" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+          <input 
+            type="text" 
+            placeholder="İsminiz" 
+            class="b-border b-rounded b-px-4 b-py-3 b-text-dark"
+          >
+          <input 
+            type="email" 
+            placeholder="E-mail" 
+            class="b-border b-rounded b-px-4 b-py-3 b-text-dark"
+          >
+        </div>
+        <textarea 
+          placeholder="Mesajınız" 
+          rows="6"
+          class="b-w-full b-border b-rounded b-px-4 b-py-3 b-mb-6 b-text-dark"
+        ></textarea>
+        <button type="submit" class="b-bg-white b-text-primary b-px-8 b-py-3 b-rounded-lg b-cursor-pointer b-transition b-hover-opacity b-font-semibold">
+          Mesaj Gönder
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="b-bg-dark b-text-white b-py-8">
+    <div class="container b-text-center">
+      <div class="b-flex b-gap-6 b-justify-center b-mb-4">
+        <a href="#" class="b-text-3xl b-transition b-hover-opacity">🐦</a>
+        <a href="#" class="b-text-3xl b-transition b-hover-opacity">💼</a>
+        <a href="#" class="b-text-3xl b-transition b-hover-opacity">🔗</a>
+        <a href="#" class="b-text-3xl b-transition b-hover-opacity">📧</a>
+      </div>
+      <p class="b-opacity-75">© 2026 John Doe. Built with B-Labs ❤️</p>
+    </div>
+  </footer>
+
+  <script src="js/blabs.js"></script>
+  <script>
+    B.ready(() => {
+      // Smooth scroll
+      B.smoothScroll('a[href^="#"]', 80);
+      
+      // Mobile menu toggle
+      B.toggle('.menu-toggle', '.mobile-menu');
+      
+      // Lazy load images
+      B.lazyImages();
+      
+      // Scroll reveal animations
+      B.scrollReveal('.b-animate', { threshold: 0.1 });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce - {{PROJECT_NAME}}</title>
+  <link rel="stylesheet" href="css/blabs.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <!-- Dark Mode Toggle -->
+  <button id="darkModeToggle" class="b-fixed b-top-4 b-right-4 b-bg-dark b-text-white b-px-4 b-py-2 b-rounded b-cursor-pointer b-z-50 b-transition b-hover-opacity">
+    🌙 Dark Mode
+  </button>
+
+  <!-- Navigation -->
+  <nav class="b-bg-white b-shadow b-sticky" style="top:0;z-index:100;">
+    <div class="container b-flex b-items-center b-justify-between b-py-4">
+      <div class="b-text-2xl b-font-bold b-text-primary">🛒 ShopName</div>
+      <div class="b-hidden md:b-flex b-gap-6">
+        <a href="#products" class="b-text-dark b-transition b-hover-opacity">Ürünler</a>
+        <a href="#categories" class="b-text-dark b-transition b-hover-opacity">Kategoriler</a>
+        <a href="#about" class="b-text-dark b-transition b-hover-opacity">Hakkımızda</a>
+        <a href="#contact" class="b-text-dark b-transition b-hover-opacity">İletişim</a>
+      </div>
+      <div class="b-flex b-gap-4 b-items-center">
+        <button class="b-text-dark b-transition b-hover-opacity">🔍</button>
+        <button class="b-text-dark b-transition b-hover-opacity b-relative">
+          🛒
+          <span class="b-absolute b-bg-danger b-text-white b-text-xs b-rounded-full b-px-2" style="top:-8px;right:-8px;">3</span>
+        </button>
+        <button class="b-bg-primary b-text-white b-px-4 b-py-2 b-rounded b-cursor-pointer b-transition b-hover-opacity">
+          Giriş
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <section class="b-bg-light b-py-20">
+    <div class="container">
+      <div class="b-flex b-flex-col md:b-flex-row b-items-center b-gap-12">
+        <div class="b-flex-1">
+          <h1 class="b-text-5xl b-font-bold b-mb-6 b-animate b-animate-fade-in">
+            Yaz İndirimleri 🌞
+          </h1>
+          <p class="b-text-2xl b-mb-8 b-text-dark b-opacity-75">
+            Tüm kategorilerde %50'ye varan indirim
+          </p>
+          <button class="b-bg-primary b-text-white b-px-8 b-py-4 b-rounded-lg b-text-lg b-cursor-pointer b-transition b-hover-opacity b-font-semibold">
+            Alışverişe Başla
+          </button>
+        </div>
+        <div class="b-flex-1 b-animate b-animate-scale-in b-delay-200">
+          <div class="b-bg-white b-rounded-lg b-shadow-lg b-p-8 b-text-center">
+            <div class="b-text-9xl b-mb-4">👗</div>
+            <p class="b-text-xl b-font-semibold">Yeni Sezon Koleksiyonu</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section id="categories" class="b-py-16 b-bg-white">
+    <div class="container">
+      <h2 class="b-text-4xl b-font-bold b-text-center b-mb-12">Kategoriler</h2>
+      <div class="b-grid b-grid-cols-2 md:b-grid-cols-4 b-gap-6">
+        <div class="b-bg-light b-rounded-lg b-p-8 b-text-center b-cursor-pointer b-transition b-hover-opacity">
+          <div class="b-text-5xl b-mb-4">👕</div>
+          <p class="b-font-semibold">Giyim</p>
+        </div>
+        <div class="b-bg-light b-rounded-lg b-p-8 b-text-center b-cursor-pointer b-transition b-hover-opacity">
+          <div class="b-text-5xl b-mb-4">👟</div>
+          <p class="b-font-semibold">Ayakkabı</p>
+        </div>
+        <div class="b-bg-light b-rounded-lg b-p-8 b-text-center b-cursor-pointer b-transition b-hover-opacity">
+          <div class="b-text-5xl b-mb-4">⌚</div>
+          <p class="b-font-semibold">Aksesuarlar</p>
+        </div>
+        <div class="b-bg-light b-rounded-lg b-p-8 b-text-center b-cursor-pointer b-transition b-hover-opacity">
+          <div class="b-text-5xl b-mb-4">🎒</div>
+          <p class="b-font-semibold">Çanta</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section id="products" class="b-py-16 b-bg-light">
+    <div class="container">
+      <div class="b-flex b-items-center b-justify-between b-mb-12">
+        <h2 class="b-text-4xl b-font-bold">Öne Çıkan Ürünler</h2>
+        <button class="b-text-primary b-font-semibold b-transition b-hover-opacity">
+          Tümünü Gör →
+        </button>
+      </div>
+
+      <div class="b-grid b-grid-cols-1 md:b-grid-cols-3 lg:b-grid-cols-4 b-gap-6">
+        <!-- Product 1 -->
+        <div class="b-bg-white b-rounded-lg b-shadow b-overflow-hidden b-transition b-hover-opacity">
+          <div class="b-bg-light b-h-64 b-flex b-items-center b-justify-center">
+            <span class="b-text-9xl">👕</span>
+          </div>
+          <div class="b-p-4">
+            <div class="b-flex b-items-center b-justify-between b-mb-2">
+              <span class="b-bg-success b-text-white b-text-xs b-px-2 b-py-1 b-rounded">YENİ</span>
+              <span class="b-text-warning">⭐⭐⭐⭐⭐</span>
+            </div>
+            <h3 class="b-font-semibold b-mb-2">Premium Tişört</h3>
+            <p class="b-text-sm b-text-dark b-opacity-75 b-mb-4">%100 pamuklu, rahat kesim</p>
+            <div class="b-flex b-items-center b-justify-between">
+              <div>
+                <span class="b-text-dark b-opacity-50 b-line-through b-text-sm">299 ₺</span>
+                <span class="b-text-2xl b-font-bold b-text-primary b-ml-2">149 ₺</span>
+              </div>
+              <button class="b-bg-primary b-text-white b-px-4 b-py-2 b-rounded b-cursor-pointer b-transition b-hover-opacity">
+                🛒
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="b-bg-white b-rounded-lg b-shadow b-overflow-hidden b-transition b-hover-opacity">
+          <div class="b-bg-light b-h-64 b-flex b-items-center b-justify-center">
+            <span class="b-text-9xl">👟</span>
+          </div>
+          <div class="b-p-4">
+            <div class="b-flex b-items-center b-justify-between b-mb-2">
+              <span class="b-bg-danger b-text-white b-text-xs b-px-2 b-py-1 b-rounded">%50</span>
+              <span class="b-text-warning">⭐⭐⭐⭐☆</span>
+            </div>
+            <h3 class="b-font-semibold b-mb-2">Spor Ayakkabı</h3>
+            <p class="b-text-sm b-text-dark b-opacity-75 b-mb-4">Hafif ve dayanıklı</p>
+            <div class="b-flex b-items-center b-justify-between">
+              <div>
+                <span class="b-text-dark b-opacity-50 b-line-through b-text-sm">1.299 ₺</span>
+                <span class="b-text-2xl b-font-bold b-text-primary b-ml-2">649 ₺</span>
+              </div>
+              <button class="b-bg-primary b-text-white b-px-4 b-py-2 b-rounded b-cursor-pointer b-transition b-hover-opacity">
+                🛒
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="b-bg-white b-rounded-lg b-shadow b-overflow-hidden b-transition b-hover-opacity">
+          <div class="b-bg-light b-h-64 b-flex b-items-center b-justify-center">
+            <span class="b-text-9xl">⌚</span>
+          </div>
+          <div class="b-p-4">
+            <div class="b-flex b-items-center b-justify-between b-mb-2">
+              <span class="b-bg-primary b-text-white b-text-xs b-px-2 b-py-1 b-rounded">POPÜLER</span>
+              <span class="b-text-warning">⭐⭐⭐⭐⭐</span>
+            </div>
+            <h3 class="b-font-semibold b-mb-2">Akıllı Saat</h3>
+            <p class="b-text-sm b-text-dark b-opacity-75 b-mb-4">Su geçirmez, 7 gün pil ömrü</p>
+            <div class="b-flex b-items-center b-justify-between">
+              <div>
+                <span class="b-text-2xl b-font-bold b-text-primary">2.499 ₺</span>
+              </div>
+              <button class="b-bg-primary b-text-white b-px-4 b-py-2 b-rounded b-cursor-pointer b-transition b-hover-opacity">
+                🛒
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="b-bg-white b-rounded-lg b-shadow b-overflow-hidden b-transition b-hover-opacity">
+          <div class="b-bg-light b-h-64 b-flex b-items-center b-justify-center">
+            <span class="b-text-9xl">🎒</span>
+          </div>
+          <div class="b-p-4">
+            <div class="b-flex b-items-center b-justify-between b-mb-2">
+              <span class="b-bg-success b-text-white b-text-xs b-px-2 b-py-1 b-rounded">YENİ</span>
+              <span class="b-text-warning">⭐⭐⭐⭐☆</span>
+            </div>
+            <h3 class="b-font-semibold b-mb-2">Seyahat Çantası</h3>
+            <p class="b-text-sm b-text-dark b-opacity-75 b-mb-4">15" laptop bölmeli, USB çıkışı</p>
+            <div class="b-flex b-items-center b-justify-between">
+              <div>
+                <span class="b-text-dark b-opacity-50 b-line-through b-text-sm">899 ₺</span>
+                <span class="b-text-2xl b-font-bold b-text-primary b-ml-2">699 ₺</span>
+              </div>
+              <button class="b-bg-primary b-text-white b-px-4 b-py-2 b-rounded b-cursor-pointer b-transition b-hover-opacity">
+                🛒
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="b-py-16 b-bg-white">
+    <div class="container">
+      <div class="b-grid b-grid-cols-1 md:b-grid-cols-3 b-gap-8">
+        <div class="b-text-center">
+          <div class="b-text-5xl b-mb-4">🚚</div>
+          <h3 class="b-font-semibold b-mb-2">Ücretsiz Kargo</h3>
+          <p class="b-text-sm b-text-dark b-opacity-75">300 ₺ ve üzeri alışverişlerde</p>
+        </div>
+        <div class="b-text-center">
+          <div class="b-text-5xl b-mb-4">↩️</div>
+          <h3 class="b-font-semibold b-mb-2">Kolay İade</h3>
+          <p class="b-text-sm b-text-dark b-opacity-75">15 gün içinde ücretsiz iade</p>
+        </div>
+        <div class="b-text-center">
+          <div class="b-text-5xl b-mb-4">💳</div>
+          <h3 class="b-font-semibold b-mb-2">Güvenli Ödeme</h3>
+          <p class="b-text-sm b-text-dark b-opacity-75">256-bit SSL şifreleme</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="b-bg-primary b-text-white b-py-16">
+    <div class="container b-text-center">
+      <h2 class="b-text-4xl b-font-bold b-mb-4">Kampanyalardan Haberdar Ol</h2>
+      <p class="b-mb-8 b-opacity-90">İlk alışverişinizde %10 indirim kazanın!</p>
+      <div class="b-max-w-lg b-mx-auto b-flex b-gap-2">
+        <input 
+          type="email" 
+          placeholder="E-posta adresiniz" 
+          class="b-flex-1 b-px-4 b-py-3 b-rounded b-text-dark"
+        >
+        <button class="b-bg-white b-text-primary b-px-8 b-py-3 b-rounded b-cursor-pointer b-font-semibold b-transition b-hover-opacity">
+          Abone Ol
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="b-bg-dark b-text-white b-py-12">
+    <div class="container">
+      <div class="b-grid b-grid-cols-1 md:b-grid-cols-4 b-gap-8 b-mb-8">
+        <div>
+          <h3 class="b-text-xl b-font-bold b-mb-4">🛒 ShopName</h3>
+          <p class="b-opacity-75 b-text-sm">
+            Kaliteli ürünler, uygun fiyatlar ve güvenli alışveriş deneyimi.
+          </p>
+        </div>
+        <div>
+          <h4 class="b-font-semibold b-mb-4">Kurumsal</h4>
+          <ul class="b-flex b-flex-col b-gap-2 b-text-sm b-opacity-75">
+            <li><a href="#" class="b-transition b-hover-opacity">Hakkımızda</a></li>
+            <li><a href="#" class="b-transition b-hover-opacity">Kariyer</a></li>
+            <li><a href="#" class="b-transition b-hover-opacity">Basın Kiti</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="b-font-semibold b-mb-4">Müşteri Hizmetleri</h4>
+          <ul class="b-flex b-flex-col b-gap-2 b-text-sm b-opacity-75">
+            <li><a href="#" class="b-transition b-hover-opacity">İletişim</a></li>
+            <li><a href="#" class="b-transition b-hover-opacity">Kargo Takip</a></li>
+            <li><a href="#" class="b-transition b-hover-opacity">İade ve Değişim</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="b-font-semibold b-mb-4">Bizi Takip Edin</h4>
+          <div class="b-flex b-gap-4 b-text-2xl">
+            <a href="#" class="b-transition b-hover-opacity">📘</a>
+            <a href="#" class="b-transition b-hover-opacity">📷</a>
+            <a href="#" class="b-transition b-hover-opacity">🐦</a>
+          </div>
+        </div>
+      </div>
+      <div class="b-border-t b-pt-8 b-text-center b-text-sm b-opacity-75">
+        <p>© 2024 ShopName. Tüm hakları saklıdır. Built with ❤️ using B-Labs</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/blabs.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Dark mode initialization
+    B.ready(() => {
+      const darkModeToggle = document.querySelector('#darkModeToggle');
+      if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', () => {
+          const isDark = B.darkMode.toggle();
+          darkModeToggle.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+        });
+        
+        B.darkMode.init();
+        const isDark = B.darkMode.isEnabled();
+        darkModeToggle.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+      }
+    });
+  </script>
+</body>
+</html>
