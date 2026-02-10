@@ -1,78 +1,30 @@
-<div align="center">
-
 # 🚀 B-Labs
 
-### Modern Frontend Development Toolkit
+**Modern Frontend Development Toolkit**
 
 [![npm version](https://img.shields.io/badge/npm-v1.0.0-blue.svg)](https://www.npmjs.com/package/blabs)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-[Features](#-features) • [Quick Start](#-quick-start) • [Templates](#-templates) • [Documentation](#-documentation)
-
----
-
-*Create beautiful websites in seconds with ready-made templates and powerful utilities*
-
-<img src="https://via.placeholder.com/800x400/667eea/ffffff?text=B-Labs+Modern+Frontend+Toolkit" alt="B-Labs Demo" width="100%"/>
-
-</div>
+Create beautiful websites in seconds with ready-made templates and powerful utilities.
 
 ---
 
 ## ✨ Features
 
-<table>
-<tr>
-<td width="50%">
-
-### 🎯 **One Command Setup**
-```bash
-npx blabs init
-```
-Start your project instantly with interactive CLI
-
-</td>
-<td width="50%">
-
-### 🎨 **17+ Modern Templates**
-Blog, SaaS, Portfolio, E-commerce, Dashboard and more!
-
-</td>
-</tr>
-<tr>
-<td>
-
-### ⚡ **Lightning Fast**
-Zero config needed. Start coding immediately.
-
-</td>
-<td>
-
-### 🌙 **Dark Mode Built-in**
-Toggle dark mode with one click in all templates
-
-</td>
-</tr>
-<tr>
-<td>
-
-### 💎 **Modern Design**
-Glassmorphism, gradients, and smooth animations
-
-</td>
-<td>
-
-### 📱 **Fully Responsive**
-Mobile-first design for all screen sizes
-
-</td>
-</tr>
-</table>
+- 🎯 **One Command Setup** - Start your project instantly with `npx blabs init`
+- 🎨 **17+ Modern Templates** - Blog, SaaS, Portfolio, E-commerce, Dashboard and more!
+- ⚡ **Lightning Fast** - Zero config needed. Start coding immediately
+- 🌙 **Dark Mode Built-in** - Toggle dark mode with one click in all templates
+- 💎 **Modern Design** - Glassmorphism, gradients, and smooth animations
+- 📱 **Fully Responsive** - Mobile-first design for all screen sizes
+- 🔧 **640+ Utility Classes** - Tailwind-inspired CSS utilities
+- ⚡ **20+ JS Helpers** - Ready-to-use JavaScript functions
+- 📦 **VS Code Integration** - Automatically opens projects in VS Code
 
 ---
 
-## � Quick Start
+## 🚀 Quick Start
 
 ### Installation
 
@@ -91,24 +43,26 @@ The CLI will guide you through:
 
 ```
 ╔══════════════════════════════════╗
-║   B-Labs v1.0.0                  ║
-║   Modern Frontend Toolkit        ║
+║  🚀 B-Labs v1.0.0                ║
+║  Modern Frontend Toolkit         ║
 ╚══════════════════════════════════╝
 
-🚀 Welcome to B-Labs!
+✨ Let's build something amazing!
 
 ? Project name: my-awesome-site
 ? Project type: 📄 HTML - Classic HTML/CSS/JS
 ? Choose a template: 💎 SaaS - Professional landing page
 ? Enable dark mode support? Yes
-? Create assets folders (images, fonts)? Yes
+? Create assets folders? Yes
 ? Open project in VS Code? Yes
 
 ✔ Project structure created!
 ✔ CSS utilities generated!
 ✔ Opening in VS Code...
 
-✨ Project created successfully!
+╔════════════════════════════════════╗
+║  ✨ Project Created Successfully!  ║
+╚════════════════════════════════════╝
 ```
 
 ### That's it! 🎉
@@ -127,55 +81,37 @@ Your project is ready with:
 
 Choose from **17+ professionally designed templates:**
 
-<table>
-<tr>
-<td align="center" width="33%">
-<img src="https://via.placeholder.com/300x200/667eea/ffffff?text=Blog+Template" width="100%"/><br/>
-<b>📝 Blog</b><br/>
-Modern blog with glassmorphism cards
-</td>
-<td align="center" width="33%">
-<img src="https://via.placeholder.com/300x200/4facfe/ffffff?text=SaaS+Landing" width="100%"/><br/>
-<b>💎 SaaS</b><br/>
-Professional landing page with pricing
-</td>
-<td align="center" width="33%">
-<img src="https://via.placeholder.com/300x200/f093fb/ffffff?text=Portfolio" width="100%"/><br/>
-<b>💼 Portfolio</b><br/>
-Showcase your work beautifully
-</td>
-</tr>
-<tr>
-<td align="center">
-<img src="https://via.placeholder.com/300x200/a8edea/ffffff?text=E-commerce" width="100%"/><br/>
-<b>🛍️ E-commerce</b><br/>
-Online store with product grid
-</td>
-<td align="center">
-<img src="https://via.placeholder.com/300x200/fa709a/ffffff?text=Dashboard" width="100%"/><br/>
-<b>📊 Dashboard</b><br/>
-Admin panel with charts
-</td>
-<td align="center">
-<img src="https://via.placeholder.com/300x200/fed6e3/ffffff?text=Landing" width="100%"/><br/>
-<b>🚀 Landing Page</b><br/>
-Product showcase page
-</td>
-</tr>
-</table>
+### 📝 Main Templates
 
-**And 11 more templates:**
-- 🍕 **Restaurant** - Cafe/restaurant website
+| Template | Description | Features |
+|----------|-------------|----------|
+| 📝 **Blog** | Modern blog site | Glassmorphism cards, gradient hero, newsletter |
+| 💎 **SaaS** | SaaS landing page | Pricing tables, features grid, CTA sections |
+| 💼 **Portfolio** | Personal portfolio | Project showcase, about section, contact form |
+| 🚀 **Landing** | Product landing | Hero section, features, testimonials |
+| 🛍️ **E-commerce** | Online store | Product grid, shopping cart, checkout |
+| 📰 **News** | News/magazine | Article grid, categories, trending |
+| 📊 **Dashboard** | Admin panel | Sidebar, charts, stats cards, tables |
+
+### 🎯 Additional Templates
+
+- 🍕 **Restaurant** - Cafe/restaurant website with menu
 - 🎨 **Agency** - Creative agency portfolio
 - 📄 **Resume** - Professional CV/resume
-- 🎭 **Event** - Conference/event page
-- 📸 **Photography** - Photo portfolio
-- 🎵 **Music** - Band/artist page
+- 🎭 **Event** - Conference/event landing page
+- 📸 **Photography** - Photo portfolio gallery
+- 🎵 **Music** - Band/artist promotional page
 - 🏠 **Real Estate** - Property listings
 - 💪 **Fitness** - Gym/fitness center
-- 🎓 **Education** - Online courses
-- 📰 **News** - News/magazine site
+- 🎓 **Education** - Online courses platform
 - 🎯 **Blank** - Start from scratch
+
+**All templates include:**
+- ✅ Dark mode toggle
+- ✅ Responsive design
+- ✅ Modern animations
+- ✅ Glassmorphism effects
+- ✅ Gradient backgrounds
 
 ---
 
@@ -185,39 +121,39 @@ Product showcase page
 
 ```
 my-project/
-├── 📄 index.html          # Your main HTML file (from template)
-├── 📁 css/
+├── index.html              # Your main HTML file
+├── css/
 │   ├── blabs.css          # Auto-generated utility CSS (640+ lines!)
 │   └── main.css           # Your custom styles
-├── 📁 js/
+├── js/
 │   ├── blabs.js           # Helper library (20+ functions)
 │   └── main.js            # Your JavaScript code
-├── 📁 images/             # Image assets
-├── 📁 fonts/              # Font files
-├── ⚙️ blabs.config.js     # Configuration file
-└── 📖 README.md           # Project documentation
+├── images/                # Image assets (optional)
+├── fonts/                 # Font files (optional)
+├── blabs.config.js        # Configuration file
+└── README.md              # Project documentation
 ```
 
-### React Project (with Vite)
+### React Project
 
 ```
 my-project/
-├── 📁 src/
+├── src/
 │   ├── App.jsx
 │   ├── main.jsx
 │   └── utils/
 │       └── blabs.js       # B-Labs utilities
-├── 📁 public/
-├── ⚙️ blabs.config.js
-├── ⚙️ vite.config.js
-└── 📦 package.json
+├── public/
+├── blabs.config.js
+├── vite.config.js
+└── package.json
 ```
 
 ---
 
 ## 🎨 CSS Utility Classes
 
-B-Labs generates **640+ utility classes** inspired by Tailwind CSS but simpler:
+B-Labs generates **640+ utility classes** inspired by Tailwind CSS:
 
 ### Colors
 ```css
@@ -274,9 +210,9 @@ B-Labs generates **640+ utility classes** inspired by Tailwind CSS but simpler:
 
 ---
 
-## 💻 JavaScript  Helpers
+## 💻 JavaScript Helpers
 
-B-Labs includes **20+ utility functions** in `blabs.js`:
+B-Labs includes **20+ utility functions**:
 
 ### DOM Manipulation
 ```javascript
@@ -285,36 +221,12 @@ B.ready(() => {
   console.log('DOM is ready!');
 });
 
-// Query elements (simplified)
+// Query elements
 B.q('.my-class')    // querySelector
 B.qa('.my-class')   // querySelectorAll
 
-// Toggle classes
-B.toggleClass(element, 'active');
-
 // Toggle visibility
 B.toggle('.menu-button', '.menu');
-```
-
-### Effects & Animations
-```javascript
-// Smooth scroll
-B.smoothScroll('a[href^="#"]', 80); // 80px offset
-
-// Lazy load images
-B.lazyImages(); // auto-loads images with data-src
-
-// Scroll reveal animations
-B.scrollReveal('.card', {
-  animation: 'fadeIn',
-  threshold: 0.1
-});
-
-// Animate element
-B.animate('.element', 'slideInUp', {
-  duration: 1000,
-  delay: 200
-});
 ```
 
 ### Dark Mode
@@ -333,6 +245,27 @@ B.darkMode.disable();
 const isDark = B.darkMode.isEnabled();
 ```
 
+### Effects & Animations
+```javascript
+// Smooth scroll
+B.smoothScroll('a[href^="#"]', 80);
+
+// Lazy load images
+B.lazyImages();
+
+// Scroll reveal animations
+B.scrollReveal('.card', {
+  animation: 'fadeIn',
+  threshold: 0.1
+});
+
+// Animate element
+B.animate('.element', 'slideInUp', {
+  duration: 1000,
+  delay: 200
+});
+```
+
 ### Components
 ```javascript
 // Modal
@@ -348,13 +281,9 @@ B.components.toast('Success!', {
   duration: 3000
 });
 
-// Dropdown menu
+// Dropdown, Tabs, Accordion
 B.components.dropdown('.dropdown-trigger', '.dropdown-menu');
-
-// Tabs
 B.components.tabs('.tabs-container');
-
-// Accordion
 B.components.accordion('.accordion');
 ```
 
@@ -373,13 +302,11 @@ B.post('https://api.example.com/users', {
 
 ### Utilities
 ```javascript
-// Debounce function
+// Debounce & Throttle
 const debouncedSearch = B.debounce(search, 300);
-
-// Throttle function
 const throttledScroll = B.throttle(handleScroll, 100);
 
-// Check if element is in viewport
+// Check viewport
 if (B.isInViewport(element)) {
   // Do something
 }
@@ -471,13 +398,7 @@ npx blabs init my-saas
 # Open in VS Code
 ```
 
-Result: Professional SaaS landing page with:
-- Hero section with gradient
-- Features grid
-- Pricing table
-- Testimonials
-- CTA section
-- Dark mode toggle
+**Result:** Professional SaaS landing page with hero section, features grid, pricing table, and dark mode toggle.
 
 ### Create a Blog
 
@@ -486,12 +407,7 @@ npx blabs init my-blog
 # Choose: Blog template
 ```
 
-Result: Modern blog with:
-- Glassmorphism cards
-- Gradient hero
-- Post grid
-- Newsletter signup
-- Responsive design
+**Result:** Modern blog with glassmorphism cards, gradient hero, post grid, and newsletter signup.
 
 ### Create a Dashboard
 
@@ -500,12 +416,7 @@ npx blabs init admin-panel
 # Choose: Dashboard template
 ```
 
-Result: Admin dashboard with:
-- Sidebar navigation
-- Stats cards
-- Charts
-- Recent activity
-- Orders table
+**Result:** Admin dashboard with sidebar navigation, stats cards, charts, and tables.
 
 ---
 
@@ -541,14 +452,10 @@ MIT License - see the [LICENSE](LICENSE) file for details
 
 ---
 
-<div align="center">
+## ⭐ Star Us!
 
-### ⭐ Star this repo if you found it helpful!
+If you found this helpful, please give it a star on GitHub!
 
-Made with ❤️ by [Barand1500](https://github.com/Barand1500)
+**Made with ❤️ by [Barand1500](https://github.com/Barand1500)**
 
 [Report Bug](https://github.com/Barand1500/B-Labs/issues) • [Request Feature](https://github.com/Barand1500/B-Labs/issues)
-
-</div>
-#   B - L a b s  
- 
