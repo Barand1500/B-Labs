@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "bin": {
-    "blabs": "./bin/cli.js"
+    "blabs": "bin/cli.js"
   },
   "scripts": {
     "test": "node --test test/*.test.js",
