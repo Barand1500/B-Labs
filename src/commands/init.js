@@ -8,6 +8,7 @@ import chalk from 'chalk';
 import ora from 'ora';
 import fs from 'fs-extra';
 import path from 'path';
+import os from 'os';
 import { fileURLToPath } from 'url';
 import { spawn } from 'child_process';
 import { generateProject } from '../generators/project-generator.js';
@@ -121,7 +122,9 @@ export async function initCommand() {
     // Create project with beautiful spinners
     const spinner = ora({ text: chalk.cyan('🔨 Creating project structure...'), color: 'cyan' }).start();
     
-    const projectPath = path.join(process.cwd(), answers.projectName);
+    // Create on Desktop by default
+    const desktopPath = path.join(os.homedir(), 'Desktop');
+    const projectPath = path.join(desktopPath, answers.projectName);
     
     // Check if directory exists
     if (await fs.pathExists(projectPath)) {
@@ -189,7 +192,8 @@ export async function initCommand() {
     console.log(chalk.green.bold('╚════════════════════════════════════╝\n'));
     
     console.log(chalk.cyan.bold('📦 Next steps:\n'));
-    console.log(chalk.white('  1. ') + chalk.gray(`cd ${answers.projectName}`));
+    console.log(chalk.white('  📁 Project location: ') + chalk.yellow(projectPath));
+    console.log(chalk.white('  1. ') + chalk.gray(`cd Desktop/${answers.projectName}`));
     
     if (answers.projectType === 'react') {
       if (answers.installDeps) {
