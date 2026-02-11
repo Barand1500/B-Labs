@@ -223,8 +223,6 @@ export async function initCommand() {
     
     // Continue with other questions
     const moreAnswers = await inquirer.prompt([
-    // Continue with other questions
-    const moreAnswers = await inquirer.prompt([
       {
         type: 'confirm',
         name: 'darkMode',
