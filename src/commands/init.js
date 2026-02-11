@@ -262,6 +262,14 @@ export async function initCommand() {
     // Generate project structure
     if (useBlankTemplate) {
       await generateProject(projectPath, answers);
+      spinner.succeed(chalk.green('✔ Proje yapısı oluşturuldu!'));
+      
+      // Generate CSS for blank templates
+      if (answers.cssType === 'utility') {
+        const cssSpinner = ora({ text: chalk.cyan('🎨 Utility CSS oluşturuluyor...'), color: 'cyan' }).start();
+        await generateCSS(projectPath, answers);
+        cssSpinner.succeed(chalk.green('✔ CSS utilities oluşturuldu (640+ class)!'));
+      }
     } else {
       // Create basic structure for template
       await fs.ensureDir(projectPath);
@@ -273,39 +281,35 @@ export async function initCommand() {
         await fs.ensureDir(path.join(projectPath, 'fonts'));
       }
       
-      // Copy B-Labs CSS and JS
-      const blabsCSSPath = path.resolve(__dirname, '../../templates/css/blabs.css');
-      const blabsJSPath = path.resolve(__dirname, '../../templates/js/blabs.js');
+      spinner.succeed(chalk.green('✔ Proje yapısı oluşturuldu!'));
       
-      if (await fs.pathExists(blabsCSSPath)) {
-        await fs.copy(blabsCSSPath, path.join(projectPath, 'css/blabs.css'));
-      }
+      // Generate B-Labs CSS
+      const cssSpinner = ora({ text: chalk.cyan('🎨 B-Labs CSS oluşturuluyor...'), color: 'cyan' }).start();
+      await generateCSS(projectPath, { darkMode: answers.darkMode });
+      cssSpinner.succeed(chalk.green('✔ B-Labs CSS oluşturuldu (640+ class)!'));
       
+      // Copy B-Labs JS
+      const jsSpinner = ora({ text: chalk.cyan('⚡ B-Labs JS kopyalanıyor...'), color: 'cyan' }).start();
+      const blabsJSPath = path.resolve(__dirname, '../../templates/blabs.js');
       if (await fs.pathExists(blabsJSPath)) {
         await fs.copy(blabsJSPath, path.join(projectPath, 'js/blabs.js'));
       }
+      jsSpinner.succeed(chalk.green('✔ B-Labs JS kopyalandı!'));
       
       // Create empty main.css and main.js
       await fs.writeFile(path.join(projectPath, 'css/main.css'), '/* Your custom styles here */\n');
       await fs.writeFile(path.join(projectPath, 'js/main.js'), '// Your custom JavaScript here\n');
       
       // Apply template
+      const templateSpinner = ora({ text: chalk.cyan(`🎨 ${selectedTemplate.name} template'i uygulanıyor...`), color: 'cyan' }).start();
       await applyTemplate(selectedTemplate, projectPath, templateAnswers);
+      templateSpinner.succeed(chalk.green(`✔ ${selectedTemplate.name} template'i uygulandı!`));
       
       // Copy guide if exists
       const guidePath = path.resolve(__dirname, '../../templates/BLABS-GUIDE.md');
       if (await fs.pathExists(guidePath)) {
         await fs.copy(guidePath, path.join(projectPath, 'BLABS-GUIDE.md'));
       }
-    }
-    
-    spinner.succeed(chalk.green('✔ Proje yapısı oluşturuldu!'));
-    
-    // Generate CSS for blank templates
-    if (useBlankTemplate && answers.cssType === 'utility') {
-      const cssSpinner = ora({ text: chalk.cyan('🎨 Utility CSS oluşturuluyor...'), color: 'cyan' }).start();
-      await generateCSS(projectPath, answers);
-      cssSpinner.succeed(chalk.green('✔ CSS utilities oluşturuldu (640+ class)!'));
     }
 
     // Ask to open in VS Code
