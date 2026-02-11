@@ -17,110 +17,239 @@ import { generateCSS } from '../generators/css-generator.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+/**
+ * Get available project templates from templates/projects folder
+ */
+async function getAvailableTemplates() {
+  const templatesDir = path.resolve(__dirname, '../../templates/projects');
+  
+  if (!await fs.pathExists(templatesDir)) {
+    return [];
+  }
+  
+  const dirs = await fs.readdir(templatesDir);
+  const templates = [];
+  
+  for (const dir of dirs) {
+    const templatePath = path.join(templatesDir, dir);
+    const configPath = path.join(templatePath, 'config.json');
+    
+    if (await fs.pathExists(configPath)) {
+      const config = await fs.readJSON(configPath);
+      templates.push({
+        id: dir,
+        name: config.name,
+        description: config.description,
+        preview: config.preview,
+        path: templatePath,
+        config: config
+      });
+    }
+  }
+  
+  return templates;
+}
+
+/**
+ * Run template wizard - ask customization questions
+ */
+async function runTemplateWizard(template) {
+  const { config } = template;
+  const answers = {};
+  
+  console.log(chalk.cyan.bold(`\n✨ ${config.name} - Özelleştirme\n`));
+  
+  // Ask placeholder questions
+  if (config.placeholders) {
+    for (const [key, placeholder] of Object.entries(config.placeholders)) {
+      if (placeholder.optional) {
+        const { shouldAsk } = await inquirer.prompt([{
+          type: 'confirm',
+          name: 'shouldAsk',
+          message: `${placeholder.question} eklemek ister misiniz?`,
+          default: false
+        }]);
+        
+        if (!shouldAsk) {
+          answers[key] = placeholder.default;
+          continue;
+        }
+      }
+      
+      const answer = await inquirer.prompt([{
+        type: 'input',
+        name: 'value',
+        message: placeholder.question,
+        default: placeholder.default
+      }]);
+      
+      answers[key] = answer.value;
+    }
+  }
+  
+  // Ask color scheme
+  if (config.colorSchemes) {
+    const colorChoices = Object.entries(config.colorSchemes).map(([id, scheme]) => ({
+      name: `${scheme.name} - ${chalk.gray(scheme.description)}`,
+      value: id
+    }));
+    
+    const { colorScheme } = await inquirer.prompt([{
+      type: 'list',
+      name: 'colorScheme',
+      message: '🎨 Renk şeması seçin:',
+      choices: colorChoices
+    }]);
+    
+    // Add color values to answers
+    const selectedScheme = config.colorSchemes[colorScheme];
+    Object.assign(answers, selectedScheme.values);
+  }
+  
+  return answers;
+}
+
+/**
+ * Replace placeholders in content
+ */
+function replacePlaceholders(content, answers) {
+  let result = content;
+  
+  for (const [key, value] of Object.entries(answers)) {
+    const placeholder = `{{${key}}}`;
+    result = result.replace(new RegExp(placeholder, 'g'), value);
+  }
+  
+  return result;
+}
+
+/**
+ * Copy template and replace placeholders
+ */
+async function applyTemplate(templateInfo, projectPath, answers) {
+  const { path: templatePath, config } = templateInfo;
+  
+  // Copy all files from template
+  for (const file of config.files) {
+    const sourcePath = path.join(templatePath, file);
+    const destPath = path.join(projectPath, file);
+    
+    if (await fs.pathExists(sourcePath)) {
+      let content = await fs.readFile(sourcePath, 'utf-8');
+      content = replacePlaceholders(content, answers);
+      
+      await fs.ensureDir(path.dirname(destPath));
+      await fs.writeFile(destPath, content);
+    }
+  }
+}
+
 export async function initCommand() {
   // Beautiful banner
   console.log(chalk.cyan.bold('\n╔════════════════════════════════════╗'));
   console.log(chalk.cyan.bold('║                                    ║'));
-  console.log(chalk.cyan.bold('║  ') + chalk.white.bold('🚀 B-Labs v1.0.0') + chalk.cyan.bold('             ║'));
-  console.log(chalk.cyan.bold('║  ') + chalk.gray('Modern Frontend Toolkit') + chalk.cyan.bold('       ║'));
+  console.log(chalk.cyan.bold('║  ') + chalk.white.bold('🚀 B-Labs v2.0.0') + chalk.cyan.bold('             ║'));
+  console.log(chalk.cyan.bold('║  ') + chalk.gray('WordPress-like Templates!') + chalk.cyan.bold('    ║'));
   console.log(chalk.cyan.bold('║                                    ║'));
   console.log(chalk.cyan.bold('╚════════════════════════════════════╝\n'));
   console.log(chalk.green('✨ Let\'s build something amazing!\n'));
 
   try {
+    // Get available templates
+    const availableTemplates = await getAvailableTemplates();
+    
     // Interactive prompts
     const answers = await inquirer.prompt([
       {
         type: 'input',
         name: 'projectName',
-        message: 'Project name:',
-        default: 'my-blabs-project',
+        message: 'Proje adı:',
+        default: 'my-project',
         validate: (input) => {
-          if (input.length < 1) return 'Project name is required';
-          if (!/^[a-z0-9-_]+$/i.test(input)) return 'Only alphanumeric, dash and underscore allowed';
+          if (input.length < 1) return 'Proje adı gerekli';
+          if (!/^[a-z0-9-_]+$/i.test(input)) return 'Sadece harf, rakam, tire ve alt çizgi kullanılabilir';
           return true;
         }
-      },
-      {
+      }
+    ]);
+    
+    // Template selection
+    let selectedTemplate = null;
+    let useBlankTemplate = false;
+    
+    if (availableTemplates.length > 0) {
+      const templateChoices = [
+        { name: chalk.gray('🎯 Boş Proje - Sıfırdan başla'), value: 'blank' },
+        ...availableTemplates.map(t => ({
+          name: `${t.preview}\n   ${chalk.gray(t.description)}`,
+          value: t.id
+        }))
+      ];
+      
+      const { templateChoice } = await inquirer.prompt([{
         type: 'list',
-        name: 'projectType',
-        message: 'Project type:',
-        choices: [
-          { name: '📄 HTML - Classic HTML/CSS/JS', value: 'html' },
-          { name: '⚛️  React - Modern React project', value: 'react' }
-        ],
-        default: 'html'
-      },
-      {
-        type: 'list',
-        name: 'template',
-        message: 'Choose a template:',
-        choices: (answers) => {
-          if (answers.projectType === 'html') {
-            return [
-              { name: '🎯 Blank - Empty project', value: 'blank' },
-              { name: '📝 Blog - Modern blog site', value: 'blog' },
-              { name: '💼 Portfolio - Personal portfolio', value: 'portfolio' },
-              { name: '🚀 Landing Page - Product landing', value: 'landing' },
-              { name: '🛍️ E-commerce - Online store', value: 'ecommerce' },
-              { name: '📰 News - News/magazine site', value: 'news' },
-              { name: '📊 Dashboard - Admin panel', value: 'dashboard' },
-              { name: '💎 SaaS - SaaS landing page', value: 'saas' },
-              { name: '🍕 Restaurant - Cafe/restaurant', value: 'restaurant' },
-              { name: '🎨 Agency - Creative agency', value: 'agency' },
-              { name: '📄 Resume - Professional CV', value: 'resume' },
-              { name: '🎭 Event - Conference/event', value: 'event' },
-              { name: '📸 Photography - Photo portfolio', value: 'photography' },
-              { name: '🎵 Music - Band/artist page', value: 'music' },
-              { name: '🏠 Real Estate - Property listing', value: 'realestate' },
-              { name: '💪 Fitness - Gym/fitness', value: 'fitness' },
-              { name: '🎓 Education - Online courses', value: 'education' }
-            ];
-          } else {
-            return [
-              { name: '🎯 Blank - Empty React app', value: 'blank' },
-              { name: '📝 Blog - React blog', value: 'blog' },
-              { name: '💼 Portfolio - React portfolio', value: 'portfolio' },
-              { name: '📊 Dashboard - Admin dashboard', value: 'dashboard' }
-            ];
-          }
-        },
-        default: 'blank'
-      },
-      {
+        name: 'templateChoice',
+        message: '📦 Template seçin:',
+        choices: templateChoices,
+        pageSize: 10
+      }]);
+      
+      if (templateChoice === 'blank') {
+        useBlankTemplate = true;
+      } else {
+        selectedTemplate = availableTemplates.find(t => t.id === templateChoice);
+      }
+    } else {
+      useBlankTemplate = true;
+      console.log(chalk.yellow('\n⚠️  Hazır template bulunamadı, boş proje oluşturuluyor...\n'));
+    }
+    
+    // If using blank template, ask CSS type
+    if (useBlankTemplate) {
+      const { cssType } = await inquirer.prompt([{
         type: 'list',
         name: 'cssType',
-        message: 'CSS approach:',
+        message: 'CSS tipi:',
         choices: [
-          { name: '🎨 Utility - Tailwind-like utility classes', value: 'utility' },
-          { name: '📝 Classic - Traditional CSS structure', value: 'classic' }
+          { name: '🎨 Utility - Tailwind-benzeri utility class\'lar', value: 'utility' },
+          { name: '📝 Classic - Geleneksel CSS yapısı', value: 'classic' }
         ],
-        default: 'utility',
-        when: (answers) => answers.template === 'blank' // Only ask for blank templates
-      },
+        default: 'utility'
+      }]);
+      
+      answers.cssType = cssType;
+      answers.template = 'blank';
+    }
+    
+    // Continue with other questions
+    const moreAnswers = await inquirer.prompt([
+    // Continue with other questions
+    const moreAnswers = await inquirer.prompt([
       {
         type: 'confirm',
         name: 'darkMode',
-        message: 'Enable dark mode support?',
+        message: 'Dark mode desteği?',
         default: true
       },
       {
         type: 'confirm',
         name: 'createAssets',
-        message: 'Create assets folders (images, fonts)?',
+        message: 'Assets klasörleri oluşturulsun mu? (images, fonts)',
         default: true
-      },
-      {
-        type: 'confirm',
-        name: 'installDeps',
-        message: 'Install dependencies automatically?',
-        default: true,
-        when: (answers) => answers.projectType === 'react'
       }
     ]);
-
+    
+    Object.assign(answers, moreAnswers);
+    
+    // Run template wizard if template selected
+    let templateAnswers = {};
+    if (selectedTemplate) {
+      templateAnswers = await runTemplateWizard(selectedTemplate);
+      templateAnswers.PROJECT_NAME = answers.projectName;
+    }
+    
     // Create project with beautiful spinners
-    const spinner = ora({ text: chalk.cyan('🔨 Creating project structure...'), color: 'cyan' }).start();
+    const spinner = ora({ text: chalk.cyan('🔨 Proje yapısı oluşturuluyor...'), color: 'cyan' }).start();
     
     // Create on Desktop by default
     const desktopPath = path.join(os.homedir(), 'Desktop');
@@ -128,24 +257,59 @@ export async function initCommand() {
     
     // Check if directory exists
     if (await fs.pathExists(projectPath)) {
-      spinner.fail(chalk.red(`❌ Directory "${answers.projectName}" already exists!`));
+      spinner.fail(chalk.red(`❌ "${answers.projectName}" klasörü zaten var!`));
       return;
     }
-
-    // Generate project
-    await generateProject(projectPath, answers);
     
-    spinner.succeed(chalk.green('✔ Project structure created!'));
-
-    // Generate CSS
-    if (answers.cssType === 'utility') {
-      const cssSpinner = ora({ text: chalk.cyan('🎨 Generating utility CSS...'), color: 'cyan' }).start();
+    // Generate project structure
+    if (useBlankTemplate) {
+      await generateProject(projectPath, answers);
+    } else {
+      // Create basic structure for template
+      await fs.ensureDir(projectPath);
+      await fs.ensureDir(path.join(projectPath, 'css'));
+      await fs.ensureDir(path.join(projectPath, 'js'));
+      
+      if (answers.createAssets) {
+        await fs.ensureDir(path.join(projectPath, 'images'));
+        await fs.ensureDir(path.join(projectPath, 'fonts'));
+      }
+      
+      // Copy B-Labs CSS and JS
+      const blabsCSSPath = path.resolve(__dirname, '../../templates/css/blabs.css');
+      const blabsJSPath = path.resolve(__dirname, '../../templates/js/blabs.js');
+      
+      if (await fs.pathExists(blabsCSSPath)) {
+        await fs.copy(blabsCSSPath, path.join(projectPath, 'css/blabs.css'));
+      }
+      
+      if (await fs.pathExists(blabsJSPath)) {
+        await fs.copy(blabsJSPath, path.join(projectPath, 'js/blabs.js'));
+      }
+      
+      // Create empty main.css and main.js
+      await fs.writeFile(path.join(projectPath, 'css/main.css'), '/* Your custom styles here */\n');
+      await fs.writeFile(path.join(projectPath, 'js/main.js'), '// Your custom JavaScript here\n');
+      
+      // Apply template
+      await applyTemplate(selectedTemplate, projectPath, templateAnswers);
+      
+      // Copy guide if exists
+      const guidePath = path.resolve(__dirname, '../../templates/BLABS-GUIDE.md');
+      if (await fs.pathExists(guidePath)) {
+        await fs.copy(guidePath, path.join(projectPath, 'BLABS-GUIDE.md'));
+      }
+    }
+    
+    spinner.succeed(chalk.green('✔ Proje yapısı oluşturuldu!'));
+    
+    // Generate CSS for blank templates
+    if (useBlankTemplate && answers.cssType === 'utility') {
+      const cssSpinner = ora({ text: chalk.cyan('🎨 Utility CSS oluşturuluyor...'), color: 'cyan' }).start();
       await generateCSS(projectPath, answers);
-      cssSpinner.succeed(chalk.green('✔ CSS utilities generated (640+ classes)!'));
+      cssSpinner.succeed(chalk.green('✔ CSS utilities oluşturuldu (640+ class)!'));
     }
 
-    // Success message (removed old one, we'll add better one later)
-    
     // Ask to open in VS Code
     const { openInVSCode } = await inquirer.prompt([
       {
@@ -188,31 +352,25 @@ export async function initCommand() {
     
     // Success message box
     console.log(chalk.green.bold('\n╔════════════════════════════════════╗'));
-    console.log(chalk.green.bold('║  ') + chalk.white.bold('✨ Project Created Successfully! ') + chalk.green.bold('║'));
+    console.log(chalk.green.bold('║  ') + chalk.white.bold('✨ Proje Başarıyla Oluşturuldu! ') + chalk.green.bold('  ║'));
     console.log(chalk.green.bold('╚════════════════════════════════════╝\n'));
     
-    console.log(chalk.cyan.bold('📦 Next steps:\n'));
-    console.log(chalk.white('  📁 Project location: ') + chalk.yellow(projectPath));
-    console.log(chalk.white('  1. ') + chalk.gray(`cd Desktop/${answers.projectName}`));
-    
-    if (answers.projectType === 'react') {
-      if (answers.installDeps) {
-        console.log(chalk.white('  2. ') + chalk.gray('npm install ') + chalk.green('✓ (already done)'));
-      } else {
-        console.log(chalk.white('  2. ') + chalk.gray('npm install'));
-      }
-      console.log(chalk.white('  3. ') + chalk.gray('blabs run') + chalk.cyan(' # Start dev server'));
-    } else {
-      console.log(chalk.white('  2. ') + chalk.gray('Open index.html in your browser'));
-      console.log(chalk.white('  3. ') + chalk.gray('or use Live Server extension in VS Code'));
+    if (selectedTemplate) {
+      console.log(chalk.cyan('📦 ') + chalk.white.bold(selectedTemplate.name) + chalk.gray(' template\'i kullanıldı'));
     }
     
-    console.log(chalk.cyan('\n💡 Tips:'));
-    console.log(chalk.gray('  • Check README.md for full documentation'));
-    console.log(chalk.gray('  • Edit blabs.config.js to customize'));
-    console.log(chalk.gray('  • Explore templates at /templates\n'));
+    console.log(chalk.cyan.bold('\n📦 Sonraki adımlar:\n'));
+    console.log(chalk.white('  📁 Proje yeri: ') + chalk.yellow(projectPath));
+    console.log(chalk.white('  1. ') + chalk.gray('VS Code\'da projeyi açın (zaten açıldı ise devam edin)'));
+    console.log(chalk.white('  2. ') + chalk.gray('index.html dosyasını tarayıcıda açın'));
+    console.log(chalk.white('  3. ') + chalk.gray('veya Live Server eklentisini kullanın'));
     
-    console.log(chalk.magenta('⭐ Star us on GitHub: ') + chalk.underline('https://github.com/Barand1500/B-Labs\n'));
+    console.log(chalk.cyan('\n💡 İpuçları:'));
+    console.log(chalk.gray('  • BLABS-GUIDE.md dosyasına bakın'));
+    console.log(chalk.gray('  • 640+ utility class kullanabilirsiniz'));
+    console.log(chalk.gray('  • Dark mode otomatik çalışır\n'));
+    
+    console.log(chalk.magenta('⭐ GitHub\'da yıldız verin: ') + chalk.underline('https://github.com/Barand1500/B-Labs\n'));
 
   } catch (error) {
     console.error(chalk.red('\n❌ Error:'), error.message);

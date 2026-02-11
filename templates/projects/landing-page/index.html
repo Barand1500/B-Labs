@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PROJECT_NAME}} - Modern Landing Page</title>
+    <link rel="stylesheet" href="css/blabs.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="b-bg-gray-50 dark:b-bg-gray-900">
+    
+    <!-- 🔝 NAVBAR -->
+    <nav class="b-fixed b-top-0 b-w-full b-bg-white dark:b-bg-gray-900 b-shadow-md b-z-50 b-transition">
+        <div class="b-max-w-6xl b-mx-auto b-px-4 b-py-4 b-flex b-items-center b-justify-between">
+            <!-- Logo -->
+            <div class="b-text-2xl b-font-bold b-text-primary">
+                {{LOGO_TEXT}}
+            </div>
+            
+            <!-- Menu -->
+            <div class="b-hidden md:b-flex b-gap-8">
+                <a href="#home" class="b-text-dark dark:b-text-white b-no-underline hover:b-text-primary b-transition b-font-medium">Ana Sayfa</a>
+                <a href="#features" class="b-text-dark dark:b-text-white b-no-underline hover:b-text-primary b-transition b-font-medium">Özellikler</a>
+                <a href="#about" class="b-text-dark dark:b-text-white b-no-underline hover:b-text-primary b-transition b-font-medium">Hakkımda</a>
+                <a href="#contact" class="b-text-dark dark:b-text-white b-no-underline hover:b-text-primary b-transition b-font-medium">İletişim</a>
+            </div>
+            
+            <!-- CTA Button -->
+            <button class="b-bg-primary hover:b-bg-blue-700 b-text-white b-px-6 b-py-3 b-rounded-full b-border-0 b-cursor-pointer b-transition b-font-semibold">
+                Hemen Başla →
+            </button>
+            
+            <!-- Dark Mode Toggle -->
+            <button onclick="toggleDarkMode()" class="b-ml-4 b-bg-gray-200 dark:b-bg-gray-800 b-p-3 b-rounded-full b-cursor-pointer b-border-0 b-transition">
+                <span id="dark-icon" class="b-text-xl">🌙</span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- 🎯 HERO SECTION -->
+    <section id="home" class="b-min-h-screen b-flex b-items-center b-justify-center b-bg-gradient-to-r {{GRADIENT_FROM}} {{GRADIENT_TO}} b-text-white b-text-center b-px-4 b-pt-20">
+        <div class="b-max-w-5xl b-animate-fade-in">
+            <!-- Badge -->
+            <div class="b-inline-block b-bg-white b-bg-opacity-20 b-px-6 b-py-3 b-rounded-full b-mb-6 b-text-sm b-font-semibold b-backdrop-blur">
+                ✨ {{BADGE_TEXT}}
+            </div>
+            
+            <!-- Ana Başlık -->
+            <h1 class="b-text-5xl md:b-text-7xl b-font-bold b-mb-6 b-leading-tight">
+                {{HERO_TITLE}}
+            </h1>
+            
+            <!-- Alt Başlık -->
+            <p class="b-text-xl md:b-text-2xl b-mb-10 b-opacity-90 b-max-w-3xl b-mx-auto b-leading-relaxed">
+                {{HERO_SUBTITLE}}
+            </p>
+            
+            <!-- CTA Buttons -->
+            <div class="b-flex b-gap-4 b-justify-center b-flex-wrap">
+                <a href="#contact" class="b-bg-white b-text-primary b-px-8 b-py-4 b-rounded-full b-no-underline b-font-bold b-text-lg hover:b-opacity-90 b-transition b-shadow-xl">
+                    🚀 Hemen Başla
+                </a>
+                <a href="#features" class="b-border-2 b-border-white b-text-white b-px-8 b-py-4 b-rounded-full b-no-underline b-font-bold b-text-lg hover:b-bg-white hover:b-text-primary b-transition">
+                    💡 Daha Fazla Bilgi
+                </a>
+            </div>
+            
+            <!-- Scroll İndikatör -->
+            <div class="b-mt-16 b-animate-bounce">
+                <a href="#features" class="b-text-white b-text-4xl b-no-underline">↓</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ✨ FEATURES SECTION -->
+    <section id="features" class="b-py-24 b-px-4 b-bg-white dark:b-bg-gray-900">
+        <div class="b-max-w-6xl b-mx-auto">
+            <!-- Başlık -->
+            <div class="b-text-center b-mb-16">
+                <h2 class="b-text-4xl md:b-text-5xl b-font-bold b-mb-4 b-text-dark dark:b-text-white">
+                    Neden {{PROJECT_NAME}}?
+                </h2>
+                <p class="b-text-xl b-text-gray-600 dark:b-text-gray-400 b-max-w-2xl b-mx-auto">
+                    Modern, hızlı ve kullanıcı dostu çözümlerimizle fark yaratın
+                </p>
+            </div>
+            
+            <!-- Feature Cards -->
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-3 b-gap-8">
+                <!-- Feature 1 -->
+                <div class="b-bg-gray-50 dark:b-bg-gray-800 b-rounded-2xl b-p-8 hover:b-shadow-xl b-transition hover:b-transform hover:-b-translate-y-2 b-cursor-pointer">
+                    <div class="b-text-5xl b-mb-4">⚡</div>
+                    <h3 class="b-text-2xl b-font-bold b-mb-3 b-text-dark dark:b-text-white">
+                        Hızlı ve Güçlü
+                    </h3>
+                    <p class="b-text-gray-600 dark:b-text-gray-400 b-leading-relaxed">
+                        Modern teknolojiler ile optimize edilmiş performans. Lightning-fast yükleme süreleri ve sorunsuz kullanıcı deneyimi.
+                    </p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="b-bg-gray-50 dark:b-bg-gray-800 b-rounded-2xl b-p-8 hover:b-shadow-xl b-transition hover:b-transform hover:-b-translate-y-2 b-cursor-pointer">
+                    <div class="b-text-5xl b-mb-4">🎨</div>
+                    <h3 class="b-text-2xl b-font-bold b-mb-3 b-text-dark dark:b-text-white">
+                        Modern Tasarım
+                    </h3>
+                    <p class="b-text-gray-600 dark:b-text-gray-400 b-leading-relaxed">
+                        Göz alıcı ve kullanıcı dostu arayüz. Responsive tasarım ile her cihazda mükemmel görünüm.
+                    </p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="b-bg-gray-50 dark:b-bg-gray-800 b-rounded-2xl b-p-8 hover:b-shadow-xl b-transition hover:b-transform hover:-b-translate-y-2 b-cursor-pointer">
+                    <div class="b-text-5xl b-mb-4">🔒</div>
+                    <h3 class="b-text-2xl b-font-bold b-mb-3 b-text-dark dark:b-text-white">
+                        Güvenli
+                    </h3>
+                    <p class="b-text-gray-600 dark:b-text-gray-400 b-leading-relaxed">
+                        En son güvenlik standartları ile korunan verileriniz. SSL şifreleme ve güvenli altyapı.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 📊 STATS SECTION -->
+    <section class="b-py-20 b-px-4 {{BG_COLOR}}">
+        <div class="b-max-w-6xl b-mx-auto">
+            <div class="b-grid b-grid-cols-2 md:b-grid-cols-4 b-gap-8 b-text-center">
+                <div>
+                    <div class="b-text-5xl b-font-bold b-text-primary b-mb-2">10K+</div>
+                    <div class="b-text-gray-600 dark:b-text-gray-400 b-font-medium">Mutlu Kullanıcı</div>
+                </div>
+                <div>
+                    <div class="b-text-5xl b-font-bold b-text-primary b-mb-2">50+</div>
+                    <div class="b-text-gray-600 dark:b-text-gray-400 b-font-medium">Ödül</div>
+                </div>
+                <div>
+                    <div class="b-text-5xl b-font-bold b-text-primary b-mb-2">99%</div>
+                    <div class="b-text-gray-600 dark:b-text-gray-400 b-font-medium">Memnuniyet</div>
+                </div>
+                <div>
+                    <div class="b-text-5xl b-font-bold b-text-primary b-mb-2">24/7</div>
+                    <div class="b-text-gray-600 dark:b-text-gray-400 b-font-medium">Destek</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 💬 TESTIMONIALS SECTION -->
+    <section class="b-py-24 b-px-4 b-bg-white dark:b-bg-gray-900">
+        <div class="b-max-w-6xl b-mx-auto">
+            <!-- Başlık -->
+            <div class="b-text-center b-mb-16">
+                <h2 class="b-text-4xl md:b-text-5xl b-font-bold b-mb-4 b-text-dark dark:b-text-white">
+                    Kullanıcılarımız Ne Diyor?
+                </h2>
+                <p class="b-text-xl b-text-gray-600 dark:b-text-gray-400">
+                    Binlerce mutlu kullanıcımızdan bazı yorumlar
+                </p>
+            </div>
+            
+            <!-- Testimonials Grid -->
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-3 b-gap-8">
+                <!-- Testimonial 1 -->
+                <div class="b-bg-gray-50 dark:b-bg-gray-800 b-rounded-2xl b-p-8">
+                    <div class="b-text-yellow-400 b-text-2xl b-mb-4">⭐⭐⭐⭐⭐</div>
+                    <p class="b-text-gray-700 dark:b-text-gray-300 b-mb-6 b-leading-relaxed b-italic">
+                        "Harika bir deneyim! Kullanması çok kolay ve sonuçlar muhteşem. Kesinlikle tavsiye ederim!"
+                    </p>
+                    <div class="b-flex b-items-center b-gap-4">
+                        <div class="b-w-12 b-h-12 b-bg-primary b-text-white b-rounded-full b-flex b-items-center b-justify-center b-font-bold b-text-xl">
+                            A
+                        </div>
+                        <div>
+                            <div class="b-font-bold b-text-dark dark:b-text-white">Ahmet Yılmaz</div>
+                            <div class="b-text-sm b-text-gray-600 dark:b-text-gray-400">CEO, TechCo</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="b-bg-gray-50 dark:b-bg-gray-800 b-rounded-2xl b-p-8">
+                    <div class="b-text-yellow-400 b-text-2xl b-mb-4">⭐⭐⭐⭐⭐</div>
+                    <p class="b-text-gray-700 dark:b-text-gray-300 b-mb-6 b-leading-relaxed b-italic">
+                        "İşimi çok kolaylaştırdı. Destek ekibi de harika, her zaman yardımcı oluyorlar."
+                    </p>
+                    <div class="b-flex b-items-center b-gap-4">
+                        <div class="b-w-12 b-h-12 b-bg-success b-text-white b-rounded-full b-flex b-items-center b-justify-center b-font-bold b-text-xl">
+                            Z
+                        </div>
+                        <div>
+                            <div class="b-font-bold b-text-dark dark:b-text-white">Zeynep Kaya</div>
+                            <div class="b-text-sm b-text-gray-600 dark:b-text-gray-400">Designer, Creative Studio</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="b-bg-gray-50 dark:b-bg-gray-800 b-rounded-2xl b-p-8">
+                    <div class="b-text-yellow-400 b-text-2xl b-mb-4">⭐⭐⭐⭐⭐</div>
+                    <p class="b-text-gray-700 dark:b-text-gray-300 b-mb-6 b-leading-relaxed b-italic">
+                        "Rakiplerimizin çok önüne geçtik. Performans ve hız konusunda benzersiz bir ürün."
+                    </p>
+                    <div class="b-flex b-items-center b-gap-4">
+                        <div class="b-w-12 b-h-12 b-bg-warning b-text-white b-rounded-full b-flex b-items-center b-justify-center b-font-bold b-text-xl">
+                            M
+                        </div>
+                        <div>
+                            <div class="b-font-bold b-text-dark dark:b-text-white">Mehmet Demir</div>
+                            <div class="b-text-sm b-text-gray-600 dark:b-text-gray-400">CTO, StartupHub</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 📞 CONTACT/CTA SECTION -->
+    <section id="contact" class="b-py-24 b-px-4 b-bg-gradient-to-r {{GRADIENT_FROM}} {{GRADIENT_TO}} b-text-white b-text-center">
+        <div class="b-max-w-4xl b-mx-auto">
+            <h2 class="b-text-4xl md:b-text-6xl b-font-bold b-mb-6">
+                Hemen Başlamaya Hazır mısın?
+            </h2>
+            <p class="b-text-xl md:b-text-2xl b-mb-10 b-opacity-90">
+                Şimdi ücretsiz dene, kredi kartı gerektirmez!
+            </p>
+            
+            <!-- Email Form -->
+            <div class="b-flex b-flex-col md:b-flex-row b-gap-4 b-justify-center b-max-w-2xl b-mx-auto">
+                <input 
+                    type="email" 
+                    placeholder="E-posta adresiniz" 
+                    class="b-flex-1 b-px-6 b-py-4 b-rounded-full b-border-0 b-outline-none b-text-dark b-text-lg">
+                <button class="b-bg-white b-text-primary b-px-8 b-py-4 b-rounded-full b-border-0 b-cursor-pointer b-font-bold b-text-lg hover:b-opacity-90 b-transition b-shadow-xl">
+                    Başla 🚀
+                </button>
+            </div>
+            
+            <p class="b-mt-6 b-opacity-75 b-text-sm">
+                14 gün ücretsiz deneme. İstediğiniz zaman iptal edebilirsiniz.
+            </p>
+        </div>
+    </section>
+    
+    <!-- 🔗 FOOTER -->
+    <footer class="b-py-12 b-px-4 b-bg-gray-900 b-text-gray-400">
+        <div class="b-max-w-6xl b-mx-auto">
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-4 b-gap-8 b-mb-8">
+                <!-- Logo & Açıklama -->
+                <div class="md:b-col-span-2">
+                    <div class="b-text-2xl b-font-bold b-text-white b-mb-4">{{LOGO_TEXT}}</div>
+                    <p class="b-text-gray-400 b-leading-relaxed b-mb-4">
+                        {{HERO_SUBTITLE}}
+                    </p>
+                    <!-- Social Media -->
+                    <div class="b-flex b-gap-4">
+                        <a href="{{TWITTER_URL}}" class="b-text-gray-400 hover:b-text-primary b-text-2xl b-transition">🐦</a>
+                        <a href="{{GITHUB_URL}}" class="b-text-gray-400 hover:b-text-primary b-text-2xl b-transition">💻</a>
+                        <a href="{{LINKEDIN_URL}}" class="b-text-gray-400 hover:b-text-primary b-text-2xl b-transition">💼</a>
+                        <a href="{{INSTAGRAM_URL}}" class="b-text-gray-400 hover:b-text-primary b-text-2xl b-transition">📷</a>
+                    </div>
+                </div>
+                
+                <!-- Links 1 -->
+                <div>
+                    <h4 class="b-text-white b-font-bold b-mb-4">Ürün</h4>
+                    <ul class="b-list-none b-p-0">
+                        <li class="b-mb-2"><a href="#" class="b-text-gray-400 hover:b-text-white b-no-underline b-transition">Özellikler</a></li>
+                        <li class="b-mb-2"><a href="#" class="b-text-gray-400 hover:b-text-white b-no-underline b-transition">Fiyatlandırma</a></li>
+                        <li class="b-mb-2"><a href="#" class="b-text-gray-400 hover:b-text-white b-no-underline b-transition">Demo</a></li>
+                        <li class="b-mb-2"><a href="#" class="b-text-gray-400 hover:b-text-white b-no-underline b-transition">Dokümantasyon</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Links 2 -->
+                <div>
+                    <h4 class="b-text-white b-font-bold b-mb-4">Şirket</h4>
+                    <ul class="b-list-none b-p-0">
+                        <li class="b-mb-2"><a href="#" class="b-text-gray-400 hover:b-text-white b-no-underline b-transition">Hakkımızda</a></li>
+                        <li class="b-mb-2"><a href="#" class="b-text-gray-400 hover:b-text-white b-no-underline b-transition">Blog</a></li>
+                        <li class="b-mb-2"><a href="#" class="b-text-gray-400 hover:b-text-white b-no-underline b-transition">Kariyer</a></li>
+                        <li class="b-mb-2"><a href="#" class="b-text-gray-400 hover:b-text-white b-no-underline b-transition">İletişim</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="b-border-t b-border-gray-800 b-pt-8 b-text-center">
+                <p>&copy; 2026 {{PROJECT_NAME}}. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/blabs.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            B.darkMode.toggle();
+            const icon = document.getElementById('dark-icon');
+            icon.textContent = B.darkMode.isEnabled() ? '☀️' : '🌙';
+        }
+        
+        // Initialize
+        B.ready(() => {
+            B.darkMode.init();
+            const icon = document.getElementById('dark-icon');
+            icon.textContent = B.darkMode.isEnabled() ? '☀️' : '🌙';
+            
+            // Smooth scroll
+            B.smoothScroll('a[href^="#"]', 80);
+        });
+    </script>
+</body>
+</html>

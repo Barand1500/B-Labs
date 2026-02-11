@@ -1,0 +1,107 @@
+{
+  "name": "Portfolio",
+  "description": "Kişisel portföy sayfası - Projeler, yetenekler, hakkında ve iletişim",
+  "preview": "💼 Portfolio • Projects Grid • Skills • Contact Form",
+  "placeholders": {
+    "FULL_NAME": {
+      "question": "Tam adınız?",
+      "default": "Ahmet Yılmaz",
+      "example": "Ayşe Demir, Mehmet Kaya"
+    },
+    "NAME_INITIALS": {
+      "question": "İsim baş harfleri (logo için)?",
+      "default": "AY",
+      "example": "AD, MK"
+    },
+    "PROFESSION": {
+      "question": "Mesleğiniz/Uzmanlık alanınız?",
+     "default": "Full Stack Developer & UI/UX Designer",
+      "example": "Frontend Developer, Web Designer"
+    },
+    "SHORT_BIO": {
+      "question": "Kısa tanıtım (1-2 cümle)?",
+      "default": "Modern web teknolojileri ile kullanıcı dostu ve performanslı projeler geliştiriyorum. Tasarım ve kod arasındaki köprüyüm.",
+      "example": "5 yıllık deneyimle harika projeler yapıyorum"
+    },
+    "LONG_BIO": {
+      "question": "Uzun tanıtım (hakkımda bölümü)?",
+      "default": "Merhaba! Ben {{FULL_NAME}}, {{PROFESSION}}. 5+ yıldır web geliştirme alanında çalışıyorum ve kullanıcıların hayatını kolaylaştıran dijital deneyimler yaratmayı seviyorum.",
+      "example": "Yazılım geliştirmeye 2018'de başladım..."
+    },
+    "EMAIL": {
+      "question": "E-posta adresiniz?",
+      "default": "merhaba@ornek.com",
+      "example": "iletisim@siteniz.com"
+    },
+    "GITHUB_URL": {
+      "question": "GitHub linkiniz?",
+      "default": "https://github.com/username",
+      "optional": true
+    },
+    "LINKEDIN_URL": {
+      "question": "LinkedIn linkiniz?",
+      "default": "https://linkedin.com/in/username",
+      "optional": true
+    },
+    "TWITTER_URL": {
+      "question": "Twitter linkiniz?",
+      "default": "https://twitter.com/username",
+      "optional": true
+    }
+  },
+  "colorSchemes": {
+    "ocean-blue": {
+      "name": "🔵 Ocean Blue",
+      "description": "Mavi tonları - Profesyonel",
+      "values": {
+        "BG_COLOR": "b-bg-blue-50 dark:b-bg-gray-800",
+        "AVATAR_BG": "b-bg-gradient-to-br b-from-blue-500 b-to-blue-700",
+        "SKILL_BG": "b-bg-blue-600",
+        "PROJECT_BG": "b-bg-gradient-to-br b-from-blue-400 b-to-blue-600"
+      }
+    },
+    "purple-dream": {
+      "name": "🟣 Purple Dream",
+      "description": "Mor tonları - Yaratıcı",
+      "values": {
+        "BG_COLOR": "b-bg-purple-50 dark:b-bg-gray-800",
+        "AVATAR_BG": "b-bg-gradient-to-br b-from-purple-500 b-to-pink-600",
+        "SKILL_BG": "b-bg-purple-600",
+        "PROJECT_BG": "b-bg-gradient-to-br b-from-purple-400 b-to-pink-500"
+      }
+    },
+    "fresh-green": {
+      "name": "🟢 Fresh Green",
+      "description": "Yeşil tonları - Dinamik",
+      "values": {
+        "BG_COLOR": "b-bg-green-50 dark:b-bg-gray-800",
+        "AVATAR_BG": "b-bg-gradient-to-br b-from-green-500 b-to-teal-600",
+        "SKILL_BG": "b-bg-green-600",
+        "PROJECT_BG": "b-bg-gradient-to-br b-from-green-400 b-to-teal-500"
+      }
+    },
+    "sunset-orange": {
+      "name": "🟠 Sunset Orange",
+      "description": "Turuncu-kırmızı - Enerjik",
+      "values": {
+        "BG_COLOR": "b-bg-orange-50 dark:b-bg-gray-800",
+        "AVATAR_BG": "b-bg-gradient-to-br b-from-orange-500 b-to-red-600",
+        "SKILL_BG": "b-bg-orange-600",
+        "PROJECT_BG": "b-bg-gradient-to-br b-from-orange-400 b-to-red-500"
+      }
+    },
+    "minimal-gray": {
+      "name": "⚫ Minimal Gray",
+      "description": "Gri tonları - Minimal ve şık",
+      "values": {
+        "BG_COLOR": "b-bg-gray-100 dark:b-bg-gray-800",
+        "AVATAR_BG": "b-bg-gradient-to-br b-from-gray-700 b-to-gray-900",
+        "SKILL_BG": "b-bg-gray-700",
+        "PROJECT_BG": "b-bg-gradient-to-br b-from-gray-600 b-to-gray-800"
+      }
+    }
+  },
+  "files": [
+    "index.html"
+  ]
+}

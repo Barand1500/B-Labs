@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{FULL_NAME}} - Portfolio</title>
+    <link rel="stylesheet" href="css/blabs.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="b-bg-white dark:b-bg-gray-900">
+    
+    <!-- 🔝 NAVBAR -->
+    <nav class="b-fixed b-top-0 b-w-full b-bg-white dark:b-bg-gray-900 b-bg-opacity-95 b-backdrop-blur b-shadow-sm b-z-50">
+        <div class="b-max-w-6xl b-mx-auto b-px-4 b-py-4 b-flex b-items-center b-justify-between">
+            <div class="b-text-2xl b-font-bold b-text-primary">
+                {{NAME_INITIALS}}
+            </div>
+            
+            <div class="b-flex b-gap-8 b-items-center">
+                <a href="#home" class="b-text-dark dark:b-text-white b-no-underline hover:b-text-primary b-transition">Ana Sayfa</a>
+                <a href="#about" class="b-text-dark dark:b-text-white b-no-underline hover:b-text-primary b-transition">Hakkımda</a>
+                <a href="#projects" class="b-text-dark dark:b-text-white b-no-underline hover:b-text-primary b-transition">Projeler</a>
+                <a href="#contact" class="b-text-dark dark:b-text-white b-no-underline hover:b-text-primary b-transition">İletişim</a>
+                
+                <button onclick="toggleDarkMode()" class="b-bg-gray-200 dark:b-bg-gray-800 b-p-2 b-rounded-full b-cursor-pointer b-border-0">
+                    <span id="dark-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- 🎯 HERO SECTION -->
+    <section id="home" class="b-min-h-screen b-flex b-items-center b-justify-center b-px-4 b-pt-20 {{BG_COLOR}}">
+        <div class="b-max-w-4xl b-text-center">
+            <!-- Avatar -->
+            <div class="b-w-48 b-h-48 {{AVATAR_BG}} b-text-white b-rounded-full b-flex b-items-center b-justify-center b-text-6xl b-font-bold b-mx-auto b-mb-8 b-shadow-2xl">
+                {{NAME_INITIALS}}
+            </div>
+            
+            <!-- Başlık -->
+            <h1 class="b-text-5xl md:b-text-7xl b-font-bold b-mb-4 b-text-dark dark:b-text-white">
+                {{FULL_NAME}}
+            </h1>
+            
+            <!-- Meslek -->
+            <h2 class="b-text-2xl md:b-text-3xl b-mb-6 b-text-gray-600 dark:b-text-gray-400 b-font-medium">
+                {{PROFESSION}}
+            </h2>
+            
+            <!-- Kısa Açıklama -->
+            <p class="b-text-xl b-text-gray-600 dark:b-text-gray-400 b-mb-8 b-max-w-2xl b-mx-auto b-leading-relaxed">
+                {{SHORT_BIO}}
+            </p>
+            
+            <!-- CTA Buttons -->
+            <div class="b-flex b-gap-4 b-justify-center b-flex-wrap">
+                <a href="#projects" class="b-bg-primary hover:b-bg-blue-700 b-text-white b-px-8 b-py-4 b-rounded-full b-no-underline b-font-bold hover:b-shadow-xl b-transition">
+                    Projelerime Bak 🚀
+                </a>
+                <a href="#contact" class="b-border-2 b-border-primary b-text-primary hover:b-bg-primary hover:b-text-white b-px-8 b-py-4 b-rounded-full b-no-underline b-font-bold b-transition">
+                    İletişime Geç 📧
+                </a>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="b-flex b-gap-6 b-justify-center b-mt-8 b-text-3xl">
+                <a href="{{GITHUB_URL}}" class="b-text-gray-600 dark:b-text-gray-400 hover:b-text-primary b-transition">💻</a>
+                <a href="{{LINKEDIN_URL}}" class="b-text-gray-600 dark:b-text-gray-400 hover:b-text-primary b-transition">💼</a>
+                <a href="{{TWITTER_URL}}" class="b-text-gray-600 dark:b-text-gray-400 hover:b-text-primary b-transition">🐦</a>
+                <a href="mailto:{{EMAIL}}" class="b-text-gray-600 dark:b-text-gray-400 hover:b-text-primary b-transition">📧</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 👤 ABOUT SECTION -->
+    <section id="about" class="b-py-24 b-px-4 b-bg-white dark:b-bg-gray-900">
+        <div class="b-max-w-6xl b-mx-auto">
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-2 b-gap-12 b-items-center">
+                <!-- Sol: Açıklama -->
+                <div>
+                    <h2 class="b-text-4xl b-font-bold b-mb-6 b-text-dark dark:b-text-white">
+                        Hakkımda
+                    </h2>
+                    <p class="b-text-lg b-text-gray-600 dark:b-text-gray-400 b-mb-6 b-leading-relaxed">
+                        {{LONG_BIO}}
+                    </p>
+                    <p class="b-text-lg b-text-gray-600 dark:b-text-gray-400 b-leading-relaxed">
+                        Modern web teknolojileri ile kullanıcı dostu ve performanslı projeler geliştiriyorum. 
+                        Her projede kalite, hız ve kullanıcı deneyimini ön planda tutuyorum.
+                    </p>
+                </div>
+                
+                <!-- Sağ: Skills -->
+                <div>
+                    <h3 class="b-text-2xl b-font-bold b-mb-6 b-text-dark dark:b-text-white">
+                        Yeteneklerim
+                    </h3>
+                    <div class="b-flex b-flex-wrap b-gap-3">
+                        <span class="{{SKILL_BG}} b-text-white b-px-6 b-py-3 b-rounded-full b-font-semibold b-text-lg">HTML/CSS</span>
+                        <span class="{{SKILL_BG}} b-text-white b-px-6 b-py-3 b-rounded-full b-font-semibold b-text-lg">JavaScript</span>
+                        <span class="{{SKILL_BG}} b-text-white b-px-6 b-py-3 b-rounded-full b-font-semibold b-text-lg">React</span>
+                        <span class="{{SKILL_BG}} b-text-white b-px-6 b-py-3 b-rounded-full b-font-semibold b-text-lg">Node.js</span>
+                        <span class="{{SKILL_BG}} b-text-white b-px-6 b-py-3 b-rounded-full b-font-semibold b-text-lg">UI/UX Design</span>
+                        <span class="{{SKILL_BG}} b-text-white b-px-6 b-py-3 b-rounded-full b-font-semibold b-text-lg">Git</span>
+                        <span class="{{SKILL_BG}} b-text-white b-px-6 b-py-3 b-rounded-full b-font-semibold b-text-lg">Figma</span>
+                        <span class="{{SKILL_BG}} b-text-white b-px-6 b-py-3 b-rounded-full b-font-semibold b-text-lg">Responsive Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 🎨 PROJECTS SECTION -->
+    <section id="projects" class="b-py-24 b-px-4 {{BG_COLOR}}">
+        <div class="b-max-w-6xl b-mx-auto">
+            <!-- Başlık -->
+            <div class="b-text-center b-mb-16">
+                <h2 class="b-text-4xl md:b-text-5xl b-font-bold b-mb-4 b-text-dark dark:b-text-white">
+                    Son Projelerim
+                </h2>
+                <p class="b-text-xl b-text-gray-600 dark:b-text-gray-400">
+                    Üzerinde çalıştığım bazı projeler
+                </p>
+            </div>
+            
+            <!-- Projects Grid -->
+            <div class="b-grid b-grid-cols-1 md:b-grid-cols-2 lg:b-grid-cols-3 b-gap-8">
+                <!-- Project 1 -->
+                <div class="b-bg-white dark:b-bg-gray-800 b-rounded-2xl b-overflow-hidden b-shadow-lg hover:b-shadow-2xl b-transition hover:b-transform hover:-b-translate-y-2">
+                    <!-- Project Image Placeholder -->
+                    <div class="b-h-48 {{PROJECT_BG}} b-flex b-items-center b-justify-center b-text-white b-text-4xl">
+                        🚀
+                    </div>
+                    
+                    <!-- Content -->
+                    <div class="b-p-6">
+                        <h3 class="b-text-2xl b-font-bold b-mb-3 b-text-dark dark:b-text-white">
+                            E-Commerce Platform
+                        </h3>
+                        <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4 b-leading-relaxed">
+                            Modern ve hızlı alışveriş deneyimi sunan full-stack e-ticaret platformu. React ve Node.js ile geliştirildi.
+                        </p>
+                        <div class="b-flex b-gap-2 b-flex-wrap b-mb-4">
+                            <span class="b-bg-gray-200 dark:b-bg-gray-700 b-text-gray-700 dark:b-text-gray-300 b-px-3 b-py-1 b-rounded-full b-text-sm">React</span>
+                            <span class="b-bg-gray-200 dark:b-bg-gray-700 b-text-gray-700 dark:b-text-gray-300 b-px-3 b-py-1 b-rounded-full b-text-sm">Node.js</span>
+                            <span class="b-bg-gray-200 dark:b-bg-gray-700 b-text-gray-700 dark:b-text-gray-300 b-px-3 b-py-1 b-rounded-full b-text-sm">MongoDB</span>
+                        </div>
+                        <a href="#" class="b-text-primary b-font-semibold hover:b-underline">
+                            Detayları Gör →
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="b-bg-white dark:b-bg-gray-800 b-rounded-2xl b-overflow-hidden b-shadow-lg hover:b-shadow-2xl b-transition hover:b-transform hover:-b-translate-y-2">
+                    <div class="b-h-48 {{PROJECT_BG}} b-flex b-items-center b-justify-center b-text-white b-text-4xl">
+                        📱
+                    </div>
+                    <div class="b-p-6">
+                        <h3 class="b-text-2xl b-font-bold b-mb-3 b-text-dark dark:b-text-white">
+                            Mobile Task App
+                        </h3>
+                        <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4 b-leading-relaxed">
+                            Günlük görevleri takip etmek için kullanıcı dostu mobil uygulama. React Native ile cross-platform.
+                        </p>
+                        <div class="b-flex b-gap-2 b-flex-wrap b-mb-4">
+                            <span class="b-bg-gray-200 dark:b-bg-gray-700 b-text-gray-700 dark:b-text-gray-300 b-px-3 b-py-1 b-rounded-full b-text-sm">React Native</span>
+                            <span class="b-bg-gray-200 dark:b-bg-gray-700 b-text-gray-700 dark:b-text-gray-300 b-px-3 b-py-1 b-rounded-full b-text-sm">Firebase</span>
+                        </div>
+                        <a href="#" class="b-text-primary b-font-semibold hover:b-underline">
+                            Detayları Gör →
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="b-bg-white dark:b-bg-gray-800 b-rounded-2xl b-overflow-hidden b-shadow-lg hover:b-shadow-2xl b-transition hover:b-transform hover:-b-translate-y-2">
+                    <div class="b-h-48 {{PROJECT_BG}} b-flex b-items-center b-justify-center b-text-white b-text-4xl">
+                        🎨
+                    </div>
+                    <div class="b-p-6">
+                        <h3 class="b-text-2xl b-font-bold b-mb-3 b-text-dark dark:b-text-white">
+                            Design System
+                        </h3>
+                        <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4 b-leading-relaxed">
+                            Kurumsal projeler için hazırlanmış kapsamlı UI component library ve design system.
+                        </p>
+                        <div class="b-flex b-gap-2 b-flex-wrap b-mb-4">
+                            <span class="b-bg-gray-200 dark:b-bg-gray-700 b-text-gray-700 dark:b-text-gray-300 b-px-3 b-py-1 b-rounded-full b-text-sm">Figma</span>
+                            <span class="b-bg-gray-200 dark:b-bg-gray-700 b-text-gray-700 dark:b-text-gray-300 b-px-3 b-py-1 b-rounded-full b-text-sm">Storybook</span>
+                        </div>
+                        <a href="#" class="b-text-primary b-font-semibold hover:b-underline">
+                            Detayları Gör →
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="b-bg-white dark:b-bg-gray-800 b-rounded-2xl b-overflow-hidden b-shadow-lg hover:b-shadow-2xl b-transition hover:b-transform hover:-b-translate-y-2">
+                    <div class="b-h-48 {{PROJECT_BG}} b-flex b-items-center b-justify-center b-text-white b-text-4xl">
+                        📊
+                    </div>
+                    <div class="b-p-6">
+                        <h3 class="b-text-2xl b-font-bold b-mb-3 b-text-dark dark:b-text-white">
+                            Analytics Dashboard
+                        </h3>
+                        <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4 b-leading-relaxed">
+                            Gerçek zamanlı veri görselleştirme ve analiz dashboard'u. Interaktif grafikler ve raporlar.
+                        </p>
+                        <div class="b-flex b-gap-2 b-flex-wrap b-mb-4">
+                            <span class="b-bg-gray-200 dark:b-bg-gray-700 b-text-gray-700 dark:b-text-gray-300 b-px-3 b-py-1 b-rounded-full b-text-sm">Vue.js</span>
+                            <span class="b-bg-gray-200 dark:b-bg-gray-700 b-text-gray-700 dark:b-text-gray-300 b-px-3 b-py-1 b-rounded-full b-text-sm">Chart.js</span>
+                        </div>
+                        <a href="#" class="b-text-primary b-font-semibold hover:b-underline">
+                            Detayları Gör →
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="b-bg-white dark:b-bg-gray-800 b-rounded-2xl b-overflow-hidden b-shadow-lg hover:b-shadow-2xl b-transition hover:b-transform hover:-b-translate-y-2">
+                    <div class="b-h-48 {{PROJECT_BG}} b-flex b-items-center b-justify-center b-text-white b-text-4xl">
+                        🎮
+                    </div>
+                    <div class="b-p-6">
+                        <h3 class="b-text-2xl b-font-bold b-mb-3 b-text-dark dark:b-text-white">
+                            Browser Game
+                        </h3>
+                        <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4 b-leading-relaxed">
+                            HTML5 Canvas ile geliştirilmiş eğlenceli ve bağımlılık yapan tarayıcı oyunu.
+                        </p>
+                        <div class="b-flex b-gap-2 b-flex-wrap b-mb-4">
+                            <span class="b-bg-gray-200 dark:b-bg-gray-700 b-text-gray-700 dark:b-text-gray-300 b-px-3 b-py-1 b-rounded-full b-text-sm">JavaScript</span>
+                            <span class="b-bg-gray-200 dark:b-bg-gray-700 b-text-gray-700 dark:b-text-gray-300 b-px-3 b-py-1 b-rounded-full b-text-sm">Canvas</span>
+                        </div>
+                        <a href="#" class="b-text-primary b-font-semibold hover:b-underline">
+                            Detayları Gör →
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="b-bg-white dark:b-bg-gray-800 b-rounded-2xl b-overflow-hidden b-shadow-lg hover:b-shadow-2xl b-transition hover:b-transform hover:-b-translate-y-2">
+                    <div class="b-h-48 {{PROJECT_BG}} b-flex b-items-center b-justify-center b-text-white b-text-4xl">
+                        🌐
+                    </div>
+                    <div class="b-p-6">
+                        <h3 class="b-text-2xl b-font-bold b-mb-3 b-text-dark dark:b-text-white">
+                            REST API Service
+                        </h3>
+                        <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4 b-leading-relaxed">
+                            Ölçeklenebilir ve güvenli REST API backend servisi. Auth, CRUD ve file upload özellikleri.
+                        </p>
+                        <div class="b-flex b-gap-2 b-flex-wrap b-mb-4">
+                            <span class="b-bg-gray-200 dark:b-bg-gray-700 b-text-gray-700 dark:b-text-gray-300 b-px-3 b-py-1 b-rounded-full b-text-sm">Express</span>
+                            <span class="b-bg-gray-200 dark:b-bg-gray-700 b-text-gray-700 dark:b-text-gray-300 b-px-3 b-py-1 b-rounded-full b-text-sm">PostgreSQL</span>
+                        </div>
+                        <a href="#" class="b-text-primary b-font-semibold hover:b-underline">
+                            Detayları Gör →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 📧 CONTACT SECTION -->
+    <section id="contact" class="b-py-24 b-px-4 b-bg-white dark:b-bg-gray-900">
+        <div class="b-max-w-3xl b-mx-auto">
+            <div class="b-text-center b-mb-12">
+                <h2 class="b-text-4xl b-font-bold b-mb-4 b-text-dark dark:b-text-white">
+                    İletişime Geçin
+                </h2>
+                <p class="b-text-xl b-text-gray-600 dark:b-text-gray-400">
+                    Projeleriniz için benimle çalışmak ister misiniz?
+                </p>
+            </div>
+            
+            <!-- Contact Form -->
+            <form class="b-flex b-flex-col b-gap-6">
+                <!-- İsim -->
+                <div>
+                    <label class="b-block b-mb-2 b-font-semibold b-text-dark dark:b-text-white">
+                        İsim
+                    </label>
+                    <input 
+                        type="text" 
+                        placeholder="Adınız Soyadınız" 
+                        class="b-w-full b-p-4 b-rounded-lg b-border-2 b-border-gray-300 dark:b-border-gray-600 dark:b-bg-gray-800 dark:b-text-white focus:b-border-primary b-transition b-outline-none">
+                </div>
+                
+                <!-- Email -->
+                <div>
+                    <label class="b-block b-mb-2 b-font-semibold b-text-dark dark:b-text-white">
+                        E-posta
+                    </label>
+                    <input 
+                        type="email" 
+                        placeholder="ornek@email.com" 
+                        class="b-w-full b-p-4 b-rounded-lg b-border-2 b-border-gray-300 dark:b-border-gray-600 dark:b-bg-gray-800 dark:b-text-white focus:b-border-primary b-transition b-outline-none">
+                </div>
+                
+                <!-- Mesaj -->
+                <div>
+                    <label class="b-block b-mb-2 b-font-semibold b-text-dark dark:b-text-white">
+                        Mesaj
+                    </label>
+                    <textarea 
+                        placeholder="Mesajınızı buraya yazın..." 
+                        rows="6" 
+                        class="b-w-full b-p-4 b-rounded-lg b-border-2 b-border-gray-300 dark:b-border-gray-600 dark:b-bg-gray-800 dark:b-text-white focus:b-border-primary b-transition b-outline-none b-resize-none"></textarea>
+                </div>
+                
+                <!-- Submit Button -->
+                <button 
+                    type="submit" 
+                    class="b-bg-primary hover:b-bg-blue-700 b-text-white b-px-8 b-py-4 b-rounded-full b-border-0 b-cursor-pointer b-font-bold b-text-lg b-transition b-shadow-lg hover:b-shadow-xl">
+                    Gönder 🚀
+                </button>
+            </form>
+            
+            <!-- Alternatif İletişim -->
+            <div class="b-mt-12 b-text-center">
+                <p class="b-text-gray-600 dark:b-text-gray-400 b-mb-4">
+                    Ya da direkt benimle iletişime geçin:
+                </p>
+                <a href="mailto:{{EMAIL}}" class="b-text-2xl b-font-bold b-text-primary hover:b-underline">
+                    {{EMAIL}}
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 🔗 FOOTER -->
+    <footer class="b-py-8 b-px-4 b-bg-gray-900 b-text-gray-400 b-text-center">
+        <p class="b-mb-4">&copy; 2026 {{FULL_NAME}}. Tüm hakları saklıdır.</p>
+        <div class="b-flex b-gap-6 b-justify-center b-text-2xl">
+            <a href="{{GITHUB_URL}}" class="b-text-gray-400 hover:b-text-white b-transition">💻</a>
+            <a href="{{LINKEDIN_URL}}" class="b-text-gray-400 hover:b-text-white b-transition">💼</a>
+            <a href="{{TWITTER_URL}}" class="b-text-gray-400 hover:b-text-white b-transition">🐦</a>
+            <a href="mailto:{{EMAIL}}" class="b-text-gray-400 hover:b-text-white b-transition">📧</a>
+        </div>
+    </footer>
+    
+    <script src="js/blabs.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        function toggleDarkMode() {
+            B.darkMode.toggle();
+            document.getElementById('dark-icon').textContent = B.darkMode.isEnabled() ? '☀️' : '🌙';
+        }
+        
+        B.ready(() => {
+            B.darkMode.init();
+            document.getElementById('dark-icon').textContent = B.darkMode.isEnabled() ? '☀️' : '🌙';
+            B.smoothScroll('a[href^="#"]', 80);
+        });
+    </script>
+</body>
+</html>

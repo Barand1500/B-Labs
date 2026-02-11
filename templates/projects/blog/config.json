@@ -1,0 +1,112 @@
+{
+  "name": "Blog",
+  "description": "Blog sitesi - Yazılar, kategoriler, sidebar ve newsletter",
+  "preview": "📝 Blog • Posts Grid • Sidebar • Categories • Newsletter",
+  "placeholders": {
+    "BLOG_NAME": {
+      "question": "Blog adınız?",
+      "default": "TechBlog",
+      "example": "Kodlama Günlüğü, Web Notları"
+    },
+    "BLOG_TITLE": {
+      "question": "Blog ana başlığı?",
+      "default": "Kod, Tasarım ve Teknoloji",
+      "example": "Modern Web Geliştirme Yazıları"
+    },
+    "BLOG_DESCRIPTION": {
+      "question": "Blog açıklaması?",
+      "default": "Web geliştirme, tasarım ve teknoloji hakkında araştırmalar, rehberler ve ipuçları",
+      "example": "Frontend dünyasından güncel içerikler"
+    },
+    "AUTHOR_NAME": {
+      "question": "Yazar adınız?",
+      "default": "Ahmet Yılmaz",
+      "example": "Ayşe Kaya"
+    },
+    "AUTHOR_INITIAL": {
+      "question": "Yazar baş harfi?",
+      "default": "A",
+      "example": "B, M, K"
+    },
+    "AUTHOR_BIO": {
+      "question": "Kısa yazar biyografisi?",
+      "default": "Web Developer & Designer. Kod yazmayı ve bilgi paylaşmayı seviyorum.",
+      "example": "Full Stack Developer, 5+ yıl deneyim"
+    },
+    "TWITTER_URL": {
+      "question": "Twitter linkiniz?",
+      "default": "#",
+      "optional": true
+    },
+    "GITHUB_URL": {
+      "question": "GitHub linkiniz?",
+      "default": "#",
+      "optional": true
+    },
+    "LINKEDIN_URL": {
+      "question": "LinkedIn linkiniz?",
+      "default": "#",
+      "optional": true
+    }
+  },
+  "colorSchemes": {
+    "ocean-blue": {
+      "name": "🔵 Ocean Blue",
+      "description": "Mavi tonları - Profesyonel blog",
+      "values": {
+        "HERO_BG": "b-bg-gradient-to-r b-from-blue-500 b-to-blue-700 b-text-white",
+        "FEATURED_BG": "b-bg-gradient-to-br b-from-blue-500 b-to-blue-700",
+        "POST_BG": "b-bg-gradient-to-br b-from-blue-400 b-to-blue-600",
+        "AUTHOR_BG": "b-bg-blue-600",
+        "NEWSLETTER_BG": "b-bg-gradient-to-br b-from-blue-600 b-to-blue-800"
+      }
+    },
+    "purple-dream": {
+      "name": "🟣 Purple Dream",
+      "description": "Mor-pembe gradient - Yaratıcı blog",
+      "values": {
+        "HERO_BG": "b-bg-gradient-to-r b-from-purple-600 b-to-pink-600 b-text-white",
+        "FEATURED_BG": "b-bg-gradient-to-br b-from-purple-500 b-to-pink-600",
+        "POST_BG": "b-bg-gradient-to-br b-from-purple-400 b-to-pink-500",
+        "AUTHOR_BG": "b-bg-purple-600",
+        "NEWSLETTER_BG": "b-bg-gradient-to-br b-from-purple-600 b-to-pink-700"
+      }
+    },
+    "fresh-green": {
+      "name": "🟢 Fresh Green",
+      "description": "Yeşil tonları - Doğa ve sürdürülebilirlik",
+      "values": {
+        "HERO_BG": "b-bg-gradient-to-r b-from-green-500 b-to-teal-600 b-text-white",
+        "FEATURED_BG": "b-bg-gradient-to-br b-from-green-500 b-to-teal-600",
+        "POST_BG": "b-bg-gradient-to-br b-from-green-400 b-to-teal-500",
+        "AUTHOR_BG": "b-bg-green-600",
+        "NEWSLETTER_BG": "b-bg-gradient-to-br b-from-green-600 b-to-teal-700"
+      }
+    },
+    "sunset-orange": {
+      "name": "🟠 Sunset Orange",
+      "description": "Turuncu-kırmızı - Enerji dolu blog",
+      "values": {
+        "HERO_BG": "b-bg-gradient-to-r b-from-orange-500 b-to-red-600 b-text-white",
+        "FEATURED_BG": "b-bg-gradient-to-br b-from-orange-500 b-to-red-600",
+        "POST_BG": "b-bg-gradient-to-br b-from-orange-400 b-to-red-500",
+        "AUTHOR_BG": "b-bg-orange-600",
+        "NEWSLETTER_BG": "b-bg-gradient-to-br b-from-orange-600 b-to-red-700"
+      }
+    },
+    "dark-tech": {
+      "name": "⚫ Dark Tech",
+      "description": "Koyu tonlar - Teknoloji blogu",
+      "values": {
+        "HERO_BG": "b-bg-gradient-to-r b-from-gray-800 b-to-gray-900 b-text-white",
+        "FEATURED_BG": "b-bg-gradient-to-br b-from-gray-700 b-to-gray-900",
+        "POST_BG": "b-bg-gradient-to-br b-from-gray-600 b-to-gray-800",
+        "AUTHOR_BG": "b-bg-gray-700",
+        "NEWSLETTER_BG": "b-bg-gradient-to-br b-from-gray-800 b-to-black"
+      }
+    }
+  },
+  "files": [
+    "index.html"
+  ]
+}

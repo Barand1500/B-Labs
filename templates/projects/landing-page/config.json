@@ -1,0 +1,102 @@
+{
+  "name": "Landing Page",
+  "description": "Modern hero section, özellikler, testimonials ve CTA içeren profesyonel landing page",
+  "preview": "🎨 Modern • Gradient Hero • Features • Testimonials",
+  "placeholders": {
+    "PROJECT_NAME": {
+      "question": "Proje adınız nedir?",
+      "default": "MyProject",
+      "example": "TechStartup, BizimFirma"
+    },
+    "LOGO_TEXT": {
+      "question": "Logo metniniz?",
+      "default": "🚀 {{PROJECT_NAME}}",
+      "example": "MyBrand, Şirketim"
+    },
+    "BADGE_TEXT": {
+      "question": "Hero badge metni?",
+      "default": "Yeni ve Gelişmiş",
+      "example": "2026'nın En İyisi, Türkiye'nin #1'i"
+    },
+    "HERO_TITLE": {
+      "question": "Ana başlık (Hero)?",
+      "default": "Modern Web Çözümleriyle Fark Yaratın",
+      "example": "Hayalinizdeki Projeyi Gerçekleştirin"
+    },
+    "HERO_SUBTITLE": {
+      "question": "Alt başlık açıklaması?",
+      "default": "Hızlı, güvenli ve kullanıcı dostu çözümlerimizle işinizi bir üst seviyeye taşıyın",
+      "example": "Binlerce kullanıcı bize güveniyor"
+    },
+    "TWITTER_URL": {
+      "question": "Twitter linkiniz? (opsiyonel)",
+      "default": "#",
+      "optional": true
+    },
+    "GITHUB_URL": {
+      "question": "GitHub linkiniz? (opsiyonel)",
+      "default": "#",
+      "optional": true
+    },
+    "LINKEDIN_URL": {
+      "question": "LinkedIn linkiniz? (opsiyonel)",
+      "default": "#",
+      "optional": true
+    },
+    "INSTAGRAM_URL": {
+      "question": "Instagram linkiniz? (opsiyonel)",
+      "default": "#",
+      "optional": true
+    }
+  },
+  "colorSchemes": {
+    "ocean-blue": {
+      "name": "🔵 Ocean Blue",
+      "description": "Mavi tonları - Profesyonel ve güvenilir",
+      "values": {
+        "GRADIENT_FROM": "b-from-blue-500",
+        "GRADIENT_TO": "b-to-blue-700",
+        "BG_COLOR": "b-bg-blue-50 dark:b-bg-gray-800"
+      }
+    },
+    "purple-dream": {
+      "name": "🟣 Purple Dream",
+      "description": "Mor-pembe gradient - Yaratıcı ve modern",
+      "values": {
+        "GRADIENT_FROM": "b-from-purple-600",
+        "GRADIENT_TO": "b-to-pink-600",
+        "BG_COLOR": "b-bg-purple-50 dark:b-bg-gray-800"
+      }
+    },
+    "fresh-green": {
+      "name": "🟢 Fresh Green",
+      "description": "Yeşil tonları - Doğal ve dinamik",
+      "values": {
+        "GRADIENT_FROM": "b-from-green-500",
+        "GRADIENT_TO": "b-to-teal-600",
+        "BG_COLOR": "b-bg-green-50 dark:b-bg-gray-800"
+      }
+    },
+    "sunset-orange": {
+      "name": "🟠 Sunset Orange",
+      "description": "Turuncu-kırmızı - Enerjik ve dikkat çekici",
+      "values": {
+        "GRADIENT_FROM": "b-from-orange-500",
+        "GRADIENT_TO": "b-to-red-600",
+        "BG_COLOR": "b-bg-orange-50 dark:b-bg-gray-800"
+      }
+    },
+    "dark-elegant": {
+      "name": "⚫ Dark Elegant",
+      "description": "Koyu gri tonları - Şık ve minimal",
+      "values": {
+        "GRADIENT_FROM": "b-from-gray-800",
+        "GRADIENT_TO": "b-to-gray-900",
+        "BG_COLOR": "b-bg-gray-100 dark:b-bg-gray-800"
+      }
+    }
+  },
+  "files": [
+    "index.html"
+  ]
+}
