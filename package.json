@@ -1,6 +1,6 @@
 {
   "name": "blabs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Modern frontend development tool - Simple, powerful, and ready to use",
   "main": "index.js",
   "type": "module",
