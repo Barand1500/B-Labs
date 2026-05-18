@@ -14,7 +14,7 @@ Create beautiful websites in seconds with ready-made templates and powerful util
 
 - 🎯 **One Command Setup** - Start your project instantly with `npx blabs init`
 - ⚡ **Quick File Generation** - Create files in seconds with `blabs add` (NEW!)
-- 🎨 **17+ Modern Templates** - Blog, SaaS, Portfolio, E-commerce, Dashboard and more!
+- 🎨 **8 Modern Templates** - Blog, Portfolio, Landing Page + 5 more coming soon!
 - ⚡ **Lightning Fast** - Zero config needed. Start coding immediately
 - 🌙 **Dark Mode Built-in** - Toggle dark mode with one click in all templates
 - 💎 **Modern Design** - Glassmorphism, gradients, and smooth animations
@@ -84,32 +84,29 @@ Your project is ready with:
 
 ## 🎨 Templates
 
-Choose from **17+ professionally designed templates:**
+Choose from **8 professionally designed templates:**
 
-### 📝 Main Templates
+### ✅ Available Now
 
 | Template | Description | Features |
 |----------|-------------|----------|
-| 📝 **Blog** | Modern blog site | Glassmorphism cards, gradient hero, newsletter |
-| 💎 **SaaS** | SaaS landing page | Pricing tables, features grid, CTA sections |
-| 💼 **Portfolio** | Personal portfolio | Project showcase, about section, contact form |
-| 🚀 **Landing** | Product landing | Hero section, features, testimonials |
-| 🛍️ **E-commerce** | Online store | Product grid, shopping cart, checkout |
-| 📰 **News** | News/magazine | Article grid, categories, trending |
-| 📊 **Dashboard** | Admin panel | Sidebar, charts, stats cards, tables |
+| 📝 **Blog** | Modern blog site | Glassmorphism cards, gradient hero, newsletter, 5 color themes |
+| 💼 **Portfolio** | Personal portfolio | Project showcase, about section, contact form, 5 color themes |
+| 🚀 **Landing Page** | Product landing | Hero section, features, testimonials, stats, 5 color themes |
 
-### 🎯 Additional Templates
+### 🚧 Coming Very Soon
 
-- 🍕 **Restaurant** - Cafe/restaurant website with menu
-- 🎨 **Agency** - Creative agency portfolio
-- 📄 **Resume** - Professional CV/resume
-- 🎭 **Event** - Conference/event landing page
-- 📸 **Photography** - Photo portfolio gallery
-- 🎵 **Music** - Band/artist promotional page
-- 🏠 **Real Estate** - Property listings
-- 💪 **Fitness** - Gym/fitness center
-- 🎓 **Education** - Online courses platform
-- 🎯 **Blank** - Start from scratch
+| Template | Description | Status |
+|----------|-------------|--------|
+| 💎 **SaaS** | SaaS landing page with pricing | In Development |
+| 🛍️ **E-commerce** | Online store with cart | In Development |
+| 📊 **Dashboard** | Admin panel with charts | In Development |
+| 📰 **News** | News/magazine site | In Development |
+| 🍕 **Restaurant** | Restaurant menu & reservations | In Development |
+
+### 🎯 Blank Template
+
+- 🎯 **Blank** - Start from scratch with utilities only
 
 **All templates include:**
 - ✅ Dark mode toggle

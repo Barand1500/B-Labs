@@ -1,0 +1,129 @@
+{
+  "name": "E-commerce Store",
+  "description": "Complete online store with product grid, categories, shopping cart, and hot deals section. Perfect for selling products online.",
+  "category": "ecommerce",
+  "features": [
+    "Product grid with ratings",
+    "Hot deals section with countdown",
+    "Category navigation",
+    "Shopping cart functionality",
+    "Product search",
+    "Wishlist features",
+    "Newsletter signup",
+    "Responsive product cards"
+  ],
+  "placeholders": {
+    "STORE_NAME": {
+      "question": "What is your store name?",
+      "default": "TechShop",
+      "description": "Your online store name"
+    },
+    "LOGO_TEXT": {
+      "question": "What letter(s) for the logo?",
+      "default": "TS",
+      "description": "1-2 letters for the logo icon"
+    },
+    "TAGLINE": {
+      "question": "What is your store tagline?",
+      "default": "Your Tech, Your Way",
+      "description": "Short store tagline"
+    },
+    "DESCRIPTION": {
+      "question": "Describe your store:",
+      "default": "Shop the latest tech gadgets, electronics, and accessories with fast shipping and great prices.",
+      "description": "Meta description for SEO"
+    },
+    "PROMO_MESSAGE": {
+      "question": "Promotional message:",
+      "default": "Free shipping on orders over $50 - Limited time only!",
+      "description": "Top bar promo message"
+    },
+    "HERO_TITLE": {
+      "question": "Hero section title:",
+      "default": "Summer Sale is Here!",
+      "description": "Main banner heading"
+    },
+    "HERO_SUBTITLE": {
+      "question": "Hero section subtitle:",
+      "default": "Get up to 50% off on selected items. Limited stock available!",
+      "description": "Banner description"
+    },
+    "CATEGORY_1": {
+      "question": "First category name:",
+      "default": "Electronics",
+      "description": "Product category"
+    },
+    "CATEGORY_2": {
+      "question": "Second category name:",
+      "default": "Computers",
+      "description": "Product category"
+    },
+    "CATEGORY_3": {
+      "question": "Third category name:",
+      "default": "Audio",
+      "description": "Product category"
+    },
+    "CATEGORY_4": {
+      "question": "Fourth category name:",
+      "default": "Accessories",
+      "description": "Product category"
+    },
+    "FOOTER_DESCRIPTION": {
+      "question": "Footer description:",
+      "default": "Your one-stop shop for the latest tech and electronics.",
+      "description": "Short description in footer"
+    },
+    "TWITTER_URL": {
+      "question": "Twitter URL (optional):",
+      "default": "#",
+      "description": "Twitter profile link"
+    },
+    "FACEBOOK_URL": {
+      "question": "Facebook URL (optional):",
+      "default": "#",
+      "description": "Facebook profile link"
+    },
+    "INSTAGRAM_URL": {
+      "question": "Instagram URL (optional):",
+      "default": "#",
+      "description": "Instagram profile link"
+    }
+  },
+  "colorSchemes": {
+    "tech-blue": {
+      "name": "Tech Blue",
+      "description": "Modern blue - perfect for electronics stores",
+      "primary": "#3B82F6",
+      "secondary": "#06B6D4",
+      "accent": "#8B5CF6"
+    },
+    "fresh-green": {
+      "name": "Fresh Green",
+      "description": "Vibrant green - eco-friendly and modern",
+      "primary": "#10B981",
+      "secondary": "#14B8A6",
+      "accent": "#3B82F6"
+    },
+    "vibrant-orange": {
+      "name": "Vibrant Orange",
+      "description": "Bold orange - energetic and eye-catching",
+      "primary": "#F59E0B",
+      "secondary": "#EF4444",
+      "accent": "#EC4899"
+    },
+    "royal-purple": {
+      "name": "Royal Purple",
+      "description": "Premium purple - luxury and quality",
+      "primary": "#8B5CF6",
+      "secondary": "#A855F7",
+      "accent": "#EC4899"
+    },
+    "dark-mode": {
+      "name": "Dark Mode",
+      "description": "Sleek dark theme - professional and modern",
+      "primary": "#1E293B",
+      "secondary": "#3B82F6",
+      "accent": "#8B5CF6"
+    }
+  }
+}

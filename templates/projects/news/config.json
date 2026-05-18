@@ -1,0 +1,114 @@
+{
+  "name": "News & Magazine",
+  "description": "Modern news and magazine website with featured articles, category grid, and clean layout. Perfect for blogs, news sites, and content publishers.",
+  "category": "content",
+  "features": [
+    "Featured article section",
+    "Article grid layout",
+    "Category badges",
+    "Author profiles",
+    "Newsletter signup",
+    "Responsive cards",
+    "Read time display",
+    "Social sharing"
+  ],
+  "placeholders": {
+    "SITE_NAME": {
+      "question": "What is your site name?",
+      "default": "TechNews",
+      "description": "Your news site name"
+    },
+    "TAGLINE": {
+      "question": "Site tagline:",
+      "default": "Latest Technology News",
+      "description": "Short site tagline"
+    },
+    "DESCRIPTION": {
+      "question": "Site description:",
+      "default": "Stay updated with the latest technology news, trends, and insights from around the world.",
+      "description": "Meta description"
+    },
+    "AUTHOR_NAME": {
+      "question": "Main author name:",
+      "default": "Editorial Team",
+      "description": "Default author name"
+    },
+    "FEATURED_TITLE": {
+      "question": "Featured article title:",
+      "default": "The Future of Artificial Intelligence: What You Need to Know",
+      "description": "Main featured article heading"
+    },
+    "FEATURED_EXCERPT": {
+      "question": "Featured article excerpt:",
+      "default": "Artificial intelligence is revolutionizing industries worldwide. Discover the latest breakthroughs and what they mean for the future.",
+      "description": "Featured article description"
+    },
+    "CATEGORY_1": {
+      "question": "First category:",
+      "default": "Technology",
+      "description": "Article category"
+    },
+    "CATEGORY_2": {
+      "question": "Second category:",
+      "default": "Business",
+      "description": "Article category"
+    },
+    "CATEGORY_3": {
+      "question": "Third category:",
+      "default": "Lifestyle",
+      "description": "Article category"
+    },
+    "FOOTER_DESCRIPTION": {
+      "question": "Footer description:",
+      "default": "Your source for reliable news and in-depth analysis.",
+      "description": "Footer about text"
+    },
+    "TWITTER_URL": {
+      "question": "Twitter URL:",
+      "default": "#",
+      "description": "Twitter profile"
+    },
+    "FACEBOOK_URL": {
+      "question": "Facebook URL:",
+      "default": "#",
+      "description": "Facebook profile"
+    }
+  },
+  "colorSchemes": {
+    "news-blue": {
+      "name": "News Blue",
+      "description": "Professional blue - trustworthy and clean",
+      "primary": "#3B82F6",
+      "secondary": "#06B6D4",
+      "accent": "#8B5CF6"
+    },
+    "magazine-purple": {
+      "name": "Magazine Purple",
+      "description": "Creative purple - modern magazines",
+      "primary": "#8B5CF6",
+      "secondary": "#EC4899",
+      "accent": "#3B82F6"
+    },
+    "editorial-green": {
+      "name": "Editorial Green",
+      "description": "Fresh green - environmental/lifestyle",
+      "primary": "#10B981",
+      "secondary": "#14B8A6",
+      "accent": "#3B82F6"
+    },
+    "bold-red": {
+      "name": "Bold Red",
+      "description": "Breaking news red - urgent and dynamic",
+      "primary": "#EF4444",
+      "secondary": "#F59E0B",
+      "accent": "#EC4899"
+    },
+    "minimal-dark": {
+      "name": "Minimal Dark",
+      "description": "Dark minimalist - premium content",
+      "primary": "#1E293B",
+      "secondary": "#3B82F6",
+      "accent": "#8B5CF6"
+    }
+  }
+}

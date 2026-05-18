@@ -1,0 +1,154 @@
+{
+  "name": "SaaS Landing Page",
+  "description": "Professional SaaS landing page with pricing tables, features grid, and testimonials. Perfect for software companies and online services.",
+  "category": "business",
+  "features": [
+    "Pricing tables (3 plans)",
+    "Features showcase grid",
+    "Customer testimonials",
+    "Stats/metrics section",
+    "FAQ section",
+    "Responsive navigation",
+    "Call-to-action sections",
+    "Social proof elements"
+  ],
+  "placeholders": {
+    "PROJECT_NAME": {
+      "question": "What is your SaaS product name?",
+      "default": "CloudFlow",
+      "description": "Your product/company name"
+    },
+    "LOGO_TEXT": {
+      "question": "What letter(s) for the logo?",
+      "default": "CF",
+      "description": "1-2 letters for the logo icon"
+    },
+    "TAGLINE": {
+      "question": "What is your tagline?",
+      "default": "The Modern Way to Work",
+      "description": "Short product tagline"
+    },
+    "DESCRIPTION": {
+      "question": "Describe your product in one sentence:",
+      "default": "CloudFlow helps teams collaborate better with powerful tools and seamless integrations.",
+      "description": "Meta description for SEO"
+    },
+    "BADGE_TEXT": {
+      "question": "What's new or special? (for badge)",
+      "default": "Now with AI-powered features",
+      "description": "Hero section badge text"
+    },
+    "HERO_TITLE": {
+      "question": "What is your main hero title?",
+      "default": "The All-in-One Platform for Modern Teams",
+      "description": "Large hero heading"
+    },
+    "HERO_SUBTITLE": {
+      "question": "What is your hero subtitle?",
+      "default": "Streamline your workflow, boost productivity, and collaborate seamlessly with your team. Everything you need in one powerful platform.",
+      "description": "Hero section description"
+    },
+    "USERS_COUNT": {
+      "question": "How many users/companies?",
+      "default": "10,000+",
+      "description": "Social proof number"
+    },
+    "STAT_1_NUMBER": {
+      "question": "First stat number:",
+      "default": "50K+",
+      "description": "First statistic"
+    },
+    "STAT_1_LABEL": {
+      "question": "First stat label:",
+      "default": "Active Users",
+      "description": "Label for first stat"
+    },
+    "STAT_2_NUMBER": {
+      "question": "Second stat number:",
+      "default": "99.9%",
+      "description": "Second statistic"
+    },
+    "STAT_2_LABEL": {
+      "question": "Second stat label:",
+      "default": "Uptime",
+      "description": "Label for second stat"
+    },
+    "STAT_3_NUMBER": {
+      "question": "Third stat number:",
+      "default": "150+",
+      "description": "Third statistic"
+    },
+    "STAT_3_LABEL": {
+      "question": "Third stat label:",
+      "default": "Integrations",
+      "description": "Label for third stat"
+    },
+    "STAT_4_NUMBER": {
+      "question": "Fourth stat number:",
+      "default": "24/7",
+      "description": "Fourth statistic"
+    },
+    "STAT_4_LABEL": {
+      "question": "Fourth stat label:",
+      "default": "Support",
+      "description": "Label for fourth stat"
+    },
+    "FOOTER_DESCRIPTION": {
+      "question": "Footer description:",
+      "default": "The modern platform for teams that want to work smarter, not harder.",
+      "description": "Short description in footer"
+    },
+    "TWITTER_URL": {
+      "question": "Twitter URL (optional):",
+      "default": "#",
+      "description": "Twitter profile link"
+    },
+    "LINKEDIN_URL": {
+      "question": "LinkedIn URL (optional):",
+      "default": "#",
+      "description": "LinkedIn profile link"
+    },
+    "GITHUB_URL": {
+      "question": "GitHub URL (optional):",
+      "default": "#",
+      "description": "GitHub profile link"
+    }
+  },
+  "colorSchemes": {
+    "modern-blue": {
+      "name": "Modern Blue",
+      "description": "Professional blue gradient - perfect for tech and SaaS",
+      "primary": "#3B82F6",
+      "secondary": "#8B5CF6",
+      "accent": "#06B6D4"
+    },
+    "purple-passion": {
+      "name": "Purple Passion",
+      "description": "Bold purple gradient - creative and innovative",
+      "primary": "#8B5CF6",
+      "secondary": "#EC4899",
+      "accent": "#F59E0B"
+    },
+    "emerald-fresh": {
+      "name": "Emerald Fresh",
+      "description": "Fresh green gradient - growth and sustainability",
+      "primary": "#10B981",
+      "secondary": "#06B6D4",
+      "accent": "#3B82F6"
+    },
+    "sunset-warm": {
+      "name": "Sunset Warm",
+      "description": "Warm orange-red gradient - energetic and bold",
+      "primary": "#F59E0B",
+      "secondary": "#EF4444",
+      "accent": "#EC4899"
+    },
+    "midnight-pro": {
+      "name": "Midnight Pro",
+      "description": "Dark elegant gradient - professional and premium",
+      "primary": "#1E293B",
+      "secondary": "#3B82F6",
+      "accent": "#8B5CF6"
+    }
+  }
+}

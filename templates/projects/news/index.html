@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{SITE_NAME}} - {{TAGLINE}}</title>
+    <meta name="description" content="{{DESCRIPTION}}">
+    <link rel="stylesheet" href="css/blabs.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors">
+
+    <!-- 🌙 Dark Mode Toggle -->
+    <button id="darkModeToggle" class="fixed top-4 right-4 z-50 p-3 bg-white dark:bg-gray-800 rounded-full shadow-lg">
+        <span class="dark-mode-icon">🌙</span>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-2">
+                    <span class="text-2xl font-bold text-gradient bg-gradient-primary">{{SITE_NAME}}</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 font-medium">Home</a>
+                    <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 font-medium">{{CATEGORY_1}}</a>
+                    <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 font-medium">{{CATEGORY_2}}</a>
+                    <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 font-medium">{{CATEGORY_3}}</a>
+                    <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 font-medium">About</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Featured Article -->
+    <section class="py-12 px-4 bg-gradient-to-br from-primary-50 to-purple-50 dark:from-gray-800 dark:to-gray-900">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="order-2 md:order-1">
+                    <span class="inline-block px-3 py-1 bg-primary-500 text-white text-sm font-semibold rounded-full mb-4">FEATURED</span>
+                    <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">{{FEATURED_TITLE}}</h1>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">{{FEATURED_EXCERPT}}</p>
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full"></div>
+                        <div>
+                            <p class="font-medium text-gray-900 dark:text-white">{{AUTHOR_NAME}}</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">May 18, 2024 · 5 min read</p>
+                        </div>
+                    </div>
+                    <a href="#" class="btn bg-gradient-primary text-white px-6 py-3 rounded-lg inline-block hover:shadow-lg transition-all">
+                        Read More
+                    </a>
+                </div>
+                <div class="order-1 md:order-2">
+                    <div class="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 rounded-2xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Articles -->
+    <section class="py-16 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Latest Articles</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <article class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                    <div class="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600"></div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-xs font-semibold rounded-full mb-3">{{CATEGORY_1}}</span>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Breaking: New Technology Changes Everything</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Discover how this groundbreaking innovation is transforming the industry...</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-gradient-to-br from-purple-400 to-purple-500 rounded-full"></div>
+                                <span class="text-sm text-gray-600 dark:text-gray-400">John Smith</span>
+                            </div>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">2 hours ago</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                    <div class="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600"></div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-green-100 dark:bg-green-900/20 text-green-600 dark:text-green-400 text-xs font-semibold rounded-full mb-3">{{CATEGORY_2}}</span>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">10 Tips for Better Productivity</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Learn the secrets of highly productive people and transform your workflow...</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-gradient-to-br from-green-400 to-green-500 rounded-full"></div>
+                                <span class="text-sm text-gray-600 dark:text-gray-400">Sarah Johnson</span>
+                            </div>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">5 hours ago</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                    <div class="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600"></div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-purple-100 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 text-xs font-semibold rounded-full mb-3">{{CATEGORY_3}}</span>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">The Future of Design: Trends to Watch</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Explore the latest design trends shaping the future of digital experiences...</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-gradient-to-br from-orange-400 to-orange-500 rounded-full"></div>
+                                <span class="text-sm text-gray-600 dark:text-gray-400">Mike Chen</span>
+                            </div>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">1 day ago</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- More articles (repeat 3 more times) -->
+                <article class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                    <div class="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600"></div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-orange-100 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 text-xs font-semibold rounded-full mb-3">{{CATEGORY_1}}</span>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Industry Analysis: Market Trends</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">A deep dive into the current market trends and what they mean for businesses...</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full"></div>
+                                <span class="text-sm text-gray-600 dark:text-gray-400">Emma Davis</span>
+                            </div>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">2 days ago</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                    <div class="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600"></div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-pink-100 dark:bg-pink-900/20 text-pink-600 dark:text-pink-400 text-xs font-semibold rounded-full mb-3">{{CATEGORY_2}}</span>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Interview: Leading Expert Shares Insights</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">An exclusive interview with industry leader on the future of technology...</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-gradient-to-br from-pink-400 to-pink-500 rounded-full"></div>
+                                <span class="text-sm text-gray-600 dark:text-gray-400">David Wilson</span>
+                            </div>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">3 days ago</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                    <div class="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600"></div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-cyan-100 dark:bg-cyan-900/20 text-cyan-600 dark:text-cyan-400 text-xs font-semibold rounded-full mb-3">{{CATEGORY_3}}</span>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Guide: Getting Started with Modern Tools</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">A comprehensive guide to help you get started with the latest tools...</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-gradient-to-br from-cyan-400 to-cyan-500 rounded-full"></div>
+                                <span class="text-sm text-gray-600 dark:text-gray-400">Lisa Anderson</span>
+                            </div>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">4 days ago</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="text-center mt-12">
+                <button class="btn bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-8 py-3 rounded-lg font-semibold hover:scale-105 transition-transform">
+                    Load More Articles
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 px-4 bg-gradient-primary text-white">
+        <div class="container mx-auto text-center max-w-2xl">
+            <h2 class="text-3xl font-bold mb-4">Stay in the Loop</h2>
+            <p class="text-lg mb-8 text-white/90">Get the latest articles delivered straight to your inbox</p>
+            <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <input type="email" placeholder="Enter your email" class="flex-1 px-6 py-3 rounded-lg text-gray-900 focus:outline-none">
+                <button type="submit" class="btn bg-white text-primary-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 dark:bg-black text-white py-12 px-4">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="font-bold text-lg mb-4">{{SITE_NAME}}</h3>
+                    <p class="text-gray-400 text-sm">{{FOOTER_DESCRIPTION}}</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Categories</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white">{{CATEGORY_1}}</a></li>
+                        <li><a href="#" class="hover:text-white">{{CATEGORY_2}}</a></li>
+                        <li><a href="#" class="hover:text-white">{{CATEGORY_3}}</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">About</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white">About Us</a></li>
+                        <li><a href="#" class="hover:text-white">Contact</a></li>
+                        <li><a href="#" class="hover:text-white">Advertise</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Follow</h4>
+                    <div class="flex space-x-4">
+                        <a href="{{TWITTER_URL}}" class="text-gray-400 hover:text-white">Twitter</a>
+                        <a href="{{FACEBOOK_URL}}" class="text-gray-400 hover:text-white">Facebook</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400 text-sm">© 2024 {{SITE_NAME}}. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/blabs.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

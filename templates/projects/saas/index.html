@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PROJECT_NAME}} - {{TAGLINE}}</title>
+    <meta name="description" content="{{DESCRIPTION}}">
+    <link rel="stylesheet" href="css/blabs.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors">
+
+    <!-- 🌙 Dark Mode Toggle -->
+    <button id="darkModeToggle" class="fixed top-4 right-4 z-50 p-3 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
+        <span class="dark-mode-icon">🌙</span>
+    </button>
+
+    <!-- 📱 Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">{{LOGO_TEXT}}</span>
+                    </div>
+                    <span class="text-xl font-bold text-gray-900 dark:text-white">{{PROJECT_NAME}}</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Features</a>
+                    <a href="#pricing" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Pricing</a>
+                    <a href="#testimonials" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Testimonials</a>
+                    <a href="#faq" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">FAQ</a>
+                    <a href="#cta" class="btn bg-gradient-primary text-white px-6 py-2 rounded-lg hover:shadow-lg transition-all">Get Started</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="#features" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Features</a>
+                <a href="#pricing" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Pricing</a>
+                <a href="#testimonials" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Testimonials</a>
+                <a href="#faq" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">FAQ</a>
+                <a href="#cta" class="btn bg-gradient-primary text-white px-6 py-3 rounded-lg text-center">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🎯 Hero Section -->
+    <section class="pt-32 pb-20 px-4 bg-gradient-to-br from-primary-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
+        <div class="container mx-auto text-center">
+            <div class="max-w-4xl mx-auto animate-fade-in">
+                <!-- Badge -->
+                <div class="inline-block mb-6 px-4 py-2 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full border border-primary-200 dark:border-primary-800">
+                    <span class="text-sm font-semibold text-primary-600 dark:text-primary-400">✨ {{BADGE_TEXT}}</span>
+                </div>
+
+                <!-- Heading -->
+                <h1 class="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+                    {{HERO_TITLE}}
+                </h1>
+
+                <!-- Subheading -->
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-10 max-w-2xl mx-auto">
+                    {{HERO_SUBTITLE}}
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+                    <a href="#pricing" class="btn bg-gradient-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:shadow-xl hover:scale-105 transition-all">
+                        Start Free Trial
+                    </a>
+                    <a href="#features" class="btn bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-8 py-4 rounded-lg text-lg font-semibold border-2 border-gray-300 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 transition-all">
+                        Watch Demo
+                    </a>
+                </div>
+
+                <!-- Social Proof -->
+                <div class="flex items-center justify-center gap-2 text-gray-600 dark:text-gray-400">
+                    <div class="flex -space-x-2">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 border-2 border-white dark:border-gray-900"></div>
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-cyan-400 border-2 border-white dark:border-gray-900"></div>
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-teal-400 border-2 border-white dark:border-gray-900"></div>
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-orange-400 to-red-400 border-2 border-white dark:border-gray-900"></div>
+                    </div>
+                    <span class="text-sm font-medium">Trusted by <strong>{{USERS_COUNT}}</strong> companies worldwide</span>
+                </div>
+            </div>
+
+            <!-- Hero Image/Dashboard Preview -->
+            <div class="max-w-5xl mx-auto mt-16">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-primary opacity-20 blur-3xl rounded-3xl"></div>
+                    <div class="relative bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 border border-gray-200 dark:border-gray-700">
+                        <div class="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 rounded-xl flex items-center justify-center">
+                            <div class="text-center">
+                                <div class="w-24 h-24 mx-auto mb-4 bg-gradient-primary rounded-2xl flex items-center justify-center">
+                                    <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                    </svg>
+                                </div>
+                                <p class="text-gray-500 dark:text-gray-400">Dashboard Preview</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📊 Stats Section -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center animate-slide-up" style="animation-delay: 0.1s">
+                    <div class="text-4xl font-bold text-gradient bg-gradient-primary mb-2">{{STAT_1_NUMBER}}</div>
+                    <p class="text-gray-600 dark:text-gray-400">{{STAT_1_LABEL}}</p>
+                </div>
+                <div class="text-center animate-slide-up" style="animation-delay: 0.2s">
+                    <div class="text-4xl font-bold text-gradient bg-gradient-primary mb-2">{{STAT_2_NUMBER}}</div>
+                    <p class="text-gray-600 dark:text-gray-400">{{STAT_2_LABEL}}</p>
+                </div>
+                <div class="text-center animate-slide-up" style="animation-delay: 0.3s">
+                    <div class="text-4xl font-bold text-gradient bg-gradient-primary mb-2">{{STAT_3_NUMBER}}</div>
+                    <p class="text-gray-600 dark:text-gray-400">{{STAT_3_LABEL}}</p>
+                </div>
+                <div class="text-center animate-slide-up" style="animation-delay: 0.4s">
+                    <div class="text-4xl font-bold text-gradient bg-gradient-primary mb-2">{{STAT_4_NUMBER}}</div>
+                    <p class="text-gray-600 dark:text-gray-400">{{STAT_4_LABEL}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✨ Features Section -->
+    <section id="features" class="py-20 px-4 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Powerful Features</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Everything you need to grow your business</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 animate-slide-up" style="animation-delay: 0.1s">
+                    <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Lightning Fast</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Blazing fast performance optimized for speed and efficiency.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 animate-slide-up" style="animation-delay: 0.2s">
+                    <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Secure & Private</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Enterprise-grade security with end-to-end encryption.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 animate-slide-up" style="animation-delay: 0.3s">
+                    <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Cloud Sync</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Access your data anywhere with automatic cloud synchronization.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 animate-slide-up" style="animation-delay: 0.4s">
+                    <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Analytics</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Detailed insights and analytics to track your growth.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 animate-slide-up" style="animation-delay: 0.5s">
+                    <div class="w-14 h-14 bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Team Collaboration</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Work together seamlessly with your team in real-time.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 animate-slide-up" style="animation-delay: 0.6s">
+                    <div class="w-14 h-14 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">24/7 Support</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Get help whenever you need it with our dedicated support team.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 💰 Pricing Section -->
+    <section id="pricing" class="py-20 px-4 bg-white dark:bg-gray-900">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Simple, Transparent Pricing</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Choose the plan that fits your needs</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Starter Plan -->
+                <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl border-2 border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 transition-all animate-slide-up" style="animation-delay: 0.1s">
+                    <div class="mb-6">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Starter</h3>
+                        <p class="text-gray-600 dark:text-gray-400">For individuals and small teams</p>
+                    </div>
+                    <div class="mb-6">
+                        <div class="flex items-baseline">
+                            <span class="text-5xl font-bold text-gray-900 dark:text-white">$9</span>
+                            <span class="text-gray-600 dark:text-gray-400 ml-2">/month</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-600 dark:text-gray-300">Up to 5 team members</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-600 dark:text-gray-300">10GB storage</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-600 dark:text-gray-300">Basic analytics</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-600 dark:text-gray-300">Email support</span>
+                        </li>
+                    </ul>
+                    <a href="#cta" class="block w-full text-center bg-gray-900 dark:bg-white text-white dark:text-gray-900 py-3 rounded-lg font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Pro Plan (Popular) -->
+                <div class="bg-gradient-primary p-8 rounded-2xl shadow-2xl transform scale-105 relative animate-slide-up" style="animation-delay: 0.2s">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold">
+                        MOST POPULAR
+                    </div>
+                    <div class="mb-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Professional</h3>
+                        <p class="text-white/80">For growing businesses</p>
+                    </div>
+                    <div class="mb-6">
+                        <div class="flex items-baseline">
+                            <span class="text-5xl font-bold text-white">$29</span>
+                            <span class="text-white/80 ml-2">/month</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-white mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-white">Up to 20 team members</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-white mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-white">100GB storage</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-white mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-white">Advanced analytics</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-white mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-white">Priority support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-white mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-white">API access</span>
+                        </li>
+                    </ul>
+                    <a href="#cta" class="block w-full text-center bg-white text-primary-600 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl border-2 border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 transition-all animate-slide-up" style="animation-delay: 0.3s">
+                    <div class="mb-6">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Enterprise</h3>
+                        <p class="text-gray-600 dark:text-gray-400">For large organizations</p>
+                    </div>
+                    <div class="mb-6">
+                        <div class="flex items-baseline">
+                            <span class="text-5xl font-bold text-gray-900 dark:text-white">$99</span>
+                            <span class="text-gray-600 dark:text-gray-400 ml-2">/month</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-600 dark:text-gray-300">Unlimited team members</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-600 dark:text-gray-300">Unlimited storage</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-600 dark:text-gray-300">Custom analytics</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-600 dark:text-gray-300">24/7 phone support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-600 dark:text-gray-300">Dedicated account manager</span>
+                        </li>
+                    </ul>
+                    <a href="#cta" class="block w-full text-center bg-gray-900 dark:bg-white text-white dark:text-gray-900 py-3 rounded-lg font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors">
+                        Contact Sales
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 💬 Testimonials Section -->
+    <section id="testimonials" class="py-20 px-4 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Loved by Thousands</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">See what our customers have to say</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg animate-slide-up" style="animation-delay: 0.1s">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">"This tool has completely transformed how we work. The features are incredible and the support team is amazing!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Sarah Johnson</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">CEO at TechCorp</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg animate-slide-up" style="animation-delay: 0.2s">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">"Best investment we've made for our business. The ROI was immediate and our team loves using it every day."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Michael Chen</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Founder at StartupXYZ</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg animate-slide-up" style="animation-delay: 0.3s">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">"Simple, powerful, and exactly what we needed. Can't imagine running our business without it now."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-teal-400 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Emily Rodriguez</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Director at AgencyCo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ❓ FAQ Section -->
+    <section id="faq" class="py-20 px-4 bg-white dark:bg-gray-900">
+        <div class="container mx-auto max-w-3xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300">Everything you need to know</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">How does the free trial work?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">You get 14 days of full access to all features. No credit card required. Cancel anytime.</p>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Can I change plans later?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately.</p>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Is my data secure?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Absolutely. We use bank-level encryption and never sell your data to third parties.</p>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Do you offer refunds?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Yes, we offer a 30-day money-back guarantee. If you're not satisfied, we'll refund you in full.</p>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">What kind of support do you provide?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">We offer email support for all plans, priority support for Pro, and 24/7 phone support for Enterprise.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🚀 Final CTA Section -->
+    <section id="cta" class="py-20 px-4 bg-gradient-to-br from-primary-600 to-purple-600 dark:from-primary-800 dark:to-purple-800">
+        <div class="container mx-auto text-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Get Started?</h2>
+                <p class="text-xl text-white/90 mb-10">Join thousands of companies already using {{PROJECT_NAME}}</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#pricing" class="btn bg-white text-primary-600 px-8 py-4 rounded-lg text-lg font-semibold hover:shadow-xl hover:scale-105 transition-all">
+                        Start Free Trial
+                    </a>
+                    <a href="#features" class="btn bg-transparent text-white px-8 py-4 rounded-lg text-lg font-semibold border-2 border-white hover:bg-white hover:text-primary-600 transition-all">
+                        Learn More
+                    </a>
+                </div>
+                <p class="text-sm text-white/70 mt-6">No credit card required • 14-day free trial • Cancel anytime</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📌 Footer -->
+    <footer class="bg-gray-900 dark:bg-black text-white py-12 px-4">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Company -->
+                <div>
+                    <h3 class="font-bold text-lg mb-4">{{PROJECT_NAME}}</h3>
+                    <p class="text-gray-400 text-sm">{{FOOTER_DESCRIPTION}}</p>
+                </div>
+
+                <!-- Product -->
+                <div>
+                    <h4 class="font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#pricing" class="hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Security</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Roadmap</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h4 class="font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Cookie Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Licenses</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2024 {{PROJECT_NAME}}. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="{{TWITTER_URL}}" class="text-gray-400 hover:text-white transition-colors">Twitter</a>
+                    <a href="{{LINKEDIN_URL}}" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
+                    <a href="{{GITHUB_URL}}" class="text-gray-400 hover:text-white transition-colors">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/blabs.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Close mobile menu on link click
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

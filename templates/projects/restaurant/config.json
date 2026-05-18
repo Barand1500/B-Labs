@@ -1,0 +1,119 @@
+{
+  "name": "Restaurant & Cafe",
+  "description": "Beautiful restaurant website with menu showcase, online reservation system, and elegant design. Perfect for restaurants, cafes, and food businesses.",
+  "category": "business",
+  "features": [
+    "Menu showcase with images",
+    "Online reservation form",
+    "Contact information display",
+    "Opening hours",
+    "Menu category filtering",
+    "Rating display",
+    "Responsive design",
+    "Dark mode support"
+  ],
+  "placeholders": {
+    "RESTAURANT_NAME": {
+      "question": "What is your restaurant name?",
+      "default": "La Bella Cucina",
+      "description": "Your restaurant name"
+    },
+    "LOGO_TEXT": {
+      "question": "Logo letters:",
+      "default": "LB",
+      "description": "1-2 letters for logo"
+    },
+    "TAGLINE": {
+      "question": "Restaurant tagline:",
+      "default": "Authentic Italian Dining",
+      "description": "Short tagline"
+    },
+    "DESCRIPTION": {
+      "question": "Restaurant description:",
+      "default": "Experience authentic Italian cuisine in a warm and welcoming atmosphere. Fresh ingredients, traditional recipes, exceptional service.",
+      "description": "Meta description"
+    },
+    "HERO_TITLE": {
+      "question": "Hero section title:",
+      "default": "Experience Authentic Italian Cuisine",
+      "description": "Main hero heading"
+    },
+    "HERO_SUBTITLE": {
+      "question": "Hero section subtitle:",
+      "default": "Fresh ingredients, traditional recipes, and a passion for great food.",
+      "description": "Hero description"
+    },
+    "OPENING_HOURS": {
+      "question": "Opening hours:",
+      "default": "11:00 AM - 10:00 PM",
+      "description": "Restaurant hours"
+    },
+    "PHONE_NUMBER": {
+      "question": "Phone number:",
+      "default": "+1 (555) 123-4567",
+      "description": "Contact phone"
+    },
+    "ADDRESS": {
+      "question": "Restaurant address:",
+      "default": "123 Main Street, City, ST 12345",
+      "description": "Physical address"
+    },
+    "FOOTER_DESCRIPTION": {
+      "question": "Footer description:",
+      "default": "Where every meal is a celebration of authentic flavors.",
+      "description": "Footer about text"
+    },
+    "FACEBOOK_URL": {
+      "question": "Facebook URL:",
+      "default": "#",
+      "description": "Facebook page"
+    },
+    "INSTAGRAM_URL": {
+      "question": "Instagram URL:",
+      "default": "#",
+      "description": "Instagram profile"
+    },
+    "TWITTER_URL": {
+      "question": "Twitter URL:",
+      "default": "#",
+      "description": "Twitter profile"
+    }
+  },
+  "colorSchemes": {
+    "italian-red": {
+      "name": "Italian Red",
+      "description": "Classic red - traditional Italian restaurant",
+      "primary": "#EF4444",
+      "secondary": "#F59E0B",
+      "accent": "#EC4899"
+    },
+    "elegant-purple": {
+      "name": "Elegant Purple",
+      "description": "Sophisticated purple - fine dining",
+      "primary": "#8B5CF6",
+      "secondary": "#EC4899",
+      "accent": "#F59E0B"
+    },
+    "fresh-green": {
+      "name": "Fresh Green",
+      "description": "Natural green - organic/healthy eating",
+      "primary": "#10B981",
+      "secondary": "#14B8A6",
+      "accent": "#3B82F6"
+    },
+    "warm-orange": {
+      "name": "Warm Orange",
+      "description": "Inviting orange - cozy atmosphere",
+      "primary": "#F59E0B",
+      "secondary": "#EF4444",
+      "accent": "#EC4899"
+    },
+    "modern-blue": {
+      "name": "Modern Blue",
+      "description": "Contemporary blue - modern bistro",
+      "primary": "#3B82F6",
+      "secondary": "#06B6D4",
+      "accent": "#8B5CF6"
+    }
+  }
+}

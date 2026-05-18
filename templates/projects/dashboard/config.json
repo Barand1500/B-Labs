@@ -1,0 +1,119 @@
+{
+  "name": "Admin Dashboard",
+  "description": "Modern admin dashboard with stats cards, charts, sidebar navigation, and activity table. Perfect for web applications and analytics.",
+  "category": "dashboard",
+  "features": [
+    "Sidebar navigation",
+    "Stats cards with icons",
+    "Chart placeholders",
+    "Activity table",
+    "User profile section",
+    "Notifications",
+    "Responsive design",
+    "Dark mode support"
+  ],
+  "placeholders": {
+    "APP_NAME": {
+      "question": "What is your app name?",
+      "default": "AdminPro",
+      "description": "Your application name"
+    },
+    "LOGO_TEXT": {
+      "question": "What letter(s) for the logo?",
+      "default": "AP",
+      "description": "1-2 letters for the logo icon"
+    },
+    "DESCRIPTION": {
+      "question": "Describe your dashboard:",
+      "default": "Modern admin dashboard for managing your business with powerful analytics and insights.",
+      "description": "Meta description for SEO"
+    },
+    "USER_NAME": {
+      "question": "Default admin name:",
+      "default": "Admin User",
+      "description": "Admin user name"
+    },
+    "USER_ROLE": {
+      "question": "User role:",
+      "default": "Administrator",
+      "description": "User role/title"
+    },
+    "STAT_1_VALUE": {
+      "question": "First stat value:",
+      "default": "24,567",
+      "description": "First dashboard stat"
+    },
+    "STAT_1_LABEL": {
+      "question": "First stat label:",
+      "default": "Total Users",
+      "description": "Label for first stat"
+    },
+    "STAT_2_VALUE": {
+      "question": "Second stat value:",
+      "default": "$127,500",
+      "description": "Second dashboard stat"
+    },
+    "STAT_2_LABEL": {
+      "question": "Second stat label:",
+      "default": "Revenue",
+      "description": "Label for second stat"
+    },
+    "STAT_3_VALUE": {
+      "question": "Third stat value:",
+      "default": "1,245",
+      "description": "Third dashboard stat"
+    },
+    "STAT_3_LABEL": {
+      "question": "Third stat label:",
+      "default": "Active Projects",
+      "description": "Label for third stat"
+    },
+    "STAT_4_VALUE": {
+      "question": "Fourth stat value:",
+      "default": "94.5%",
+      "description": "Fourth dashboard stat"
+    },
+    "STAT_4_LABEL": {
+      "question": "Fourth stat label:",
+      "default": "Success Rate",
+      "description": "Label for fourth stat"
+    }
+  },
+  "colorSchemes": {
+    "professional-blue": {
+      "name": "Professional Blue",
+      "description": "Clean blue - perfect for business dashboards",
+      "primary": "#3B82F6",
+      "secondary": "#06B6D4",
+      "accent": "#8B5CF6"
+    },
+    "modern-purple": {
+      "name": "Modern Purple",
+      "description": "Bold purple - creative and innovative",
+      "primary": "#8B5CF6",
+      "secondary": "#A855F7",
+      "accent": "#EC4899"
+    },
+    "success-green": {
+      "name": "Success Green",
+      "description": "Fresh green - growth and positive metrics",
+      "primary": "#10B981",
+      "secondary": "#14B8A6",
+      "accent": "#3B82F6"
+    },
+    "vibrant-orange": {
+      "name": "Vibrant Orange",
+      "description": "Energetic orange - dynamic dashboards",
+      "primary": "#F59E0B",
+      "secondary": "#EF4444",
+      "accent": "#8B5CF6"
+    },
+    "dark-slate": {
+      "name": "Dark Slate",
+      "description": "Professional dark - modern analytics",
+      "primary": "#1E293B",
+      "secondary": "#3B82F6",
+      "accent": "#8B5CF6"
+    }
+  }
+}
